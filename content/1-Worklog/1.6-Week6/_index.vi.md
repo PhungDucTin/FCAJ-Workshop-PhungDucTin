@@ -1,58 +1,51 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-05-25
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thực hiện các bài Lab chuyên sâu trong đường link <https://cloudjourney.awsstudygroup.com/>.
+
+* Ứng dụng DevSecOps: Tích hợp công cụ quét bảo mật (SAST/SCA) vào luồng CI/CD và thiết lập kho lưu trữ khóa bảo mật tập trung trên AWS.
+
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| **2** | **Học tập AWS:** <br> - Làm Lab Building Microservices <br> - Làm Lab Data and Workflow Restructuring <br> - Làm Lab Event-Driven Architecture | 25/05/2026 | 25/05/2026 | **- Building Microservices** <br> https://000052.awsstudygroup.com/ <br> **- Data and Workflow Restructuring** <br> https://000053.awsstudygroup.com/ <br> **- Event-Driven Architecture** <br> https://000054.awsstudygroup.com/ |
+| **3** | **Học tập AWS:** <br> - Làm Lab Serverless Backend with Lambda, S3, and DynamoDB <br> - Làm Lab Frontend Development for Serverless APIs <br> - Làm Lab Building Serverless CRUD with Lambda and DynamoDB | 26/05/2026 | 26/05/2026 | **- Serverless Backend with Lambda, S3, and DynamoDB** <br> https://000078.awsstudygroup.com/ <br> **- Frontend Development for Serverless APIs** <br> https://000079.awsstudygroup.com/ <br> **- Building Serverless CRUD with Lambda and DynamoDB** <br> https://000133.awsstudygroup.com/ |
+| **4** | **Học tập AWS:** <br> - Làm Lab CI/CD for Application Release <br> - Làm Lab Deployment Automation with AWS SAM <br> - Làm Lab CI/CD for Serverless Applications <br> **Thực hiện đồ án nhóm:** <br> - Nhiệm vụ dự án (Pick Task): <br>&emsp; + Chuyển đổi việc lưu biến môi trường từ file `.env` sang hệ thống quản lý của AWS. Viết tài liệu hướng dẫn Backend lấy cấu hình từ AWS lúc chạy. <br>&emsp; + Sử dụng SonarCloud để quét Repository. | 27/05/2026 | 27/05/2026 | **- CI/CD for Application Release** <br> https://000051.awsstudygroup.com/ <br> **- Deployment Automation with AWS SAM** <br> https://000080.awsstudygroup.com/ <br> **- CI/CD for Serverless Applications** <br> https://000084.awsstudygroup.com/ <br> **- Tài liệu Chuyển đổi biến lên AWS Systems Manager:** <br> https://docs.google.com/document/d/1-JWPB3X-2IkXRvHF5f19nVo686wB473vR3SE6oUKoi4/edit?usp=sharing <br> **- Tài liệu Báo cáo lỗ hổng trên SonarCloud:** https://docs.google.com/document/d/1UeXtlMtoneGW1W65jewPU1Jn9RD6yXfjzYlGXwqMkqw/edit?usp=sharing |
+| **5** | **Học tập AWS:** <br> - Làm Lab Event Processing with SQS and SNS <br> - Làm Lab Building GraphQL APIs with AWS AppSync <br> - Làm Lab AWS AI Services Integration | 28/05/2026 | 28/05/2026 | **- Event Processing with SQS and SNS** <br> https://000083.awsstudygroup.com/ <br> **- Building GraphQL APIs with AWS AppSync** <br> https://000086.awsstudygroup.com/ <br> **- AWS AI Services Integration** <br> https://000056.awsstudygroup.com/ |
+| **6** | **Học tập AWS:** <br> - Làm Lab Serverless Storage and Auth with AWS Amplify <br> - Làm Lab Custom Domains and SSL for Serverless Applications <br> - Làm Lab Monitoring Serverless Applications <br> **Họp nhóm:** <br> - Báo cáo kết quả thực hiện <br> - Trao đổi thông tin giữa các thành viên | 29/05/2026 | 29/05/2026 | **- Serverless Storage and Auth with AWS Amplify** <br> https://000134.awsstudygroup.com/ <br> **- Custom Domains and SSL for Serverless Applications** <br> https://000082.awsstudygroup.com/ <br> **- Monitoring Serverless Applications** <br> https://000085.awsstudygroup.com/ |
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Hoàn thành việc chuyển đổi quản lý biến môi trường từ file `.env` sang hệ thống quản lý cấu hình trên AWS, giúp dữ liệu cấu hình được lưu trữ và truy xuất an toàn hơn trong môi trường triển khai.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Viết tài liệu hướng dẫn Backend lấy cấu hình từ AWS trong quá trình chạy ứng dụng, nhằm giảm phụ thuộc vào thông tin nhạy cảm được lưu cục bộ.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+### Minh chứng thực hiện tuần 6: 
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+#### 1. Họp nhóm offline báo cáo kết quả
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+<h4 align="center"><em>Họp nhóm trao đổi nhiệm vụ đã thực hiện</em></h4>
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/2905_meeting_w6.JPG)
 
+#### 2. Chuyển đổi biến từ file .env lên AWS 
 
+<h4 align="center"><em>Chuyển đổi quản lý biến môi trường</em></h4>
+
+![Chuyển đổi quản lý biến môi trường](/ssm.png)
+
+#### 3. Tích hợp SonarCloud để quét lỗ hổng
+
+<h4 align="center"><em>Tích hợp SonarCloud vào dự án</em></h4>
+
+![Tích hợp SonarCloud vào dự án](/SonarCloud.png)

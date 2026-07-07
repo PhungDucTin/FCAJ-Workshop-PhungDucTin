@@ -1,127 +1,77 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
-weight: 1
+date: 2026-04-20
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
-
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
-
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+# Nhật Ký Đưa Ứng Dụng Lên Cloud – Từ Bài Học $35 Đến Kiến Trúc Tối Ưu Chi Phí
 
 ---
 
-## Hướng dẫn kiến trúc
+Kính chào các anh/chị admin và các thành viên trong cộng đồng AWS Study Group VN. Bài viết này là những đúc kết từ trải nghiệm thực chiến của nhóm chúng em trong quá trình triển khai dự án "Mini Social Network" trên môi trường AWS.
 
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Trước đây, chúng em từng nhận được một câu hỏi: "Tại sao không thuê một máy chủ ảo (VPS) và triển khai toàn bộ mã nguồn lên đó cho đơn giản, thay vì phải thiết lập các dịch vụ phức tạp trên AWS?". Thực tế, chính nhóm ở những ngày đầu cũng có suy nghĩ tương tự. Tuy nhiên, khi chính thức bắt tay vào việc đưa toàn bộ kiến trúc dự án lên Cloud, chúng em đã rút ra được những bài học thực tế rất đắt giá.
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+## I. Sai lầm trong quá khứ (The "Before")
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Ở các dự án cá nhân trước đây, tư duy triển khai của nhóm khá đơn giản: "Gom tất cả vào một máy chủ". Chúng em thường thuê một máy ảo (VPS), tự cài đặt MySQL, chạy trực tiếp Spring Boot Backend và triển khai bản build React Frontend qua Nginx trên cùng hệ thống đó. Những thông tin nhạy cảm như mật khẩu cơ sở dữ liệu hay khóa bảo mật JWT đều được lưu trữ dưới dạng văn bản thô (plaintext) trực tiếp trong tệp `.env`. Chỉ cần trỏ tên miền về Public IP là ứng dụng có thể hoạt động.
+
+Thời điểm đó, nhóm cho rằng hệ thống đã hoàn thiện. Nhưng trên thực tế, kiến trúc này tiềm ẩn rủi ro rất lớn: không có cơ chế cách ly bảo mật, và nếu cơ sở dữ liệu gặp sự cố, toàn bộ ứng dụng sẽ ngừng hoạt động.
 
 ---
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+## II. Bước ngoặt thay đổi tư duy (The Turning Point)
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Khi chuyển đổi sang AWS, việc áp dụng máy móc "kiến trúc 3 lớp (3-Tier)" lý thuyết đã bộc lộ nhiều điểm hạn chế:
 
----
+*   **Chi phí không tối ưu:** Việc đặt ECS Fargate vào Private Subnet buộc hệ thống phải duy trì NAT Gateway để kéo Docker Image. Kết quả là NAT Gateway phát sinh chi phí ~$35/tháng, chiếm hơn 1/3 tổng ngân sách dự án dù lượng truy cập chưa cao.
+*   **Lỗi định tuyến SPA:** Khi triển khai Frontend lên S3 Static Website Hosting, nếu người dùng tải lại trang (Refresh) tại các đường dẫn phụ (ví dụ: `/profile`), trình duyệt lập tức trả về lỗi 404.
+*   **Nút thắt cổ chai hiệu năng:** Quá trình kiểm thử chịu tải với K6 (giả lập 500 người dùng) cho thấy container Fargate 0.5 vCPU đạt ngưỡng 100% CPU do quá tải trong khâu giải mã chữ ký JWT Token, dù cơ sở dữ liệu chưa bị ảnh hưởng.
 
-## The pub/sub hub
-
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
-
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Hệ thống cần sự phân tách rõ ràng và tính chuyên môn hóa sâu hơn ở từng bộ phận.
 
 ---
 
-## Core microservice
+## III. Giải pháp và Kiến thức cốt lõi: Tối ưu hóa kiến trúc Cloud Native
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
+Thay vì tiếp tục khắc phục các lỗi nhỏ lẻ, nhóm quyết định tái cấu trúc hệ thống bám sát Sơ Đồ Kiến Trúc Tối Ưu Chi Phí. Dưới đây là cách từng bộ phận giải quyết bài toán chuyên môn:
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+### 1. Bộ phận Hạ tầng (Cloud/Ops) – Tối ưu chi phí và hiệu năng
+*   **Khó khăn:** Việc đặt ECS Fargate vào Private Subnet phát sinh chi phí duy trì NAT Gateway không cần thiết. Đồng thời, CPU của container bị quá tải khi xử lý khối lượng lớn thao tác xác thực JWT.
+*   **Giải pháp:** Nhận thấy sự lãng phí tài nguyên, bộ phận Hạ tầng đã cấu hình lại ECS Fargate, chuyển sang Public Subnets (kích hoạt `AssignPublicIp: ENABLED`) và loại bỏ hoàn toàn NAT Gateway. Để đảm bảo nguyên tắc Zero-Trust, Fargate được thiết lập Security Group chỉ tiếp nhận lưu lượng từ Application Load Balancer (ALB). Cơ sở dữ liệu RDS vẫn được cô lập tại Private Subnet. Để quản trị DB an toàn, nhóm thiết lập một máy ảo EC2 t2.micro (Free Tier) làm Bastion Host tại Public Subnet. Kết hợp với việc sử dụng Amazon EventBridge để tự động tắt Database và ép số lượng container ECS về 0 lúc 23:00, bật lại lúc 7:00 sáng, chi phí mạng lưới đã được giảm về $0.
 
----
+### 2. Bộ phận Frontend (UI/UX) – Xử lý lỗi định tuyến và Tích hợp CloudFront
+*   **Khó khăn:** Việc lưu trữ Single Page Application (SPA) trên Amazon S3 gây ra lỗi 404 khi người dùng tải lại trang phụ. Thêm vào đó, cấu hình S3 thuần không hỗ trợ chứng chỉ HTTPS và có độ trễ tải trang cao đối với người dùng ở xa khu vực lưu trữ.
+*   **Giải pháp:** Để khắc phục lỗi 404, bộ phận Frontend đã cấu hình Error document trỏ về `index.html`, trao lại quyền điều hướng cho React Router. Để tối ưu tốc độ phân phối và đảm bảo tiêu chuẩn bảo mật đường truyền, hệ thống được tích hợp mạng phân phối nội dung (CDN) Amazon CloudFront ở tuyến đầu. Quá trình triển khai sau đó được tự động hóa hoàn toàn bằng máy chủ Jenkins CI/CD (chạy trên EC2), tự động kéo mã nguồn từ GitHub, đóng gói và đẩy lên S3/ECR, giảm thiểu tối đa thao tác thủ công.
 
-## Front door microservice
+### 3. Bộ phận Giám sát (Observability) – Giám sát chủ động và Quản lý cảnh báo
+*   **Khó khăn:** Quá trình theo dõi hệ thống đòi hỏi một cơ chế tự động hóa thay vì giám sát thủ công. Dù đã tích hợp AWS CloudWatch, Grafana và cấy OpenTelemetry (OTLP) vào Spring Boot, bài toán lớn nhất là làm sao phát hiện tấn công mạng mà không gây tình trạng nhiễu loạn cảnh báo (Email Storm).
+*   **Giải pháp:** Nhóm đã thiết lập Metric Filters trên CloudWatch để rà soát log ứng dụng theo cú pháp `{$.type = "SECURITY"}`. Hệ thống chỉ kích hoạt CloudWatch Alarm khi phát hiện các hành vi rà quét lỗ hổng SQL Injection hay XSS vượt ngưỡng 1 hành vi/phút. Đồng thời, tính năng "Gom nhóm cảnh báo" (Alert grouping) trên Grafana được cấu hình để tổng hợp thông tin trước khi gửi qua Amazon SNS, giúp nhóm phản ứng nhanh chóng mà vẫn bảo toàn hạn mức 1.000 email miễn phí của AWS.
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+### 4. Bộ phận An toàn thông tin (DevSecOps) – Tích hợp bảo mật từ giai đoạn thiết kế
+*   **Khó khăn:** Ở khâu đánh giá an toàn thông tin, công cụ OWASP ZAP ban đầu trả về rất nhiều cảnh báo giả (False Positives). Mã nguồn Backend vẫn tồn tại rủi ro do lưu mật khẩu DB và JWT Secret trong tệp cấu hình. Tuy nhiên, việc chuyển đổi sang biến môi trường Cloud khiến container Fargate gặp lỗi khởi tạo.
+*   **Giải pháp:** Nhóm áp dụng phương pháp "Shift-left Security" – đưa yếu tố bảo mật vào ngay từ khâu thiết kế. Toàn bộ thông tin nhạy cảm được loại bỏ khỏi mã nguồn và quản lý tập trung tại AWS Systems Manager Parameter Store. Để khắc phục lỗi sập Task, quyền `ssm:GetParameters` đã được bổ sung vào IAM Role thực thi. Tại biên mạng, tường lửa AWS WAF được triển khai ở hai phân lớp: bảo vệ giao diện trên CloudFront và bảo vệ luồng API trên ALB. Phối hợp với công cụ quét mã tĩnh SonarCloud, các rủi ro được phân tích thành hướng dẫn cụ thể (như việc áp dụng `encodeURIComponent`) để nhóm phát triển khắc phục kịp thời.
 
 ---
 
-## Staging ER7 microservice
+## IV. Tổng kết và Hành trình phía trước
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+Quá trình đưa "Mini Social Network" lên môi trường Cloud đã giúp nhóm giải quyết được bài toán cân bằng giữa mức độ tối ưu chi phí, khả năng tự động hóa và trải nghiệm người dùng cuối.
 
----
+Tuy nhiên, kiến trúc trong sơ đồ hiện tại vẫn chưa phải là phiên bản cuối cùng. Để đảm bảo hệ thống đạt mức độ bảo mật cao nhất, dự án đang bước vào giai đoạn đánh giá nghiêm ngặt: Code Freeze & Security Audit. Toàn bộ kiến trúc sẽ trải qua đợt rà soát bảo mật tổng thể trước khi chính thức chốt hạ bản "Final Architecture".
 
-## Tính năng mới trong giải pháp
+## V. Sơ đồ kiến trúc về dự án "Mini Social Network" trước và sau 
+<h4 align="center"><em>Sơ đồ kiến trúc ban đầu thực hiện</em></h4>
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+![Sơ đồ kiến trúc ban đầu thực hiện](anh1.png)
+<h4 align="center"><em>Sơ đồ kiến trúc sau khi lắng nghe ý kiến đánh giá và tối ưu chi phí</em></h4>
+
+![Sơ đồ kiến trúc sau khi lắng nghe ý kiến đánh giá và tối ưu chi phí](anh2.png)
+
+> Bài viết trên AWS Study Group: Đường link bài Blog https://www.facebook.com/groups/awsstudygroupfcj/permalink/2198727654225528
+<br>
+> Rất mong nhận được sự góp ý, đánh giá và chia sẻ kinh nghiệm từ các anh/chị chuyên gia cùng các bạn trong AWS Study Group VN!

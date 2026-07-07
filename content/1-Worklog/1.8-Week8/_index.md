@@ -1,57 +1,51 @@
 ---
-title: "Week 8 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 8"
+date: 2026-06-08
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
+### Objectives for Week 8:
+
+* Elevate the Dynamic Application Security Testing (DAST) process to an advanced level: Authenticated Scan and Logic Vulnerability Assessment.
+* Focus on reviewing and testing for Broken Access Control (BAC) vulnerabilities or SQLi attempts that bypass the WAF.
+
+### Tasks to be implemented this week:
+
+| Day | Tasks | Start Date | End Date | Resources |
+| :---: | :--- | :---: | :---: | :--- |
+| **Mon** | **Group Project Execution:** <br> - Research & Configure Advanced OWASP ZAP: <br>&emsp; + Research the Replacer feature on OWASP ZAP. <br>&emsp; + Configure ZAP to inject a valid JWT Token directly into the Header (`Authorization: Bearer <JWT>`), preparing for the authenticated scan. | 08/06/2026 | 08/06/2026 | **- OWASP ZAP Documentation (Replacer):** <br> https://www.zaproxy.org/docs/ |
+| **Tue** | **Group Project Execution:** <br> - Privilege Escalation Testing (BAC & IDOR): <br>&emsp; + Utilize ZAP's Manual Request Editor feature. <br>&emsp; + Act as a valid user, intentionally issuing a `DELETE` command targeting post IDs belonging to other users' accounts to test the resource authorization logic. | 09/06/2026 | 09/06/2026 | **- OWASP Documentation (BAC):** <br> https://owasp.org/Top10/A01/ <br> **- Security Testing Implementation Document:** <br> https://docs.google.com/document/d/1GEyjB94n11W4QRiCeyGlwQj5SbOsCIgL_go_GqllWzA/edit?usp=sharing|
+| **Wed** | **Group Project Execution:** <br> - Automated Scanning through the Auth Layer (Active Scan): <br>&emsp; + Trigger an Active Scan aimed directly at the `/api/post/` endpoint for data fuzzing. <br>&emsp; + Simulate an insider attack behavior, carpet-bombing payloads containing malicious SQLi, SSRF/RCE code through the input authentication layer to test the WAF and Backend. | 10/06/2026 | 10/06/2026 | **- OWASP ZAP Documentation (Active Scan):** <br> https://www.zaproxy.org/docs/ |
+| **Thu** | **Group Project Execution:** <br> - Log Analysis, System Diagnostics & Reporting: <br>&emsp; + Interpret HTTP status codes (400, 403, 500) generated during testing to evaluate the Exception Handling mechanism. <br>&emsp; + Resolve Header conflicts and compile data into the Phase 2 DAST Report. | 11/06/2026 | 11/06/2026 | |
+| **Fri** | **Group Meeting:** <br> - Report results at the FCAJ Bootcamp office: <br>&emsp; + Package the exported log files from ZAP (CSV) as Proof of Concept (PoC) evidence. <br>&emsp; + Build a visual presentation flow (Live Demo) for 2 ZAP scenarios: BAC and SQLi errors in front of the development team at the FCAJ Bootcamp office. | 12/06/2026 | 12/06/2026 | |
 
 
-### Week 8 Objectives:
+### Achieved Results for Week 8:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Successfully configured ZAP to act as a valid user penetrating the Authentication layer.
+* Result: The Backend system (Spring Boot) accurately identified the mismatch between the Token owner and the resource owner, blocking unauthorized data deletion attempts (returning a 403 Forbidden code), proving that the security logic operates perfectly.
+* Successfully set up the Replacer feature to automatically attach the Authorization Header to fire payloads through the authentication layer.
+* SSRF/RCE Prevention: Attempts to access cloud metadata or inject execution commands were blocked remotely by AWS WAF and ALB (403 Forbidden).
+* SQL Injection Prevention: Requests that bypassed the WAF were neutralized by the Backend's Parameterized Queries mechanism, refusing to process them (returning a 400 Bad Request), completely eliminating the risk of malicious payload leakage.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Evidence of Implementation for Week 8:
 
+#### 1. Group meeting at FCAJ Bootcamp
 
-### Week 8 Achievements:
+<h4 align="center"><em>Going to the office for studying and teamwork</em></h4>
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+![Going to the office for studying and teamwork](/1206_meeting_w9.JPG)
 
-* Successfully created and configured an AWS Free Tier account.
+#### 2. Configuring ZAP to execute BAC
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+<h4 align="center"><em>Checking information to execute BAC</em></h4>
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+![Checking information to execute BAC](/preview.png)
 
-* Used AWS CLI to perform basic operations such as:
+#### 3. Configuring ZAP to implement Header Authorization
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+<h4 align="center"><em>Configuring ZAP to attach Header Authorization</em></h4>
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+![Configuring ZAP to attach Header Authorization](/delete.png)

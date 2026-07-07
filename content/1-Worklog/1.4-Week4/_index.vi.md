@@ -1,59 +1,50 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+date: 2026-05-11
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
 ### Mục tiêu tuần 4:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thực hiện các bài Lab chuyên sâu trong đường link <https://cloudjourney.awsstudygroup.com/>.
+* Cấu hình các cơ chế quản trị bảo mật tập trung và đảm bảo tính sẵn sàng cao cho dữ liệu.
+* Thực hành triển khai AWS WAF để bảo vệ lớp ứng dụng (ALB) và tiến hành kiểm thử bảo mật bằng kỹ thuật Black-box.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| **2** | **Học tập AWS:** <br> - Làm Lab Networking Essentials with Amazon Virtual Private Cloud (VPC) <br> - Làm Lab Networking on AWS Workshop <br> - Làm Lab Centralized Network Management with AWS Transit Gateway | 11/05/2026 | 11/05/2026 | **- Networking Essentials with Amazon Virtual Private Cloud (VPC)** <br> https://000003.awsstudygroup.com/ <br> **- Networking on AWS Workshop** <br> https://000092.awsstudygroup.com/ <br> **- Centralized Network Management with AWS Transit Gateway** <br> https://000020.awsstudygroup.com/ |
+| **3** | **Học tập AWS:** <br> - Làm Lab Hybrid DNS Management with Amazon Route 53 <br> - Làm Lab Security Governance with AWS Firewall Manager <br> - Làm Lab Anomaly Detection for EBS Backups | 12/05/2026 | 12/05/2026 | **- Hybrid DNS Management with Amazon Route 53** <br> https://000010.awsstudygroup.com/ <br> **- Security Governance with AWS Firewall Manager** <br> https://000097.awsstudygroup.com/ <br> **- Anomaly Detection for EBS Backups** <br> https://000089.awsstudygroup.com/ |
+| **4** | **Học tập AWS:** <br> - Làm Lab Systems Patching with EC2 Image Builder <br> - Làm Lab Shared Storage with Amazon EBS Multi-Attach <br> - Làm Lab Database High Availability with EBS Multi-Attach and Systems Manager | 13/05/2026 | 13/05/2026 | **- Systems Patching with EC2 Image Builder** <br> https://000099.awsstudygroup.com/ <br> **- Shared Storage with Amazon EBS Multi-Attach** <br> https://100000.awsstudygroup.com/ <br> **- Database High Availability with EBS Multi-Attach and Systems Manager** <br> https://100001.awsstudygroup.com/ |
+| **5** | **Học tập AWS:** <br> - Làm Lab Monolith to Microservices Migration <br> - Làm Lab Container Orchestration with Amazon ECS <br> - Làm Lab Cloud Development Kit (AWS CDK) Essentials <br> **Thực hiện đồ án nhóm:** <br> Nhiệm vụ dự án (Pick Task): <br>&emsp; + Tạo Web ACL có sẵn các rule chống SQL/XSS và gắn trực tiếp (Associate) vào Application Load Balancer (ALB). <br>&emsp; + Sử dụng Postman để bắn thử đạn thật (Payload mã độc) vào hệ thống. <br>&emsp; + Tiến hành kiểm thử hộp đen (Black-box testing) đối với giao diện trên S3.  | 14/05/2026 | 14/05/2026 | **- Monolith to Microservices Migration** <br> https://000050.awsstudygroup.com/ <br> **- Container Orchestration with Amazon ECS** <br> https://000016.awsstudygroup.com/ <br> **- Cloud Development Kit (AWS CDK) Essentials** <br> https://000038.awsstudygroup.com/ |
+| **6** | **Học tập AWS:** <br> - Làm Lab AWS CDK Advanced <br> - Làm Lab Infrastructure as Code for ECS with CDK <br> - Làm Lab Automated Deployments with AWS CodePipeline <br> **Họp nhóm:** <br> - Họp nhóm offline trình bày thông tin thực hiện | 15/05/2026 | 15/05/2026 | **- AWS CDK Advanced** <br> https://000076.awsstudygroup.com/ <br> **- Infrastructure as Code for ECS with CDK** <br> https://000118.awsstudygroup.com/ <br> **- Automated Deployments with AWS CodePipeline** <br> https://000023.awsstudygroup.com/ |
+
 
 
 ### Kết quả đạt được tuần 4:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Quản trị rủi ro trên quy mô lớn bằng **AWS Firewall Manager**, thiết lập và ép buộc các chính sách tường lửa đồng nhất trên toàn bộ các tài khoản của tổ chức.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Thiết lập biên mạng an toàn: Triển khai AWS WAF bảo vệ trực tiếp Application Load Balancer (ALB) thành công. Sử dụng hiệu quả các bộ Managed Rules để chặn đứng lỗi SQLi và XSS.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Kiểm thử đánh chặn (Red Team): Đóng vai kẻ tấn công, sử dụng Postman giả lập bắn request chứa payload mã độc vào hệ thống. WAF đã nhận diện và phòng thủ thành công.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+### Minh chứng thực hiện tuần 4: 
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+#### 1. Họp nhóm offline
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+<h4 align="center"><em>Họp nhóm trao đổi nhiệm vụ đã thực hiện</em></h4>
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/1505_meeting_w4.JPG)
 
+#### 2. Kiểm thử hệ thống với Postman
 
+<h4 align="center"><em>Kiểm thử tấn công SQL Injection trả về Status: 403 Forbidden</em></h4>
+
+![Kiểm thử tấn công SQL Injection trả về Status: 403 Forbidden](/sql_injection_alb.png)
+
+<h4 align="center"><em>Kiểm thử tấn công XSS trả về Status: 403 Forbidden</em></h4>
+
+![Kiểm thử tấn công XSS trả về Status: 403 Forbidden](/xss_alb.png)
