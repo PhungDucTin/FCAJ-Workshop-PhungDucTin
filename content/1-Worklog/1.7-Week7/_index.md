@@ -1,57 +1,62 @@
 ---
-title: "Week 7 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 7"
+date: 2026-06-01
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Objectives for Week 7:
 
-### Week 7 Objectives:
+* Establish an application-layer security checkpoint (AWS WAF) to directly protect the Application Load Balancer (ALB).
+* Completely eliminate the hardcoding of sensitive information, deploying centralized security key management using AWS Systems Manager Parameter Store for Containers on ECS.
+* Conduct Dynamic Application Security Testing (DAST) using the OWASP ZAP tool to verify the strength of the firewall.
+* Synthesize data and report project progress to the team.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks to be implemented this week:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | End Date | Resources |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| **Mon** | **Group Project Execution:** <br> - Research & Initialize Parameter Store: <br>&emsp; + Research AWS Systems Manager Parameter Store configuration documentation for ECS Fargate. <br>&emsp; + Initialize the project's 4 sensitive keys (SPRING_DATASOURCE_PASSWORD, JWT_SECRET, SPRING_MAIL_PASSWORD, GRAFANA_OTLP_TOKEN) as `SecureString`. | 01/06/2026 | 01/06/2026 | **- Parameter Store Documentation:** <br> https://docs.aws.amazon.com/systems-manager/ <br> **- Parameter Store Implementation Document:** <br> https://docs.google.com/document/d/1ig-ue9NNFZUFrOD_MsCNOFAXimNGalQ8MG9WObW-VBk/edit?usp=sharing |
+| **Tue** | **Group Project Execution:** <br> - Setup & Configure AWS WAF: <br>&emsp; + Initialize a Web ACL on the AWS Console interface. <br>&emsp; + Integrate built-in rule sets: `Core rule set`, `SQL database`, and configure `Rate Limiting` (limit of 100 requests/5 minutes). <br>&emsp; + Directly associate the Web ACL with the project's Application Load Balancer (ALB). | 02/06/2026 | 02/06/2026 | **- AWS WAF Documentation:** <br> https://docs.aws.amazon.com/waf/ <br> **- AWS WAF Implementation Document:** <br> https://docs.google.com/document/d/181yLB9Dp5UefwajYwUxg7DctGfgi6Ms5qm8LtJjwIk0/edit?usp=sharing |
+| **Wed** | **Group Project Execution:** <br> - Update ECS & Troubleshooting: <br>&emsp; + Update Task Definitions on AWS ECS so the application automatically fetches keys from the Parameter Store upon startup (Force new deployment). <br>&emsp; + Read system logs, analyze "Stopped reason", and troubleshoot Task failure due to missing IAM permissions for the execution role (`ssm:GetParameters`, `kms:Decrypt`). | 03/06/2026 | 03/06/2026 | **- AWS ECS & IAM Documentation:** <br> https://docs.aws.amazon.com/ecs/ |
+| **Thu** | **Group Project Execution:** <br> - Dynamic Application Security Testing (DAST) & Reporting <br>&emsp; + Use the OWASP ZAP tool to conduct a comprehensive security scan of the ALB infrastructure. <br>&emsp; + Run 2 comparison scenarios: WAF On and WAF Off to verify defense capabilities. <br>&emsp; + Extract logs, aggregate vulnerabilities, and draft the "Security Action Report". | 04/06/2026 | 04/06/2026 | **- OWASP ZAP Documentation:** <br> https://www.zaproxy.org/docs/ <br> **- OWASP ZAP Security Scanning Document:** <br> https://docs.google.com/document/d/1lGwMO8Kvm7h4iTFyOHO4aXp1FeDljdSxksYxDNayHu4/edit?usp=sharing |
+| **Fri** | **Group Meeting:** <br> - Review & Report to the team: <br>&emsp; + Be physically present at the Bootcamp office to report project progress. <br>&emsp; + Present and defend the security architecture (WAF, Parameter Store) to gain task acceptance from the team leader. | 05/06/2026 | 05/06/2026 | |
 
+### Achieved Results for Week 7:
 
-### Week 7 Achievements:
+* Initialized and securely stored 4 core keys on AWS Systems Manager Parameter Store, encrypted using KMS (SecureString).
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Successfully configured foundational protection rule sets: `Core Rule Set`, `SQL database`, and established `Rate Limiting` (100 requests / 5 minutes) to prevent DDoS/API Spam.
 
-* Successfully created and configured an AWS Free Tier account.
+* Conducted a comprehensive infrastructure security scan with 2 empirical scenarios.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Proved that WAF operates effectively (blocking 100% of scanning requests). When WAF was turned off, ZAP only detected Low/Medium level alerts regarding Cookie configurations, affirming that the Backend source code is secure against Injection vulnerabilities.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Submitted a complete "Security Action Report", pinpointing the Top vulnerabilities along with exploitation locations and remediation guidelines for the Dev team.
 
-* Used AWS CLI to perform basic operations such as:
+### Evidence of Implementation for Week 7:
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+#### 1. Initializing and storing core keys on AWS
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+<h4 align="center"><em>Managing 4 core configuration keys on AWS Systems Manager (Parameter Store)</em></h4>
+
+![Managing 4 core configuration keys on AWS Systems Manager (Parameter Store)](/ssm.png)
+
+#### 2. Configuring foundational rule sets for the system
+
+<h4 align="center"><em>Deploying and configuring WAF Rule-sets on ALB</em></h4>
+
+![Deploying and configuring WAF Rule-sets on ALB](/waf.png)
+
+#### 3. Conducting a scan with OWASP ZAP
+
+<h4 align="center"><em>System security scanning with OWASP ZAP</em></h4>
+
+![System security scanning with OWASP ZAP](/zap.png)
+
+#### 4. Group meeting to exchange implementation information
+
+<h4 align="center"><em>Going to the office for studying and teamwork</em></h4>
+
+![Going to the office for studying and teamwork](/0406_meeting_w7.JPG)

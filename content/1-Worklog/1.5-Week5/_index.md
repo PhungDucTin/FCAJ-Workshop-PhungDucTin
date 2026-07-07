@@ -1,57 +1,38 @@
 ---
-title: "Week 5 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 5"
+date: 2026-05-18
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Objectives for Week 5:
 
-### Week 5 Objectives:
+* Complete the advanced Labs via the link <https://cloudjourney.awsstudygroup.com/>.
+* Apply "Defense in Depth" thinking to design the security architecture for the project and conduct Dynamic Application Security Testing (DAST) at the application layer.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks to be implemented this week:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | End Date | Resources |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| **Mon** | **AWS Learning:** <br> - Complete Lab: Windows Server Failover Clustering on AWS <br> - Complete Lab: SQL Server High Availability on AWS (2019) <br> - Complete Lab: SQL Server High Availability on AWS (2022) | 18/05/2026 | 18/05/2026 | **- Windows Server Failover Clustering on AWS** <br> https://100002.awsstudygroup.com/ <br> **- SQL Server High Availability on AWS (2019)** <br> https://100003.awsstudygroup.com/ <br> **- SQL Server High Availability on AWS (2022)** <br> https://100004.awsstudygroup.com/ |
+| **Tue** | **AWS Learning:** <br> - Complete Lab: Containerization with Docker <br> - Complete Lab: CI/CD Pipeline with AWS CodePipeline <br> - Complete Lab: DevOps with AWS CodePipeline <br> **Group Project Execution:** <br> - Project Task (Pick Task): <br>&emsp; + Draft the data flow (Sequence Diagram) for the "Forgot Password" feature. <br>&emsp; + Conduct Dynamic Application Security Testing (DAST) using OWASP ZAP, extract the Top 10 most critical vulnerabilities, and create a Security Action Report. | 19/05/2026 | 19/05/2026 | **- Containerization with Docker** <br> https://100000.awsstudygroup.com/ <br> **- CI/CD Pipeline with AWS CodePipeline** <br> https://000017.awsstudygroup.com/ <br> **- DevOps with AWS CodePipeline** <br> https://000152.awsstudygroup.com/  <br> **- "Forgot Password" Sequence Diagram Document:** https://docs.google.com/document/d/1UeXtlMtoneGW1W65jewPU1Jn9RD6yXfjzYlGXwqMkqw/edit?usp=sharing |
+| **Wed** | **AWS Learning:** <br> - Complete Lab: Hybrid Storage with AWS Storage Gateway <br> - Complete Lab: Windows File Storage with Amazon FSx <br> - Complete Lab: Storage Performance Workshop | 20/05/2026 | 20/05/2026 | **- Hybrid Storage with AWS Storage Gateway** <br> https://000024.awsstudygroup.com/ <br> **- Windows File Storage with Amazon FSx** <br> https://000025.awsstudygroup.com/ <br> **- Storage Performance Workshop** <br> https://000068.awsstudygroup.com/ |
+| **Thu** | **AWS Learning:** <br> - Complete Lab: Building Advanced Applications with Amazon DynamoDB <br> - Complete Lab: Workflow Orchestration with AWS Step Functions <br> - Complete Lab: Cost Savings with Savings Plans and Reserved Instances | 21/05/2026 | 21/05/2026 | **- Building Advanced Applications with Amazon DynamoDB** <br> https://000039.awsstudygroup.com/ <br> **- Workflow Orchestration with AWS Step Functions** <br> https://000047.awsstudygroup.com/ <br> **- Cost Savings with Savings Plans and Reserved Instances** <br> https://000042.awsstudygroup.com/ |
+| **Fri** | **AWS Learning:** <br> - Complete Lab: Advanced Monitoring with CloudWatch and Grafana <br> - Complete Lab: CloudWatch Advanced Workshop <br> - Complete Lab: Infrastructure as Code Workshop Series | 22/05/2026 | 22/05/2026 | **- Advanced Monitoring with CloudWatch and Grafana** <br> https://000029.awsstudygroup.com/ <br> **- CloudWatch Advanced Workshop** <br> https://000036.awsstudygroup.com/ <br> **- Infrastructure as Code Workshop Series** <br> https://000102.awsstudygroup.com/ |
 
+### Achieved Results for Week 5:
 
-### Week 5 Achievements:
+* Designed "Forgot Password" flow: Completed the data flow draft (Sequence Diagram) incorporating robust security checkpoints including: preventing User Enumeration, Rate-Limiting, and Hash Token authentication.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Dynamic Application Security Testing (DAST): Ran OWASP ZAP to scan the application, analyzed logs, and isolated variables to thoroughly eliminate False Positives.
 
-* Successfully created and configured an AWS Free Tier account.
+* Reporting & Handover: Created a Security Action Report, extracted the Top 10 most critical vulnerabilities, and handed over concise, targeted patching guidelines for the Dev team to handle.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+### Evidence of Implementation for Week 5:
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+#### 1. "Forgot Password" Sequence Diagram
 
-* Used AWS CLI to perform basic operations such as:
+<h4 align="center"><em>"Forgot Password" Sequence Diagram</em></h4>
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+!["Forgot Password" sequence diagram](/SoDoLuongQuenMatKhau.png)

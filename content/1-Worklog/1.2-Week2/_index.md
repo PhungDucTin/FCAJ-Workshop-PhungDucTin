@@ -1,57 +1,46 @@
 ---
-title: "Week 2 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 2"
+date: 2026-04-27
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
+### Objectives for Week 2:
+
+* Complete the Hands-on Labs via the link <https://cloudjourney.awsstudygroup.com/>.
+* Watch the tutorial videos and follow the instructions.
+* Research the AWS Web Application Firewall (AWS WAF) service.
+
+### Tasks to be implemented this week:
+
+| Day | Tasks | Start Date | End Date | Resources |
+| :---: | :--- | :---: | :---: | :--- |
+| **Mon** | **AWS Learning:** <br> - Complete Lab: Resource Organization with Tags and Resource Groups <br> - Complete Lab: Billing Console Delegation <br> - Complete Lab: Managing Quotas with Service Quotas | 27/04/2026 | 27/04/2026 | **- Resource Organization with Tags and Resource Groups** <br> https://000027.awsstudygroup.com/ <br> **- Billing Console Delegation** <br> https://000075.awsstudygroup.com/ <br> **- Managing Quotas with Service Quotas** <br> https://000063.awsstudygroup.com/ |
+| **Tue** | **AWS Learning:** <br> - Complete Lab: Cost and Usage Managements <br> - Complete Lab: Development Environment with AWS Toolkit for VS Code <br> - Complete Lab: Access Control with IAM and Resource Tags | 28/04/2026 | 28/04/2026 | **- Cost and Usage Managements** <br> https://000064.awsstudygroup.com/ <br> **- Development Environment with AWS Toolkit for VS Code** <br> https://000087.awsstudygroup.com/ <br> **- Access Control with IAM and Resource Tags** <br> https://000028.awsstudygroup.com/ |
+| **Wed** | **AWS Learning:** <br> - Complete Lab: Access Control with IAM Policies and Conditions <br> - Complete Lab: S3 Security Best Practices <br> - Complete Lab: Serverless Automation with AWS Lambda <br> **Group Project Execution:** <br> - Project Task (Pick Task): <br>&emsp; + Research AWS WAF Managed Rules and list 2-3 rule sets that can block the vulnerabilities found in Week 1. <br>&emsp; + Draft documentation including: Summary, deployment steps, expected configuration, practical application, and cost considerations. | 29/04/2026 | 29/04/2026 | **- Access Control with IAM Policies and Conditions** <br> https://000044.awsstudygroup.com/ <br> **- S3 Security Best Practices** <br> https://000069.awsstudygroup.com/ <br> **- Serverless Automation with AWS Lambda** <br> https://000022.awsstudygroup.com/ <br> **- AWS WAF Documentation** <br> https://docs.aws.amazon.com/waf/ <br> **- Research Report on AWS WAF:** <br> https://docs.google.com/document/d/1A93yFomNRkn8jF1O8tByYMCWYo_yexWgH3VVhyBRa6g/edit?usp=sharing |
+| **Thu** | **AWS Learning:** <br> - Complete Lab: Systems Management with AWS Systems Manager <br> - Complete Lab: Remote Server Access with Systems Manager Session Manager <br> - Complete Lab: Infrastructure as Code with AWS CloudFormation | 30/04/2026 | 30/04/2026 | **- Systems Management with AWS Systems Manager** <br> https://000031.awsstudygroup.com/ <br> **- Remote Server Access with Systems Manager Session Manager** <br> https://000058.awsstudygroup.com/ <br> **- Infrastructure as Code with AWS CloudFormation** <br> https://000037.awsstudygroup.com/ |
+| **Fri** | **AWS Learning:** <br> - Complete Lab: Right-Sizing with EC2 Resource Optimization <br> - Complete Lab: Snapshot Automation with Amazon EBS Data Lifecycle Manager <br> - Complete Lab: Private Access to S3 with VPC Endpoints | 01/05/2026 | 01/05/2026 | **- Right-Sizing with EC2 Resource Optimization** <br> https://000032.awsstudygroup.com/ <br> **- Snapshot Automation with Amazon EBS Data Lifecycle Manager** <br> https://000088.awsstudygroup.com/ <br> **- Private Access to S3 with VPC Endpoints** <br> https://000111.awsstudygroup.com/ |
 
 
-### Week 2 Objectives:
+### Achieved Results for Week 2:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Completed the Labs at <https://cloudjourney.awsstudygroup.com/>.
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+* Completed research on AWS WAF Managed Rules.
 
+* Successfully proposed a list of 2–3 AWS Managed Rule sets to act as a primary shield, directly blocking the security vulnerabilities detected in Week 1. The documentation meets all required criteria: Summary, deployment steps, expected configuration, practical application, and cost estimates.
 
-### Week 2 Achievements:
+### Evidence of Implementation for Week 2: 
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+#### 1. Submitting the research report on AWS WAF
 
-* Successfully created and configured an AWS Free Tier account.
+<h4 align="center"><em>Successfully submitted the report</em></h4>
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+![Successfully submitted the report](/research_waf.png)
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+#### 2. Researched Rule Sets
 
-* Used AWS CLI to perform basic operations such as:
+<h4 align="center"><em>Rule Sets to help block vulnerabilities</em></h4>
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+![Rule Sets to help block vulnerabilities](/research_rule.png)

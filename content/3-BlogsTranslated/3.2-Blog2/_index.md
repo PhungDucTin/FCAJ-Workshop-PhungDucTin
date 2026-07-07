@@ -1,126 +1,78 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
-weight: 1
+date: 2026-04-20
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
-
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
-
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+# A Diary of Bringing an App to the Cloud – From a $35 Lesson to a Cost-Optimized Architecture
 
 ---
 
-## Architecture Guidance
+Greetings to the admins and members of the AWS Study Group VN community. This article summarizes our team's practical experiences during the deployment of the "Mini Social Network" project on the AWS environment.
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+Previously, we received a question: "Why not just rent a Virtual Private Server (VPS) and deploy the entire source code there for simplicity, instead of setting up complex services on AWS?". In fact, our team had the exact same thought in the early days. However, when we officially started migrating the entire project architecture to the Cloud, we learned some very valuable practical lessons.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## I. Mistakes in the Past (The "Before")
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+In previous personal projects, our team's deployment mindset was quite simple: "Bundle everything into a single server". We usually rented a virtual machine (VPS), manually installed MySQL, ran the Spring Boot Backend directly, and deployed the React Frontend build via Nginx on the same system. Sensitive information like database passwords or JWT secret keys were stored as plaintext directly in the `.env` file. By simply pointing the domain name to the Public IP, the application was up and running.
+
+At that time, the team thought the system was complete. But in reality, this architecture harbored massive risks: there was no security isolation mechanism, and if the database crashed, the entire application would go down.
 
 ---
 
-## Technology Choices and Communication Scope
+## II. The Turning Point in our Mindset
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+When migrating to AWS, mechanically applying the theoretical "3-Tier Architecture" revealed several limitations:
 
----
+*   **Suboptimal costs:** Placing ECS Fargate in a Private Subnet forced the system to maintain a NAT Gateway to pull Docker Images. As a result, the NAT Gateway incurred a cost of ~$35/month, accounting for over 1/3 of the total project budget even though the traffic was still low.
+*   **SPA routing errors:** When deploying the Frontend to S3 Static Website Hosting, if users reloaded the page (Refresh) at sub-paths (e.g., `/profile`), the browser immediately returned a 404 error.
+*   **Performance bottlenecks:** The load testing process with K6 (simulating 500 users) showed that the 0.5 vCPU Fargate container reached the 100% CPU threshold due to overload in decoding JWT Token signatures, even though the database remained unaffected.
 
-## The Pub/Sub Hub
-
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+The system required clear separation and deeper specialization in each department.
 
 ---
 
-## Core Microservice
+## III. Solutions and Core Knowledge: Optimizing the Cloud-Native Architecture
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+Instead of continuing to patch minor errors, the team decided to restructure the system closely following the Cost-Optimized Architecture Diagram. Here is how each department solved their specialized problems:
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+### 1. Infrastructure Team (Cloud/Ops) – Optimizing Cost and Performance
+*   **Challenges:** Placing ECS Fargate in a Private Subnet incurred unnecessary NAT Gateway maintenance costs. Additionally, the container's CPU was overloaded when handling a large volume of JWT authentication operations.
+*   **Solutions:** Realizing the waste of resources, the Infrastructure team reconfigured ECS Fargate, moving it to Public Subnets (activating `AssignPublicIp: ENABLED`) and completely eliminating the NAT Gateway. To ensure the Zero-Trust principle, Fargate was set up with a Security Group that only accepts traffic from the Application Load Balancer (ALB). The RDS database remained isolated in the Private Subnet. For secure DB management, the team set up a t2.micro EC2 instance (Free Tier) as a Bastion Host in the Public Subnet. Combined with using Amazon EventBridge to automatically shut down the Database and scale the number of ECS containers down to 0 at 11:00 PM, then turning them back on at 7:00 AM, the networking cost was reduced to $0.
 
----
+### 2. Frontend Team (UI/UX) – Handling Routing Errors and Integrating CloudFront
+*   **Challenges:** Hosting a Single Page Application (SPA) on Amazon S3 caused a 404 error when users reloaded sub-pages. Furthermore, the raw S3 configuration did not support HTTPS certificates and had high page load latency for users far from the storage region.
+*   **Solutions:** To fix the 404 error, the Frontend team configured the Error document to point to `index.html`, handing the navigation control back to React Router. To optimize content delivery speed and ensure transmission security standards, the system integrated the Amazon CloudFront Content Delivery Network (CDN) at the frontline. The subsequent deployment process was fully automated using a Jenkins CI/CD server (running on EC2), which automatically pulls source code from GitHub, packages it, and pushes it to S3/ECR, minimizing manual operations.
 
-## Front Door Microservice
+### 3. Observability Team – Proactive Monitoring and Alert Management
+*   **Challenges:** System monitoring required an automated mechanism rather than manual supervision. Even though we had integrated AWS CloudWatch, Grafana, and embedded OpenTelemetry (OTLP) into Spring Boot, the biggest problem was how to detect cyberattacks without causing an alert noise issue (Email Storm).
+*   **Solutions:** The team set up Metric Filters on CloudWatch to scan application logs using the syntax `{$.type = "SECURITY"}`. The system only triggers a CloudWatch Alarm when it detects scanning behaviors for SQL Injection or XSS vulnerabilities exceeding the threshold of 1 occurrence/minute. Meanwhile, the "Alert grouping" feature on Grafana was configured to aggregate information before sending it via Amazon SNS, helping the team react quickly while preserving the 1,000 free email limit of AWS.
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+### 4. Information Security Team (DevSecOps) – Integrating Security from the Design Phase
+*   **Challenges:** During the information security assessment phase, the OWASP ZAP tool initially returned many False Positives. The Backend source code still possessed risks due to storing the DB password and JWT Secret in the configuration file. However, migrating to Cloud environment variables caused the Fargate container to fail during initialization.
+*   **Solutions:** The team applied the "Shift-left Security" approach – introducing security elements right from the design phase. All sensitive information was removed from the source code and centrally managed in the AWS Systems Manager Parameter Store. To fix the Task crash error, the `ssm:GetParameters` permission was added to the execution IAM Role. At the network edge, the AWS WAF firewall was deployed in two layers: protecting the interface on CloudFront and protecting the API traffic on the ALB. Coordinated with the SonarCloud static code scanning tool, risks were analyzed into specific guidelines (such as applying `encodeURIComponent`) so the development team could resolve them promptly.
 
 ---
 
-## Staging ER7 Microservice
+## IV. Conclusion and the Journey Ahead
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+The process of migrating "Mini Social Network" to the Cloud environment helped the team solve the puzzle of balancing cost optimization, automation capabilities, and end-user experience.
 
----
+However, the architecture in the current diagram is not yet the final version. To ensure the system achieves the highest level of security, the project is entering a rigorous evaluation phase: Code Freeze & Security Audit. The entire architecture will undergo a comprehensive security review before we officially finalize the "Final Architecture".
 
-## New Features in the Solution
+## V. Architecture Diagrams of the "Mini Social Network" Project Before and After
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+<h4 align="center"><em>Initial implemented architecture diagram</em></h4>
+
+![Initial implemented architecture diagram](anh1.png)
+
+<h4 align="center"><em>Architecture diagram after feedback and cost optimization</em></h4>
+
+![Architecture diagram after feedback and cost optimization](anh2.png)
+> Blog on AWS Study Group: Blog post link https://www.facebook.com/groups/awsstudygroupfcj/permalink/2198727654225528
+<br>
+> We look forward to receiving feedback, evaluations, and shared experiences from the experts and peers in the AWS Study Group VN!

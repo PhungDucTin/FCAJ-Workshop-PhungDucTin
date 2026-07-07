@@ -1,50 +1,64 @@
 ---
-title: "Week 1 Worklog"
+title: "Worklog Week 1"
 date: 2026-04-20
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
+### Objectives for Week 1:
 
-### Week 1 Objectives:
+* Learn about, connect, and get acquainted with the members of the First Cloud AI Journey program.
+* Understand basic AWS services, how to use the Management Console and CLI, combining theoretical study with hands-on practice.
+* Perform a security review (System Audit) for the internal project and propose defense solutions.
 
-* Reviewed the program’s goals and rules to stay on track with all requirements.
-* Reached out to "First Cloud AI Journey" members to get to know the team better.
-* Explored basic AWS services and CLI to get comfortable with the cloud environment.
+### Tasks to be implemented this week:
 
-### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
-| --- | ---- | ---------- | --------------- | ------------------ |
-| 2   | ***Module 01-01 - Introduction to AWS:** <br>&emsp; - Grasped the core components: Data Centers, Availability Zones (AZs), Regions, and Edge Locations/Local Zones. <br> ***Module 01-02 - Management Console:** <br>&emsp; - Differentiated the privilege levels and use cases between the Root Account and IAM Users. <br>&emsp; - Explored the three main interaction interfaces: Management Console, CLI, and SDK. <br> ***Module 01-03 - Gen AI on AWS - Kiro:** <br>&emsp; - Learned about the shift towards Agentic AI and Spec-Driven Development methodologies. <br>&emsp; - Explored the Kiro IDE/CLI toolsets and the creation of task-specific Custom Agents. <br> ***Module 01-04 - Cost Optimization on AWS:** <br>&emsp; -Understood Right-sizing strategies, evaluated pricing models (On-demand, Spot, Saving Plans), and recognized the cost-efficiency of Serverless architectures. <br>&emsp; - Explored the 4 AWS Support tiers (Basic, Developer, Business, Enterprise) and the architectural evaluation standards within the AWS Well-Architected Framework. | 04/20/2026 | 04/20/2026      | ***Module 01-01:** <br> https://www.youtube.com/watch?v=qVCF7UjYC5s <br> ***Module 01-02:** <br> https://www.youtube.com/watch?v=95quNuhvMT0 <br> ***Module 01-03:** <br> https://www.youtube.com/watch?v=uAQCm4sm_1c <br> ***Module 01-04:** <br> https://www.youtube.com/watch?v=UIw8UxGZCHA
-| 3   | * Understood the 6 Pillars: Security, Operational Excellence, Reliability, Performance Efficiency, Cost Optimization, and Sustainability. <br> * Navigated the AWS Well-Architected Tool to conduct practical workload risk assessments on the Console. | 04/21/2026 | 04/21/2026 |  |
-| 4   | ***Lab000001: Creating Your First AWS Account** <br>&emsp; - Provisioned the AWS account and immediately enforced Multi-Factor Authentication (MFA) on the Root account. <br>&emsp; - Created an administrative IAM Group (Admins) and a dedicated IAM User (ductin-admin). <br> ***Lab000009: Getting Help with AWS Support** <br>&emsp; Analyzed and mapped the 4 AWS Support tiers (Basic, Developer, Business, Enterprise) to appropriate real-world deployment environments. | 04/22/2026 | 04/22/2026  | ***Lab000001: Creating Your First AWS Account** <br> https://000001.awsstudygroup.com/ <br> ***Lab000009: Getting Help with AWS Support** <br> https://000009.awsstudygroup.com/  |
-| 5   | ***Lab000007: Managing Costs with AWS Budgets** <br>&emsp; - Configured an Expense Budget: Established a safety ceiling with automated email alerts triggered at 80% utilization to control financial exposure. <br>&emsp; - Configured a Preset Budget: Immediately triggering alerts upon any $0.01 unpredicted charge. <br>&emsp; - Configured a Usage Budget: Monitored the runtime of core services like EC2.| 04/23/2026 | 04/23/2026 | ***Lab000007: Managing Costs with AWS Budgets** <br> https://000007.awsstudygroup.com/|
-| 6   | ***Lab000180: Kiro Spec Driven Development** <br>&emsp; - Installed IDE Kiro and understood features of Kiro| 04/24/2026 | 04/24/2026      |  |
+| Day | Tasks | Start Date | End Date | Resources |
+| :---: | :--- | :---: | :---: | :--- |
+| **Mon** | **AWS Learning:** <br> - Module 01-01 - Introduction to AWS <br> - Module 01-02 - Management Console <br> - Module 01-03 - Gen AI on AWS - Kiro <br> - Module 01-04 - Cost Optimization on AWS | 20/04/2026 | 20/04/2026 | **- Module 01-01:** <br> https://www.youtube.com/watch?v=qVCF7UjYC5s <br> **- Module 01-02:** <br> https://www.youtube.com/watch?v=95quNuhvMT0 <br> **- Module 01-03:** <br> https://www.youtube.com/watch?v=uAQCm4sm_1c <br> **- Module 01-04:** <br> https://www.youtube.com/watch?v=UIw8UxGZCHA |
+| **Tue** | **AWS Learning:** <br> - Understand the 6 Pillars of the AWS Well-Architected Framework: Security, Operational Excellence, Reliability, Performance Efficiency, Cost Optimization, and Sustainability. <br> - Get familiar with the AWS Well-Architected Tool to assess project risks. <br> **Group Project Execution:** <br> - Project Task (Pick Task):<br>&emsp; + Receive the Ngrok link, use tools (Nmap, Nikto, ZAP) to scan the target. <br>&emsp; + Log the attack diary (time, tools used). <br>&emsp; + Create a Risk Report: Top 3 vulnerabilities and propose blocking methods using AWS WAF/Security Group. | 21/04/2026 | 21/04/2026 | **- Attack Diary Document:** <br> https://docs.google.com/document/d/1gIt2LZPLds8ZAZtRbFF6XhKoFawWnP8_fzAp2Bv54CM/edit?usp=sharing <br> **- Risk Report Document:** <br> https://docs.google.com/document/d/1qHgT8dhm1h4-MQoz0GSuyaJ9g12W7GO9haqEEOwCfic/edit?usp=sharing |
+| **Wed** | **AWS Learning:** <br> - Complete Lab000001: Creating Your First AWS Account <br> - Complete Lab000009: Getting Help with AWS Support | 22/04/2026 | 22/04/2026 | **- Lab000001:** <br> https://000001.awsstudygroup.com/ <br> **- Lab000009:** <br> https://000009.awsstudygroup.com/ |
+| **Thu** | **AWS Learning:** <br> - Complete Lab000007: Managing Costs with AWS Budgets <br> - Complete Lab000180: Kiro Spec Driven Development | 23/04/2026 | 23/04/2026 | **- Lab000007:** <br> https://000007.awsstudygroup.com/ |
+| **Fri** | **Group Meeting:** <br> - Exchange information on completed tasks <br> - Report achieved results to the team | 24/04/2026 | 24/04/2026 | |
 
+<br>
 
-### Week 1 Achievements:
+### Achieved Results for Week 1:
 
-1. Understanding AWS Fundamentals
+* Set up a secure account with MFA; strictly applied the Least Privilege principle for the Admins group and IAM Users. Successfully executed the process of opening a Support Case.
 
-* Grasped the core components of the AWS Global Infrastructure (Regions, Availability Zones, and Edge Locations).
+* Successfully configured AWS Budgets as an early warning system: set a cost ceiling, enabled instant alerts from $0.01, and monitored EC2 uptime to prevent unauthorized server execution.
 
-* Successfully deployed a secure AWS environment: Activated Multi-Factor Authentication (MFA) on the Root account immediately upon creation; established an administrative group (Admins) and a dedicated IAM user (ductin-admin), strictly adhering to the Principle of Least Privilege.
+* Grasped the 6 pillars of the AWS Well-Architected Framework and the 4 Support tiers.
 
-2. Configuring Appropriate Budgets Based on Needs and Services
+* Performed manual testing on the application published via Ngrok. Successfully simulated attacks, detected, and logged critical vulnerabilities including SQL Injection, Path Traversal, and XSS attacks into the `security_audit.log` file.
+ 
+### Evidence of Implementation for Week 1: 
 
-* Comprehended cost optimization strategies (Right-sizing, Serverless architectures) and evaluated AWS pricing models.
+#### 1. Scanning Ngrok with Nmap and Nikto 
 
-* Successfully established an "Early Warning System" (Billing IDS) via AWS Budgets: Configured a financial ceiling (Expense Budget), immediate alerts for any unpredicted charge as low as $0.01 (Preset Budget), and monitored EC2 runtime (Usage Budget) to mitigate financial risks associated with account compromise.
+<h4 align="center"><em>Results after execution</em></h4>
 
-3. Exploring the AWS Well-Architected Framework and Support Center
+![Results after execution](/nmap_nikto.png)
 
-* Understood the 6 Pillars of the AWS Well-Architected Framework.
+#### 2. Scanning Ngrok with OWASP ZAP 
 
-* Utilized the AWS Well-Architected Tool on the Management Console to conduct practical workload risk assessments. Analyzed and mapped the 4 AWS Support tiers to prepare for emergency incident escalation protocols.
+<h4 align="center"><em>Results after execution</em></h4>
 
-4. Introduction to Kiro
+![Results after execution](/owaspzap.png)
 
-Approached modern development mindsets using Spec-Driven Development (SDD) methodologies and Agentic AI.
+#### 3. Logging vulnerabilities in the `security_audit.log` file
 
-Successfully installed and familiarized with the Kiro IDE (Amazon Q) environment.
+<h4 align="center"><em>Logging vulnerabilities in the file</em></h4>
+
+```json
+{"time":"2026-04-20T21:58:02", "level":"WARN", "type":"SECURITY", "msg":"type=SQL_INJECTION ip=42.119.86.124 method=GET uri=/ query=search=%27%20OR%202%3D2%20-- ua=curl/8.18.0"}
+{"time":"2026-04-20T21:58:21", "level":"WARN", "type":"SECURITY", "msg":"type=PATH_TRAVERSAL ip=42.119.86.124 method=GET uri=/ query=file=../../../../etc/passwd ua=curl/8.18.0"}
+{"time":"2026-04-20T21:58:14", "level":"WARN", "type":"SECURITY", "msg":"type=XSS_ATTACK ip=42.119.86.124 method=GET uri=/ query=username=%3Cscript%3Ealert(1)%3C/script%3E ua=curl/8.18.0"}
+
+#### 4. Meeting Group Online 
+
+<h4 align="center"><em>Group meeting to exchange completed tasks</em></h4>
+
+![Group meeting to exchange completed tasks](/2604_meetingOnl_w1.png)

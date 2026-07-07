@@ -1,44 +1,51 @@
 ---
 title: "Chia sẻ, đóng góp ý kiến"
-date: 2024-01-01
+date: 2026-06-12
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
->Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud Journey, giúp team FCJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
 
 ### Đánh giá chung
 
 **1. Môi trường làm việc**  
-Môi trường làm việc rất thân thiện và cởi mở. Các thành viên trong FCJ luôn sẵn sàng hỗ trợ khi mình gặp khó khăn, kể cả ngoài giờ làm việc. Không gian làm việc gọn gàng, thoải mái, giúp mình tập trung tốt hơn. Tuy nhiên, mình nghĩ có thể bổ sung thêm một số buổi giao lưu hoặc team bonding để mọi người hiểu nhau hơn.
+Môi trường hoạt động rất thân thiện, cởi mở và mang tính chuyên môn cao. Các thành viên trong FCAJ luôn sẵn sàng hỗ trợ khi tôi gặp khó khăn, kể cả ngoài khung giờ hoạt động chính. Không gian trao đổi thoải mái giúp tôi tập trung tốt hơn vào việc cấu hình và kiểm thử hệ thống. Tôi nghĩ sẽ rất tuyệt nếu team có thêm một vài buổi giao lưu ngắn (networking) để các thành viên hiểu thêm về nhau.
 
 **2. Sự hỗ trợ của mentor / team admin**  
-Mentor hướng dẫn rất chi tiết, giải thích rõ ràng khi mình chưa hiểu và luôn khuyến khích mình đặt câu hỏi. Team admin hỗ trợ các thủ tục, tài liệu và tạo điều kiện để mình làm việc thuận lợi. Mình đánh giá cao việc mentor cho phép mình thử và tự xử lý vấn đề thay vì chỉ đưa đáp án.
+Các anh chị mentor hướng dẫn rất chi tiết và luôn khuyến khích thực tập sinh tự tìm tòi giải pháp. Team admin hỗ trợ nhiệt tình về mặt quy trình và tài liệu. Tôi đặc biệt đánh giá cao việc mentor luôn định hướng cách tư duy giải quyết vấn đề (troubleshooting) trên hệ thống Cloud thay vì chỉ "cầm tay chỉ việc".
 
 **3. Sự phù hợp giữa công việc và chuyên ngành học**  
-Công việc mình được giao phù hợp với kiến thức mình đã học ở trường, đồng thời mở rộng thêm những mảng mới mà mình chưa từng được tiếp cận. Nhờ vậy, mình vừa củng cố kiến thức nền tảng, vừa học thêm kỹ năng thực tế.
+Đề tài triển khai bảo mật đa tầng với AWS WAF và tích hợp DevSecOps vô cùng sát với chuyên ngành An toàn thông tin mà tôi đang theo học tại HUTECH. Việc được trực tiếp ứng dụng các kiến thức lý thuyết về phòng chống tấn công web, đánh giá lỗ hổng vào một kiến trúc Cloud thực tế giúp tôi củng cố nền tảng và hiểu sâu sắc hơn về các giải pháp Blue Team.
 
 **4. Cơ hội học hỏi & phát triển kỹ năng**  
-Trong quá trình thực tập, mình học được nhiều kỹ năng mới như sử dụng công cụ quản lý dự án, kỹ năng làm việc nhóm, và cả cách giao tiếp chuyên nghiệp trong môi trường công ty. Mentor cũng chia sẻ nhiều kinh nghiệm thực tế giúp mình định hướng tốt hơn cho sự nghiệp.
+Trong quá trình tham gia Bootcamp, tôi không chỉ rèn luyện được kỹ năng cấu hình WAF, phân tích CloudWatch log hay rà quét SAST/DAST, mà còn học được cách tổ chức công việc, quản lý mã nguồn và viết tài liệu kỹ thuật (Worklog) bài bản. Những kinh nghiệm thực tiễn này là hành trang rất quý giá cho con đường kỹ sư bảo mật sau này.
 
 **5. Văn hóa & tinh thần đồng đội**  
-Văn hóa công ty rất tích cực: mọi người tôn trọng lẫn nhau, làm việc nghiêm túc nhưng vẫn vui vẻ. Khi có dự án gấp, mọi người cùng nhau cố gắng, hỗ trợ không phân biệt vị trí. Điều này giúp mình cảm thấy mình là một phần của tập thể, dù chỉ là thực tập sinh.
+Văn hóa làm việc rất tích cực, nghiêm túc nhưng không gò bó. Tinh thần cộng đồng và hỗ trợ lẫn nhau (Build in public) rất cao, giúp tôi luôn cảm thấy bản thân là một mảnh ghép quan trọng của dự án dù chỉ đang ở vị trí thực tập sinh.
 
 **6. Chính sách / phúc lợi cho thực tập sinh**  
-Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về thời gian linh hoạt khi cần thiết. Ngoài ra, việc được tham gia các buổi đào tạo nội bộ là một điểm cộng lớn.
+Ban tổ chức tạo điều kiện về thời gian rất linh hoạt, giúp tôi cân bằng tốt giữa lịch chạy dự án và việc học tại HUTECH. Các tài liệu nội bộ, Workshop và các buổi chia sẻ kiến thức của cộng đồng AWS Study Group là những đặc quyền cực kỳ hữu ích.
 
 
 ### Một số câu hỏi khác
-- Điều bạn **hài lòng nhất** trong thời gian thực tập?  
-- Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
-- Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
+
+- **Điều bạn hài lòng nhất trong thời gian thực tập?**  
+  Điều tôi tự hào và hài lòng nhất là được trao quyền trực tiếp xây dựng bộ quy tắc bảo mật. Việc được tự tay cấu hình Scope-down statement, thiết lập kiểm thử chịu tải với K6 và đối chiếu log đã giúp tôi vỡ lẽ ra rất nhiều điều. Đặc biệt, sự đồng hành và định hướng sát sao đã giúp tôi tự tin hơn hẳn khi xử lý các lỗi chặn nhầm (False Positives).
+
+- **Điều bạn nghĩ chương trình cần cải thiện cho các thực tập sinh sau?**  
+  Tôi nghĩ chương trình có thể cân nhắc cung cấp thêm tài khoản Sandbox AWS (môi trường lab giới hạn) hoặc AWS Credits cho thực tập sinh ngay từ những tuần đầu. Việc này sẽ giúp các bạn khóa sau thoải mái vọc vạch, thử nghiệm cấu hình dịch vụ mạng và bảo mật mà không lo lắng về việc vô tình làm phát sinh chi phí cá nhân.
+
+- **Nếu giới thiệu cho bạn bè, bạn có khuyên họ tham gia Bootcamp này không? Vì sao?**  
+  Chắc chắn là có. Bootcamp First Cloud AI Journey là một môi trường mang tính thực chiến cực kỳ cao, rất lý tưởng cho các bạn sinh viên HUTECH nói chung và các bạn đam mê mảng An toàn thông tin / Điện toán đám mây nói riêng. Nó giúp rút ngắn tối đa khoảng cách giữa lý thuyết trên giảng đường và bài toán hệ thống thực tế của doanh nghiệp.
 
 
 ### Đề xuất & mong muốn
-- Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
-- Bạn có muốn tiếp tục chương trình này trong tương lai?
-- Góp ý khác (tự do chia sẻ):
+
+- **Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?**  
+  Tôi đề xuất có thêm các buổi Tech-sharing ngắn giữa các nhóm dự án. Việc các thực tập sinh báo cáo chéo Worklog và chia sẻ cách xử lý các case khó (corner cases) trong dự án của tôi sẽ giúp mọi người cùng học hỏi được nhiều góc nhìn kiến trúc và bảo mật khác nhau.
+
+- **Bạn có muốn tiếp tục gắn bó với cộng đồng trong tương lai?**
+  Tôi rất mong muốn có cơ hội được tiếp tục đồng hành cùng cộng đồng FCAJ và AWS Study Group để đào sâu hơn vào các kiến trúc bảo mật đám mây nâng cao, hoặc các quy trình vận hành trung tâm giám sát an toàn thông tin (SOC) nếu có cơ hội.
+
+- **Góp ý khác (tự do chia sẻ):** 
+  Tôi xin gửi lời cảm ơn chân thành đến **các anh chị admin và toàn bộ Ban tổ chức FCAJ** vì đã luôn kiên nhẫn hỗ trợ, giải đáp thắc mắc và tạo điều kiện tuyệt vời nhất để Tôi hoàn thành trọn vẹn dự án thực tập lần này!

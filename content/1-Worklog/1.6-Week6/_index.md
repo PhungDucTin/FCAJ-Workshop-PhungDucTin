@@ -1,57 +1,48 @@
 ---
-title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+title: "Worklog Week 6"
+date: 2026-05-25
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Objectives for Week 6:
 
-### Week 6 Objectives:
+* Complete the advanced Labs via the link <https://cloudjourney.awsstudygroup.com/>.
+* Apply DevSecOps: Integrate security scanning tools (SAST/SCA) into the CI/CD pipeline and set up a centralized security key repository on AWS.
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks to be implemented this week:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Tasks | Start Date | End Date | Resources |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| **Mon** | **AWS Learning:** <br> - Complete Lab: Building Microservices <br> - Complete Lab: Data and Workflow Restructuring <br> - Complete Lab: Event-Driven Architecture | 25/05/2026 | 25/05/2026 | **- Building Microservices** <br> https://000052.awsstudygroup.com/ <br> **- Data and Workflow Restructuring** <br> https://000053.awsstudygroup.com/ <br> **- Event-Driven Architecture** <br> https://000054.awsstudygroup.com/ |
+| **Tue** | **AWS Learning:** <br> - Complete Lab: Serverless Backend with Lambda, S3, and DynamoDB <br> - Complete Lab: Frontend Development for Serverless APIs <br> - Complete Lab: Building Serverless CRUD with Lambda and DynamoDB | 26/05/2026 | 26/05/2026 | **- Serverless Backend with Lambda, S3, and DynamoDB** <br> https://000078.awsstudygroup.com/ <br> **- Frontend Development for Serverless APIs** <br> https://000079.awsstudygroup.com/ <br> **- Building Serverless CRUD with Lambda and DynamoDB** <br> https://000133.awsstudygroup.com/ |
+| **Wed** | **AWS Learning:** <br> - Complete Lab: CI/CD for Application Release <br> - Complete Lab: Deployment Automation with AWS SAM <br> - Complete Lab: CI/CD for Serverless Applications <br> **Group Project Execution:** <br> - Project Task (Pick Task): <br>&emsp; + Migrate environment variables from the `.env` file to the AWS configuration management system. Write documentation guiding the Backend on how to fetch configurations from AWS at runtime. <br>&emsp; + Use SonarCloud to scan the Repository. | 27/05/2026 | 27/05/2026 | **- CI/CD for Application Release** <br> https://000051.awsstudygroup.com/ <br> **- Deployment Automation with AWS SAM** <br> https://000080.awsstudygroup.com/ <br> **- CI/CD for Serverless Applications** <br> https://000084.awsstudygroup.com/ <br> **- Variable Migration to AWS Systems Manager Document:** <br> https://docs.google.com/document/d/1-JWPB3X-2IkXRvHF5f19nVo686wB473vR3SE6oUKoi4/edit?usp=sharing <br> **- SonarCloud Vulnerability Report Document:** https://docs.google.com/document/d/1UeXtlMtoneGW1W65jewPU1Jn9RD6yXfjzYlGXwqMkqw/edit?usp=sharing |
+| **Thu** | **AWS Learning:** <br> - Complete Lab: Event Processing with SQS and SNS <br> - Complete Lab: Building GraphQL APIs with AWS AppSync <br> - Complete Lab: AWS AI Services Integration | 28/05/2026 | 28/05/2026 | **- Event Processing with SQS and SNS** <br> https://000083.awsstudygroup.com/ <br> **- Building GraphQL APIs with AWS AppSync** <br> https://000086.awsstudygroup.com/ <br> **- AWS AI Services Integration** <br> https://000056.awsstudygroup.com/ |
+| **Fri** | **AWS Learning:** <br> - Complete Lab: Serverless Storage and Auth with AWS Amplify <br> - Complete Lab: Custom Domains and SSL for Serverless Applications <br> - Complete Lab: Monitoring Serverless Applications <br> **Group Meeting:** <br> - Report execution results <br> - Exchange information among members | 29/05/2026 | 29/05/2026 | **- Serverless Storage and Auth with AWS Amplify** <br> https://000134.awsstudygroup.com/ <br> **- Custom Domains and SSL for Serverless Applications** <br> https://000082.awsstudygroup.com/ <br> **- Monitoring Serverless Applications** <br> https://000085.awsstudygroup.com/ |
 
+### Achieved Results for Week 6:
 
-### Week 6 Achievements:
+* Successfully migrated environment variable management from `.env` files to the configuration management system on AWS, ensuring configuration data is stored and retrieved much more securely within the deployment environment.
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Authored documentation guiding the Backend team on how to fetch configurations dynamically from AWS during application runtime, thereby reducing the dependency on locally stored sensitive information.
 
-* Successfully created and configured an AWS Free Tier account.
+### Evidence of Implementation for Week 6: 
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+#### 1. Offline group meeting to report results
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+<h4 align="center"><em>Group meeting to exchange completed tasks</em></h4>
 
-* Used AWS CLI to perform basic operations such as:
+![Group meeting to exchange completed tasks](/2905_meeting_w6.JPG)
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+#### 2. Migrating variables from the .env file to AWS
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+<h4 align="center"><em>Migrating environment variable management</em></h4>
+
+![Migrating environment variable management](/ssm.png)
+
+#### 3. Integrating SonarCloud for vulnerability scanning
+
+<h4 align="center"><em>Integrating SonarCloud into the project</em></h4>
+
+![Integrating SonarCloud into the project](/SonarCloud.png)

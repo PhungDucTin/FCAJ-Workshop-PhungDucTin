@@ -1,59 +1,67 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-06-22
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 10:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Chạy SonarCloud để quét repo mã nguồn.
+* Thực hiện đánh giá bảo mật động (DAST) bằng công cụ OWASP ZAP.
+* Tổng hợp và phân loại các cảnh báo rủi ro từ quá trình quét.
+* Khởi tạo hệ thống tường lửa WAF và gắn vào ALB, CloudFront.
+* Khởi tạo kho khóa bí mật và gắn vào ECS cho 4 biến môi trường cốt lõi.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---: | :--- | :---: | :---: | :--- |
+| **2** | **Thực hiện đồ án nhóm:** <br> - Sử dụng tài khoản AWS được cấp trên github để thực hiện task. <br>- Chạy SonarCloud quét Repo ngay khi nhận được thông báo hoàn thiện source code. | 22/06/2026 | 22/06/2026 | |
+| **3** | **Thực hiện đồ án nhóm:** <br> - Khởi tạo kho khóa và gắn vào ECS. <br>- Thiết lập 4 khóa an toàn: `SPRING_DATASOURCE_PASSWORD` (Mật khẩu DB), `JWT_SECRET` (Khóa ký Token), `SPRING_MAIL_PASSWORD` (Mật khẩu gửi mail), và `GRAFANA_OTLP_TOKEN` (Token giám sát của Trường). | 23/06/2026 | 23/06/2026 |  |
+| **4** | **Thực hiện đồ án nhóm:** <br> - Đợi có đủ thông tin link ALB, CloudFront để tránh làm chậm tiến độ dự án. <br>- Khởi tạo WAF và tiến hành gắn WAF vào ALB, CloudFront. | 24/06/2026 | 24/06/2026 | |
+| **5** | **Thực hiện đồ án nhóm:** <br> - Thực hiện đánh giá bảo mật động (DAST) bằng OWASP ZAP. <br>- Quét OWASP ZAP chi tiết ở cả API Public và API cần token. | 25/06/2026 | 25/06/2026 |  |
+| **6** | **Thực hiện đồ án nhóm:** <br> - Lập Báo cáo lỗ hổng từ SonarCloud và OWASP ZAP dưới dạng Word/PDF. <br>- Trích lọc ra Top lỗ hổng nguy hiểm nhất. <br>- Trình bày theo format bắt buộc: Tên lỗ hổng, Vị trí cụ thể, Bằng chứng (PoC) qua ảnh chụp màn hình tool ZAP, và Cách khắc phục ngắn gọn cho Dev. | 26/06/2026 | 26/06/2026 | **- Tài liệu thực hiện Báo cáo bảo mật trên SonarCloud:** <br> https://docs.google.com/document/d/1P7uWuUfEtSceGTTazdJHuX-n5w7m9G571ZvFVf6DjBw/edit?usp=sharing <br> **- Tài liệu thực hiện Quét lỗ hổng:** <br> https://docs.google.com/document/d/1hfYRIkfMq1UDflqW6_HULIm1Ju9E4nrgUyUhC9OMybU/edit?usp=sharing|
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Quét repo mã nguồn thành công bằng SonarCloud.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Thực hiện đánh giá bảo mật động bằng OWASP ZAP hoàn tất cho cả phân vùng API Public và API cần token.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Khởi tạo thành công tường lửa WAF và gắn trực tiếp vào các điểm endpoint ALB, CloudFront.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Khởi tạo kho khóa cho ECS, đảm bảo bảo mật cho 4 biến quan trọng: mật khẩu DB, khóa ký Token, mật khẩu mail và token giám sát Grafana.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+### Minh chứng thực hiện tuần 10: 
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+#### 1. Khởi tạo tường lửa WAF gắn vào ALB
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+<h4 align="center"><em>AWS WAF được thiết kế để tích hợp (attach) trực tiếp vào ALB ở cấp độ khu vực (Regional)</em></h4>
 
+![AWS WAF được thiết kế để tích hợp (attach) trực tiếp vào ALB ở cấp độ khu vực (Regional)](/wafalb.png)
 
+#### 2. Khởi tạo tường lửa WAF gắn vào CloudFront
+
+<h4 align="center"><em>AWS WAF được thiết kế để tích hợp (attach) trực tiếp vào CloudFront ở cấp độ toàn cầu (Global)</em></h4>
+
+![AWS WAF được thiết kế để tích hợp (attach) trực tiếp vào CloudFront ở cấp độ toàn cầu (Global)](/waf.png)
+
+#### 3. Khởi tạo biến ở Region Singapore
+
+<h4 align="center"><em>Khởi tạo các biến an toàn trên Parameter Store ở Region Singapore</em></h4>
+
+![Khởi tạo các biến an toàn trên Parameter Store ở Region Singapore](/pssg.png)
+
+#### 4. Khởi tạo biến ở Region N.Virginia
+
+<h4 align="center"><em>Khởi tạo các biến an toàn trên Parameter Store ở Region N.Virginia</em></h4>
+
+![Khởi tạo các biến an toàn trên Parameter Store ở N.Virginia](/psus.png)
+
+#### 5. Kết quả quét hệ thống với OWASP ZAP
+
+<h4 align="center"><em>Thực hiện quét hệ thống với OWASP ZAP</em></h4>
+
+![Thực hiện quét hệ thống với OWASP ZAP](/zap.png)

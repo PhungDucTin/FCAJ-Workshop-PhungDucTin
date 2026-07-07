@@ -19,13 +19,13 @@ chapter: false
 
 &emsp; **Lớp:** 22DTHD4
 
-&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
+&emsp; **Công ty thực tập:** Bootcamp First Cloud AI Journey
 
-&emsp; **Vị trí thực tập:** FCAJ Cloud Intern
+&emsp; **Vị trí thực tập:** Cloud Engineer
 
-&emsp; **Thời gian thực tập:** Từ ngày 17/04/2026 đến ngày 12/07/2025
+&emsp; **Thời gian thực tập:** Từ ngày 15/04/2026 đến ngày 15/07/2025
 
-![Ảnh đại diện của bạn](/images/avatar.png)
+![Ảnh đại diện của bạn](17.jpg)
 
 
 

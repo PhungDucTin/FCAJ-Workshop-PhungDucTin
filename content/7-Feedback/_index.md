@@ -1,47 +1,51 @@
 ---
 title: "Sharing and Feedback"
-date: 2024-01-01
+date: 2026-06-12
 weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud Journey program. This will help the FCJ team improve any shortcomings based on the following aspects:
-
-### Overall Evaluation
+### General Evaluation
 
 **1. Working Environment**  
-The working environment is very friendly and open. FCJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+The working environment is very friendly, open, and highly professional. FCAJ members are always ready to support me when I face difficulties, even outside core working hours. The comfortable communication space helps me focus better on configuring and testing the system. I think it would be great if the team had a few short networking sessions so members could understand each other better.
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+**2. Support from Mentors / Team Admins**  
+The mentors provide very detailed guidance and always encourage interns to explore solutions on their own. The admin team is enthusiastically supportive regarding processes and documentation. I particularly highly appreciate that mentors always orient the problem-solving (troubleshooting) mindset on the Cloud system instead of just "hand-holding."
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+**3. Alignment between Work and Major**  
+The topic of deploying multi-layer security with AWS WAF and integrating DevSecOps is extremely close to the Cybersecurity major I am pursuing at HUTECH. Being able to directly apply theoretical knowledge about web attack prevention and vulnerability assessment into a practical Cloud architecture helps me solidify my foundation and gain a deeper understanding of Blue Team solutions.
 
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+**4. Opportunities for Learning & Skill Development**  
+During the Bootcamp, I not only honed my skills in configuring WAF, analyzing CloudWatch logs, and performing SAST/DAST scanning, but also learned how to organize work, manage source code, and write technical documentation (Worklogs) methodically. These practical experiences are invaluable baggage for my future path as a security engineer.
 
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+**5. Culture & Team Spirit**  
+The work culture is very positive and serious but not restrictive. The community spirit and mutual support (Build in public) are very high, making me always feel like an important piece of the project even though I am just an intern.
 
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+**6. Policies / Benefits for Interns**  
+The organizers create very flexible time conditions, helping me balance well between the project schedule and my studies at HUTECH. The internal documents, workshops, and knowledge-sharing sessions of the AWS Study Group community are extremely useful perks.
 
----
 
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+### Other Questions
 
----
+- **What are you most satisfied with during your internship?**  
+  What I am most proud of and satisfied with is being empowered to directly build the security ruleset. Being able to manually configure Scope-down statements, set up load testing with K6, and cross-reference logs has helped me realize a lot of things. In particular, the close companionship and orientation have made me much more confident when handling False Positives.
 
-### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+- **What do you think the program needs to improve for future interns?**  
+  I think the program could consider providing AWS Sandbox accounts (limited lab environments) or AWS Credits for interns right from the first weeks. This will help the next cohorts comfortably tinker and experiment with network and security service configurations without worrying about accidentally incurring personal costs.
+
+- **If you were to introduce it to your friends, would you recommend they join this Bootcamp? Why?**  
+  Definitely yes. The First Cloud AI Journey Bootcamp is an extremely highly practical environment, ideal for HUTECH students in particular and those passionate about Information Security / Cloud Computing in general. It helps minimize the gap between university theory and the practical system problems of enterprises.
+
+
+### Suggestions & Desires
+
+- **Do you have any suggestions to improve the internship experience?**  
+  I suggest having more short Tech-sharing sessions between project teams. Having interns cross-report their Worklogs and share how they handled difficult cases (corner cases) in their projects will help everyone learn many different architectural and security perspectives.
+
+- **Do you want to continue sticking with the community in the future?**
+  I strongly desire the opportunity to continue accompanying the FCAJ and AWS Study Group community to dive deeper into advanced cloud security architectures, or the operational processes of a Security Operations Center (SOC) if given the chance.
+
+- **Other feedback (free to share):** 
+  I would like to send my sincere thanks to **the admins and the entire FCAJ Organizing Committee** for always being patient in supporting, answering questions, and creating the best conditions for me to fully complete this internship project!

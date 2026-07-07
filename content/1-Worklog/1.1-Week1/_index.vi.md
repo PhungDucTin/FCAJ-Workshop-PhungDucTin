@@ -6,39 +6,59 @@ chapter: false
 pre: " <b> 1.1. </b> "
 ---
 
-
 ### Mục tiêu tuần 1:
 
-* Tìm hiểu về mục đích hướng tới của chương trình, nắm rõ được nội quy khi tham gia chương trình. 
 * Tìm hiểu, kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu được các dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu các dịch vụ AWS cơ bản, cách dùng console và CLI, kết hợp học tập lý thuyết và thực hành.
+* Thực hiện rà soát bảo mật (System Audit) cho dự án nội bộ và đề xuất giải pháp phòng thủ.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
-| --- | --------- | ------------ | --------------- | -------------- |
-| 2   |  ***Module 01-01 - Introduction to AWS:** <br>&emsp; - Nắm vững các thành phần hạ tầng cốt lõi: Data Center, Availability Zone (AZ), Region, và Edge Location/Local Zone. <br> ***Module 01-02 - Management Console:** <br>&emsp; - Phân biệt rõ sự khác biệt quyền hạn giữa Root Account và IAM User. <br>&emsp; - Nắm bắt 3 phương thức tương tác chính với AWS: Management Console, CLI và SDK. <br> ***Module 01-03 - Gen AI on AWS - Kiro:** <br>&emsp; - Tìm hiểu sự chuyển dịch sang Agentic AI và phương pháp Spec-Driven Development. <br>&emsp; - Khám phá bộ công cụ Kiro IDE, Kiro CLI và cách tạo các Custom Agents chuyên biệt. <br> ***Module 01-04 - Cost Optimization on AWS:** <br>&emsp; - Hiểu rõ chiến lược Right-sizing, so sánh các mô hình trả phí (On-demand, Spot, Saving Plans) và ưu thế tối ưu hóa của kiến trúc Serverless. <br>&emsp; - Tìm hiểu 4 mức độ AWS Support (Basic, Developer, Business, Enterprise) và tiêu chuẩn đánh giá hệ thống qua AWS Well-Architected Framework. | 04/20/2026 | 04/20/2026      | ***Module 01-01:** <br> https://www.youtube.com/watch?v=qVCF7UjYC5s <br> ***Module 01-02:** <br> https://www.youtube.com/watch?v=95quNuhvMT0 <br> ***Module 01-03:** <br> https://www.youtube.com/watch?v=uAQCm4sm_1c <br> ***Module 01-04:** <br> https://www.youtube.com/watch?v=UIw8UxGZCHA
-| 3   | * Hiểu rõ 6 Trụ cột kiến trúc: Bảo mật, Vận hành xuất sắc, Độ tin cậy, Hiệu suất, Tối ưu chi phí và Bền vững. <br> * Làm quen với AWS Well-Architected Tool để thực hiện đánh giá rủi ro dự án thực tế trên Console. | 21/04/2026   | 21/04/2026     | |
-| 4   | ***Lab000001: Creating Your First AWS Account** <br>&emsp; - Khởi tạo tài khoản AWS và lập tức kích hoạt Xác thực Đa yếu tố (MFA) cho tài khoản Root. <br>&emsp; - Tạo nhóm quyền quản trị (Admins) và người dùng IAM chuyên trách (ductin-admin). <br> ***Lab000009: Getting Help with AWS Support** <br>&emsp; - Phân tích và so sánh 4 cấp độ hỗ trợ của AWS (Basic, Developer, Business, Enterprise) áp dụng cho các kịch bản môi trường khác nhau. | 22/04/2026   | 22/04/2026      | ***Lab000001: Creating Your First AWS Account** <br> https://000001.awsstudygroup.com/ <br> ***Lab000009: Getting Help with AWS Support** <br> https://000009.awsstudygroup.com/  |
-| 5   | ***Lab000007: Managing Costs with AWS Budgets** <br>&emsp; - Thiết lập Expense Budget: Khởi tạo giới hạn an toàn (trần chi phí). <br>&emsp; - Thiết lập Preset Budget: Hệ thống sẽ báo động ngay lập tức nếu phát sinh cước phí dù chỉ 1 xu ($0.01) <br>&emsp; - Thiết lập Usage Budget: Theo dõi sát sao thời lượng hoạt động (runtime) của các dịch vụ cốt lõi như EC2.| 23/04/2026   | 23/04/2026      | ***Lab000007: Managing Costs with AWS Budgets** <br> https://000007.awsstudygroup.com/|
-| 6   | ***Lab000180: Kiro Spec Driven Development** <br>&emsp; - Cài đặt IDE Kiro và tìm hiểu các khả năng của Kiro| 24/04/2026   | 24/04/2026     |  |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---: | :--- | :---: | :---: | :--- |
+| **2** | **Học tập AWS:** <br> - Module 01-01 - Introduction to AWS <br> - Module 01-02 - Management Console <br> - Module 01-03 - Gen AI on AWS - Kiro <br> - Module 01-04 - Cost Optimization on AWS | 20/04/2026 | 20/04/2026 | **- Module 01-01:** <br> https://www.youtube.com/watch?v=qVCF7UjYC5s <br> **- Module 01-02:** <br> https://www.youtube.com/watch?v=95quNuhvMT0 <br> **- Module 01-03:** <br> https://www.youtube.com/watch?v=uAQCm4sm_1c <br> **- Module 01-04:** <br> https://www.youtube.com/watch?v=UIw8UxGZCHA |
+| **3** | **Học tập AWS:** <br> - Hiểu rõ 6 Trụ cột kiến trúc: Bảo mật, Vận hành xuất sắc, Độ tin cậy, Hiệu suất, Tối ưu chi phí và Bền vững. <br> - Làm quen với AWS Well-Architected Tool để đánh giá rủi ro dự án. <br> **Thực hiện đồ án nhóm:** <br> - Nhiệm vụ dự án (Pick Task):<br>&emsp; + Nhận link Ngrok, dùng tool (Nmap, Nikto, ZAP) rà quét mục tiêu. <br>&emsp; + Ghi chú lại nhật ký tấn công (thời gian, công cụ). <br>&emsp; + Lập Báo cáo rủi ro: Top 3 lỗ hổng và đề xuất chặn bằng AWS WAF/Security Group. | 21/04/2026 | 21/04/2026 | **- Tài liệu thực hiện Nhật kí tấn công:** <br> https://docs.google.com/document/d/1gIt2LZPLds8ZAZtRbFF6XhKoFawWnP8_fzAp2Bv54CM/edit?usp=sharing <br> **- Tài liệu Báo cáo rủi ro:** <br> https://docs.google.com/document/d/1qHgT8dhm1h4-MQoz0GSuyaJ9g12W7GO9haqEEOwCfic/edit?usp=sharing |
+| **4** | **Học tập AWS:** <br> - Làm Lab000001: Creating Your First AWS Account <br> - Làm Lab000009: Getting Help with AWS Support | 22/04/2026 | 22/04/2026 | **- Lab000001:** <br> https://000001.awsstudygroup.com/ <br> **- Lab000009:** <br> https://000009.awsstudygroup.com/ |
+| **5** | **Học tập AWS:** <br> - Làm Lab000007: Managing Costs with AWS Budgets <br> - Làm Lab000180: Kiro Spec Driven Development | 23/04/2026 | 23/04/2026 | **- Lab000007:** <br> https://000007.awsstudygroup.com/ |
+| **6** | **Họp nhóm:** <br> - Trao đổi thông tin đã thực hiện <br> - Báo cáo kết quả đạt được với nhóm | 24/04/2026 | 24/04/2026 | |
+
+<br>
 
 ### Kết quả đạt được tuần 1:
 
-1. Hiểu nền tảng về AWS
-* Nắm vững kiến trúc hạ tầng toàn cầu của AWS (Regions, AZs, Edge Locations).
-* Triển khai thành công môi trường AWS an toàn: Kích hoạt Xác thực đa yếu tố (MFA) cho tài khoản Root ngay khi khởi tạo; thiết lập nhóm quản trị (Admins) và người dùng IAM chuyên trách (ductin-admin), đảm bảo tuân thủ nghiêm ngặt nguyên tắc Đặc quyền tối thiểu (Least Privilege).
+* Thiết lập tài khoản an toàn với MFA; áp dụng triệt để nguyên tắc đặc quyền tối thiểu (Least Privilege) cho nhóm Admins và IAM User. Thực hiện thành công quy trình mở Support Case.
 
-2. Biết cách thiết lập các Budget phù hợp theo nhu cầu và dịch vụ
-* Thấu hiểu các chiến lược Tối ưu hóa chi phí (Right-sizing, Serverless architectures) và đánh giá các mô hình định giá của AWS.
-* Thiết lập thành công "Hệ thống cảnh báo sớm" (Billing IDS) thông qua AWS Budgets: Cấu hình trần chi phí (Expense Budget), cảnh báo tức thời khi phát sinh cước dù chỉ $0.01 (Preset Budget), và giám sát thời lượng chạy của EC2 (Usage Budget) để phòng chống rủi ro tài chính do chiếm đoạt tài khoản.
+* Cấu hình thành công AWS Budgets làm hệ thống cảnh báo sớm: đặt trần chi phí, bật cảnh báo tức thời từ mức $0.01 và theo dõi thời gian hoạt động của EC2 để phòng ngừa việc chạy máy chủ trái phép.
 
-3. Tìm hiểu về AWS Well-Architected Framework và Support Center
-* Hiểu rõ 6 trụ cột (Pillars) của AWS Well-Architected Framework.
-* Thực hành sử dụng công cụ AWS Well-Architected Tool trên Console để đánh giá rủi ro hệ thống thực tế. Phân tích và lập bản đồ 4 gói AWS Support để sẵn sàng cho quy trình leo thang xử lý sự cố khẩn cấp.
+* Nắm được 6 trụ cột của AWS Well-Architected Framework và 4 cấp độ Support.
 
-4. Tìm hiểu về Kiro
-* Tiếp cận tư duy phát triển hiện đại với phương pháp Spec-Driven Development (SDD) và Agentic AI.
-* Hoàn tất cài đặt và làm quen với môi trường Kiro IDE (Amazon Q).
+* Thực hiện kiểm thử thủ công trên ứng dụng được public qua Ngrok. Đã mô phỏng tấn công, phát hiện và ghi log thành công các lỗ hổng nghiêm trọng bao gồm SQL Injection, Path Traversal và XSS attack vào file `security_audit.log`.
+ ### Minh chứng thực hiện tuần 1: 
 
+ #### 1. Thực hiện quét Ngrok với Nmap và Nikto 
 
+ <h4 align="center"><em>Kết quả sau khi thực hiện</em></h4>
+
+![Kết quả sau khi thực hiện](/nmap_nikto.png)
+
+#### 2. Thực hiện quét Ngrok với OWASP ZAP 
+
+ <h4 align="center"><em>Kết quả sau khi thực hiện</em></h4>
+
+![Kết quả sau khi thực hiện](/owaspzap.png)
+
+#### 3. Ghi nhận lỗ hổng trong file `security_audit.log`
+
+ <h4 align="center"><em>Ghi nhận lỗ hổng trong file</em></h4>
+
+```json
+{"time":"2026-04-20T21:58:02", "level":"WARN", "type":"SECURITY", "msg":"type=SQL_INJECTION ip=42.119.86.124 method=GET uri=/ query=search=%27%20OR%202%3D2%20-- ua=curl/8.18.0"}
+{"time":"2026-04-20T21:58:21", "level":"WARN", "type":"SECURITY", "msg":"type=PATH_TRAVERSAL ip=42.119.86.124 method=GET uri=/ query=file=../../../../etc/passwd ua=curl/8.18.0"}
+{"time":"2026-04-20T21:58:14", "level":"WARN", "type":"SECURITY", "msg":"type=XSS_ATTACK ip=42.119.86.124 method=GET uri=/ query=username=%3Cscript%3Ealert(1)%3C/script%3E ua=curl/8.18.0"}
+```
+
+#### 4. Họp nhóm online 
+
+<h4 align="center"><em>Họp nhóm online trao đổi thông tin</em></h4>
+
+![Họp nhóm online trao đổi thông tin](/2604_meetingOnl_w1.png)
