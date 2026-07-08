@@ -6,137 +6,156 @@ chapter: false
 pre: "  2.  "
 ---
 
-# Mini Social Network (MiniSocial)
+# Mini Social Network
+## A Cloud-Native AWS Infrastructure with Automated CI/CD Pipelines
 
-## A Cloud-Native AWS Infrastructure with Automated CI/CD Pipelines and Gamification
+### 1. Executive Summary
+The Mini Social Network (MiniSocial) is a production-grade academic project designed to demonstrate advanced DevOps and Cloud Engineering workflows. It supports a scalable, full-stack social platform, utilizing a cloud-native architecture to deliver high availability and security. The platform leverages AWS services to provide automated CI/CD pipelines, robust networking, and real-time monitoring, with access securely managed and delivered globally through CloudFront and WAF.
 
-### Project Snapshot
-- A full-stack social platform designed as an academic showcase of modern cloud engineering.
-- Built to support 20–100 concurrent users while remaining cost-efficient and easy to scale.
-- Combines AWS, Containers, CI/CD automation, security controls, and monitoring into one production-oriented blueprint.
-- Emphasizes reliability, operational visibility, and practical DevOps implementation.
+### 2. Problem Statement
+**What’s the Problem?**
+Building and deploying a modern full-stack application often requires addressing significant infrastructure complexities. Traditional environments lack streamlined, automated deployment pipelines, leading to manual errors and slow delivery. Furthermore, ensuring high availability, security against web attacks, and cost efficiency in a manual deployment model is highly difficult and resource-intensive.
 
-To give readers a clearer view of the overall concept, the architecture diagram below illustrates the end-to-end flow of the proposed solution.
+**The Solution**
+The platform uses AWS CloudFormation for Infrastructure as Code (IaC) to provision secure VPC networks and Amazon RDS. Jenkins pipelines automate the CI/CD process, building and pushing Docker images to Amazon ECR, and deploying the Spring Boot backend to Amazon ECS Fargate. The React frontend is hosted on Amazon S3 and distributed via Amazon CloudFront. AWS WAF protects the Application Load Balancer and CloudFront distributions from common web exploits. Similar to enterprise-grade architectures, this project ensures zero-downtime deployments and robust security, tailored for academic demonstration.
+
+**Benefits and Return on Investment**
+The solution establishes a foundational blueprint for engineers to understand and implement enterprise DevOps practices. It completely replaces manual deployment processes with automated Jenkins pipelines, saving significant time and reducing human error. Monthly infrastructure costs are heavily optimized to approximately $45.00 – $60.00 USD by utilizing ECS Fargate Spot and EventBridge Scheduler to power down environments during off-peak hours (saving ~37.5% runtime costs). The break-even value is achieved through immense time savings and the creation of a highly reusable CloudFormation template library.
+
+### 3. Solution Architecture
+The platform employs a serverless and containerized AWS architecture to manage user traffic and application logic. Data is stored in Amazon RDS for SQL Server, backend processing is handled by ECS Fargate, and the frontend is delivered via CloudFront. The architecture is detailed below:
+
+
+#### 1. Main Request Flow (Data Flow)
+
+```mermaid
+flowchart LR
+    %% DNS Resolution
+    User["👤 User"] -.->|"[1] DNS Resolution"| R53["Amazon Route 53"]
+    
+    %% Frontend Flow
+    User -->|"[2a] Web Access"| CF["CloudFront (w/ WAF)"]
+    CF -->|"OAC"| S3F["S3 Frontend (Private)"]
+    
+    %% API Flow
+    User -->|"[2] API Request"| IGW["Internet Gateway"]
+    IGW -->|"[3] Route Traffic"| ALB["ALB (w/ WAF)"]
+    
+    %% Backend Compute
+    ALB -->|"[4] Load Balance"| ECS1["ECS Fargate (AZ-1)"]
+    ALB -->|"[4] Load Balance"| ECS2["ECS Fargate (AZ-2)"]
+    
+    %% Secrets & DB
+    SSM["SSM Parameter Store"] -.->|"[5b] Fetch Config"| ECS1
+    SSM -.->|"[5b] Fetch Config"| ECS2
+    ECS1 -->|"[6] Read/Write Data"| RDS["RDS SQL Server"]
+    ECS2 -->|"[6] Read/Write Data"| RDS
+    
+    %% VPC Endpoint & NAT
+    ECS1 -->|"[7a] Upload Media"| VPCE["S3 VPC Endpoint"]
+    ECS2 -->|"[7a] Upload Media"| VPCE
+    VPCE --> S3M["S3 Media Storage"]
+    
+    %% Monitoring
+    ECS1 -->|"[8] Push Logs"| CW["CloudWatch"]
+    CW -->|"[9] Visualize"| Grafana["Grafana Cloud"]
+```
+
+#### 2. CI/CD Pipeline Flow
+
+```mermaid
+flowchart LR
+    Dev["👨💻 Developer"] -->|"Git Push"| GH["GitHub"]
+    GH -->|"Trigger"| Jenkins["Jenkins Server"]
+    
+    %% Backend Deployment
+    Jenkins -->|"[A] Build & Push"| ECR["AWS ECR"]
+    Jenkins -->|"[B] Update Task"| ECS["ECS Fargate"]
+    ECR -.->|"Pull Image (via NAT)"| ECS
+    
+    %% Frontend Deployment
+    Jenkins -->|"[C] Sync static files"| S3["S3 Frontend"]
+    Jenkins -->|"[D] Invalidate Cache"| CF["CloudFront"]
+```
 
 ![MiniSocial Architecture](/Minisocial-Architect_final.png)
 
-### 1. Executive Summary
-The Mini Social Network (MiniSocial) is a miniature social network platform integrated with gamification features, designed as a production-grade academic project to demonstrate advanced DevOps and Cloud Engineering workflows. The platform is designed to reliably serve 20 to 100 concurrent users, featuring high scalability through a cloud-native architecture. Deployed entirely on AWS using Infrastructure as Code (IaC) via CloudFormation and managed automatically by external Jenkins CI/CD pipelines, this platform showcases enterprise best practices in security, automated testing, real-time monitoring, and proactive cost optimization.
+**AWS Services Used**
+- **Amazon VPC & Networking:** Multi-AZ subnets, NAT Gateway, and S3 Gateway Endpoint for secure isolation.
+- **Amazon ECS Fargate:** Serverless container execution for backend application nodes.
+- **Amazon RDS for SQL Server:** Managed database service hosted in dedicated private subnets.
+- **Amazon S3 & CloudFront:** Secure frontend hosting via OAC and global content delivery.
+- **AWS WAF & ACM:** Enterprise-grade web application firewall protection and automated SSL/TLS certificates.
+- **Amazon Route 53:** Highly available DNS management.
+- **Amazon ECR & Jenkins:** Secure Docker registry and automated CI/CD pipelines.
+- **Amazon CloudWatch & EventBridge:** System logging, infrastructure metrics, and automated scheduling.
+- **AWS Systems Manager Parameter Store**: Secure storage and management of application configuration data and secrets.
 
-### 2. Problem Statement
-
-### What’s the Problem?
-Building and deploying a modern fullstack social network application requires addressing significant infrastructure complexities. Traditional environments often lack streamlined, automated deployment pipelines, resulting in friction between development and operations. Additionally, maintaining real-time features (such as chat and notifications) alongside database-driven applications on public clouds can easily lead to high operational costs, security vulnerabilities, and a lack of granular monitoring, which hinders production readiness proof-of-concepts.
-
-### The Solution
-The MiniSocial platform tackles these challenges by utilizing a robust AWS serverless and containerized architecture. The frontend is built using React 19, TypeScript 5.9, and Vite, securely hosted on Amazon S3 and distributed via Amazon CloudFront with Origin Access Control (OAC). The backend is powered by Spring Boot 3.2.6 (Java 17) running inside Docker containers managed by Amazon ECS Fargate across multiple Availability Zones. Data persistence is handled via Amazon RDS for SQL Server positioned securely within private subnets. Continuous Integration and Continuous Deployment (CI/CD) are fully automated through local Jenkins servers utilizing two separate multi-stage pipelines to build, test, and automatically ship code. Cost management is heavily reinforced using AWS EventBridge Scheduler to automate environment sleep cycles and ECS Fargate Spot configurations.
-
-### Benefits and Return on Investment
-As an academic portfolio project, the primary return on investment is the empirical proof of capability in deploying production-grade, highly secure systems on AWS. Financially, operational costs are aggressively throttled to approximately $45–$60 USD per month. This is achieved by scheduling automated infrastructure shutdowns between 10:00 PM and 7:00 AM daily (saving ~37.5% runtime), implementing Fargate Spot for redundant tasks (saving ~70% compute costs), and deploying an S3 VPC Gateway Endpoint to completely bypass NAT Gateway data transfer fees. The project offers a highly reusable, modular blueprint with 4 CloudFormation stacks and robust Jenkinsfile templates that can be easily retargeted for future enterprise applications.
-
-### 3. Solution Architecture
-The proposed platform is more than a simple web application; it is an end-to-end cloud deployment blueprint designed for both functionality and operational excellence. The architecture is structured around three core principles:
-- Secure traffic entry through Route 53 and AWS WAF.
-- Resilient application execution on ECS Fargate across multiple Availability Zones.
-- Fast and reliable frontend delivery through S3 and CloudFront.
-
-User traffic enters via Amazon Route 53, filtering through AWS WAF to mitigate DDoS and web injection attacks before reaching an Internet-facing Application Load Balancer (ALB) over secured HTTPS. The backend logic is processed by ECS Fargate tasks distributed over private subnets across multiple AZs for high availability, while static assets flow directly through CloudFront CDN.
-
-### AWS Services Used
-
-- **VPC & Networking**: Multi-AZ subnets (Public, Private Compute, Private Data), ALB, NAT Gateway, and S3 VPC Gateway Endpoint.
-- **Amazon ECS Fargate**: Serverless container execution for backend application nodes.
-- **Amazon ECR**: Secure registry hosting built production Docker images.
-- **Amazon RDS for SQL Server**: Managed database service (db.t3.small) hosted in dedicated private data subnets.
-- **Amazon S3 & CloudFront**: Secure frontend hosting via OAC and global content delivery.
-- **AWS WAF & ACM**: Enterprise-grade web application firewall protection and automated SSL/TLS certificates.
-- **Amazon Route 53**: Highly available Domain Name System (DNS) management.
-- **AWS SSM Parameter Store**: Centralized, secure configuration and secrets management.
-- **Amazon CloudWatch & EventBridge**: System logging, infrastructure metrics, and automated scheduling.
-
-### Component Design
-
-- **Web Frontend**: Built using React 19, TypeScript, and Material UI 7.x, communicating with the backend over Axios and tracking real-time events via STOMP.js over WebSockets.
-- **Application Backend**: Spring Boot 3.2.6 core utilizing Spring Security + JWT for stateless authentication, Spring Data JPA for data mapping, and Spring WebSocket for real-time messaging.
-- **Database Engine**: Microsoft SQL Server 2022 Express running locally on Docker for development, transitioning seamlessly to Amazon RDS in production.
-- **Monitoring Stack**: Micrometer OTLP engine capturing metrics and exporting them directly into a centralized Grafana Cloud dashboard alongside CloudWatch Logs.
+**Component Design**
+- **Frontend (Web Interface):** React application built with TypeScript, delivering the user interface through CloudFront.
+- **Backend (API Layer):** Spring Boot application running in Docker containers on ECS Fargate, handling business logic.
+- **Data Storage:** Amazon RDS for SQL Server serves as the primary relational database.
+- **CI/CD Pipeline:** Jenkins servers orchestrate the build, test, and deployment phases using declarative Jenkinsfiles.
+- **Security & Access:** AWS WAF inspects incoming traffic at the edge and at the ALB level to block malicious requests. 
 
 ### 4. Technical Implementation
-**Implementation Phases**
-The engineering life cycle of the MiniSocial project is divided into 5 distinct sequential deployment phases:
+**Implementation Phases** 
+This project is structured into 5 distinct phases to seamlessly build the infrastructure and automate the deployments:
 
-- Phase 1 — Foundation: Focuses on designing the MSSQL core database schema, engineering backend REST APIs (JWT Authentication, core post CRUD), assembling the React SPA layout, and wrapping the ecosystem in local Docker Compose files.
-- Phase 2 — Social Features: Enforces core social interactions, including bidirectional Friend Requests, real-time chat via WebSocket STOMP, conversation handlers, centralized user notifications, and multi-option Post Reactions.
-- Phase 3 — Gamification & Cosmetics: Introduces user engaging mechanics like VPTL points system, cosmetic shop items (animated Avatar Frames and custom Name Colors), Gacha/Lootbox mechanics, and interactive mini-games (Snake, Tic-Tac-Toe).
-- Phase 4 — Cloud Deployment & DevOps: Provisions 4 separate modular AWS CloudFormation IaC stacks, wires multi-AZ secure networking, setups ECS Fargate clusters, locks down secrets in SSM, and links automated Jenkins CI/CD pipelines.
-- Phase 5 — Monitoring & Load Testing: Integrates Micrometer OTLP with Grafana Cloud, scripts stress scenarios using K6 (Normal user journey, DDoS simulation, Feed/Like endpoint saturation), enforces JaCoCo coverage boundaries (≥70%), and executes Selenium E2E suites.
+1. **Phase 1 – Foundation:** Provision networking resources (VPC, subnets, NAT Gateway) and Amazon RDS using AWS CloudFormation.
+2. **Phase 2 – CI/CD Setup:** Configure the Jenkins server, credentials, pipelines, and deployment environment.
+3. **Phase 3 – Backend Deployment & WAF:** Build Docker images, push to Amazon ECR, deploy Spring Boot to Amazon ECS Fargate, and secure the ALB with AWS WAF.
+4. **Phase 4 – Frontend Deployment & WAF:** Deploy the React application to Amazon S3, distribute via CloudFront, and configure AWS WAF.
+5. **Phase 5 – Monitoring & Optimization:** Collect logs and metrics using CloudWatch and Grafana Cloud, and load test the system.
 
 **Technical Requirements**
-
-- Production URL: Hosted live at `https://minisocial-network.id.vn` with backend APIs pointing to `api.minisocial-network.id.vn`.
-- CI/CD Automation: Powered by local Windows machine instances running Jenkins, executing multi-stage pipelines bound by dedicated Jenkinsfiles to automatically trigger on GitHub SCM polling.
-- Testing Suite: Compulsory test boundaries enforcing a minimum of 70% backend code coverage through JaCoCo automated test phases.
+- **Infrastructure:** AWS account with administrative access to provision VPC, RDS, ECS, S3, CloudFront, WAF, and Route 53.
+- **DevOps Tools:** Local or cloud-hosted Jenkins server equipped with Docker, AWS CLI, Node.js, and Java environments.
+- **Automation:** Practical knowledge of AWS CloudFormation for IaC and Jenkins Pipeline scripts (Jenkinsfile) for continuous delivery.
 
 ### 5. Timeline & Milestones
 **Project Timeline**
-The roadmap spans an estimated duration of 1 to 12 weeks from initial architectural drafting to production operation live status:
+The project spans a total of 12 weeks, moving from local development to a fully automated cloud production release:
 
-- Weeks 1-3 (Phase 1): MVP Completion — Core Authentication, REST API endpoints, and functional Docker local environments.
-- Weeks 4-6 (Phase 2): Social Integration — Live WebSocket chat infrastructure, notification engines, and friend networks active.
-- Weeks 7-8 (Phase 3): Gamification Launch — Operational rewards shop, Gacha algorithms, and canvas mini-games.
-- Weeks 9-10 (Phase 4): AWS Infrastructure Go-Live — Automated IaC deployment, active WAF filtering, Route 53 DNS mapping, and running Jenkins pipelines.
-- Weeks 11-12 (Phase 5): Quality Assurance & Launch — Comprehensive Grafana monitoring stack setup, K6 load testing reports complete, and JaCoCo coverage benchmarks fulfilled.
+- **Weeks 1-2:** Requirement analysis, system architecture design, and local Docker environment setup.
+- **10 weeks of active implementation:**
+  - **Weeks 3-5 (Development):** Build the core features (Authentication, Posts, Chat, Gamification) using Spring Boot and React.
+  - **Weeks 6-8 (Infrastructure & CI/CD):** Provision AWS foundation resources via CloudFormation and establish Jenkins automation.
+  - **Weeks 9-10 (Deployment):** Deploy the containerized backend to ECS Fargate and the frontend to S3/CloudFront.
+  - **Weeks 11-12 (Security & Launch):** Enforce AWS WAF rules, map Route 53 domains, integrate CloudWatch/Grafana, execute load tests, and go live.
+- **Post-Launch:** Continuous infrastructure cost optimization and system monitoring.
 
 ### 6. Budget Estimation
-The global cloud infrastructure budget estimation is heavily tailored using strict automation workflows to cut unnecessary resource drains.
-
-### Infrastructure Costs
-Monthly runtime costs on AWS are structured as follows:
-
-- Amazon ECS Fargate (2 tasks, 0.5 vCPU / 1GB RAM, 15h/day): ~$15.00 – $20.00/month
-- ECS Fargate Spot (1 auxiliary task with ~70% cost reduction): ~$3.00 – $5.00/month
-- Amazon RDS for SQL Server (db.t3.small, 20GB gp2, 15h/day): ~$10.00 – $15.00/month
-- AWS NAT Gateway (1 Instance + data transfer optimizations): ~$5.00 – $8.00/month
-- Application Load Balancer (ALB Internet-facing handler): ~$5.00/month
-- AWS WAF (Web ACL filtering active): ~$5.00/month
-- Amazon S3 & CloudFront (Frontend hosting and media storage): ~$1.00 – $2.00/month
-- Amazon CloudWatch & ECR (Log aggregation and image retention): ~$1.00 – $2.00/month
-- Amazon Route 53, ACM, SSM, EventBridge Scheduler: ~$0.50/month (Free Tier adjustments applied)
-Total Infrastructure Budget: ~$45.00 – $60.00 / month
-
-External Cost Breakdown: Domain purchase (`.id.vn`) at ~$5.00 – $10.00/year; Jenkins Server, Grafana Cloud, and GitHub accounts remain completely within $0 Free Tiers.
+**Infrastructure Costs**
+AWS Services (Estimated Monthly):
+- **Amazon ECS Fargate:** ~$15.00 – $20.00/month (15h/day operation).
+- **ECS Fargate Spot:** ~$3.00 – $5.00/month (Cost reduction auxiliary tasks).
+- **Amazon RDS (db.t3.small):** ~$10.00 – $15.00/month (15h/day operation).
+- **AWS NAT Gateway:** ~$5.00 – $8.00/month (Optimized via S3 Endpoint).
+- **Application Load Balancer & AWS WAF:** ~$10.00/month.
+- **Amazon S3, CloudFront, CloudWatch:** ~$2.00 – $4.00/month.
+- **Total Estimated:** ~$45.00 – $60.00 / month.
 
 ### 7. Risk Assessment
+**Risk Matrix**
+- **Fargate Spot Reclamation:** Medium impact, medium probability.
+- **Budget Overruns:** High impact, low probability.
+- **Database Failure:** High impact, low probability.
 
-#### Risk Matrix
+**Mitigation Strategies**
+- **Fargate Spot:** Maintain a minimum On-Demand base task (Base=1) that guarantees the primary node never drops.
+- **Budget:** Use AWS EventBridge Scheduler to strictly shut down compute environments at night (10:00 PM to 7:00 AM).
+- **Database:** Configure automated rolling backups and StorageEncrypted flags for RDS.
 
-- R1: Fargate Spot Instance Reclamation (Medium Probability, Low Impact) — Spot compute capacity may be claimed by AWS at any moment, creating potential transient instability.
-- R2: Infrastructure Budget Overruns / Bill Shock (Low Probability, High Impact) — Public exposure or unoptimized code tracking could scale cloud invoices unexpectedly.
-- R3: Single-AZ Database Outage (Low Probability, High Impact) — RDS SQL Server Express limits architecture to a single AZ, exposing the system to a localized cloud failure zone.
-- R4: Local Jenkins CI/CD Server Failure (Medium Probability, Medium Impact) — On-premise deployment server crashes or configuration losses could break deployment capability.
-- R5: Security & Credentials Leak (Low Probability, High Impact) — Public leaking of application keys or database passwords might lead to malicious infrastructure takeovers.
-
-#### Mitigation Strategies
-
-- R1 (Spot Capacity): Wired an On-Demand base task constraint (Base=1) that guarantees one primary application task never gets reclaimed. ALB automatically paths user requests to active nodes.
-- R2 (Budget Overruns): Enforced automated EventBridge schedules to put compute and storage nodes to sleep daily during off-peak windows, completely cutting costs by ~37.5%.
-- R3 (Database Protection): Configured automated 7-day rolling backups, strictly enabled StorageEncrypted flags, and attached a Snapshot DeletionPolicy to guard the database instance state.
-- R5 (Secrets Management): Stripped all plaintext passwords from codebases, routing all configurations through AWS SSM Parameter Store wrapped inside isolated private application subnets.
-
-#### Contingency Plans
-
-- If Fargate Spot tasks drop unexpectedly, the primary On-Demand service node automatically scales up compute resources.
-- If cloud costs cross historical averages, automated alarms will freeze non-essential staging nodes.
-- If the local Jenkins server suffers catastrophic system failure, configurations can be redeployed via backed up Jenkinsfile definitions directly into GitHub Actions alternatives.
+**Contingency Plans**
+- If cloud costs unexpectedly spike, trigger automated alarms to freeze non-essential staging nodes.
+- If Jenkins CI/CD fails, pipelines can be quickly migrated to GitHub Actions using the existing modular scripts.
 
 ### 8. Expected Outcomes
+**Technical Improvements:**
+- Fully automated CI/CD pipelines replace manual deployment processes.
+- Enterprise-grade security via AWS WAF and private subnet isolation.
 
-#### Technical Improvements
-Transitioning from standard local hosting to an enterprise-grade cloud pipeline brings substantial architecture improvements:
-
-- Fully automated, zero-touch deployment pipelines replacing manual FTP/SSH terminal tasks.
-- Real-time performance tracking via Grafana Cloud replacing blind production logging.
-- Advanced infrastructure security baseline (WAF, SSL, Private Subnet isolation) blocking standard cross-site and injection vulnerabilities.
-
-#### Long-term Value
-The primary asset generated is a highly customizable and repeatable DevOps blueprint. The 4 CloudFormation infrastructure stacks can be cloned and parameter-switched to stand up identical scalable networks for external applications within minutes. Additionally, the multi-stage frontend and backend Jenkins files establish robust deployment templates applicable across various software engineering projects.
+**Long-term Value:**
+- A highly reusable, modular CloudFormation blueprint for future enterprise applications.
+- A robust training environment for engineers transitioning to AWS Cloud-Native architectures.

@@ -1,14 +1,18 @@
 ---
-title: "Các bài blogs đã dịch"
-date: 2026-04-20
+title: "Các bài blogs đã đăng"
+date: 2024-01-01
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-###  [Blog 1 - Đồ án Mạng xã hội nội bộ "Mini Social Network" – Ứng dụng mô hình 3-Tier Architecture trên nền tảng AWS](3.1-Blog1/)
-Blog này chia sẻ về quá trình thiết kế và triển khai đồ án mạng xã hội nội bộ mang tên "Mini Social Network" trên nền tảng AWS Cloud. Dự án này được xây dựng vững chắc dựa trên chuẩn mô hình Kiến trúc 3 lớp (3-Tier Architecture) nhằm đảm bảo tính cô lập và bảo mật dữ liệu ở mức tối đa. Kiến trúc hệ thống được phân tách minh bạch thành hai luồng chính: Data Plane chịu trách nhiệm xử lý luồng truy cập của người dùng và Control Plane đảm nhận công tác vận hành, tự động hóa CI/CD cùng hệ thống giám sát ngầm. Bài blog này sẽ phân tích chi tiết cơ chế vận hành của hệ thống, đồng thời mở ra không gian thảo luận về các giải pháp nâng cấp hạ tầng quan trọng (Phase 2) như tích hợp CloudFront, sử dụng VPC Endpoints và dịch chuyển CI/CD lên Cloud-Native.
-###  [Blog 2 - Nhật Ký Đưa Ứng Dụng Lên Cloud – Từ Bài Học $35 Đến Kiến Trúc Tối Ưu Chi Phí](3.2-Blog2/)
-Blog này là phần tiếp theo của loạt bài viết về dự án "Mini Social Network", nơi nhóm phát triển chia sẻ hành trình thực chiến đưa ứng dụng lên môi trường AWS. Bài viết này là quyển nhật ký đúc kết những sai lầm từ tư duy gom chung mọi thứ vào một máy chủ ảo (VPS) ban đầu, cho đến bước ngoặt chuyển đổi tối ưu hóa kiến trúc Cloud Native. Các bạn sẽ được tìm hiểu chi tiết cách từng bộ phận giải quyết bài toán chuyên môn: từ việc hạ tầng cắt giảm chi phí NAT Gateway (từ $35/tháng xuống $0), Frontend xử lý lỗi định tuyến SPA kết hợp CloudFront, đến tích hợp giám sát chủ động và thiết lập DevSecOps ngay từ khâu thiết kế. Qua đó, bài blog mang đến góc nhìn thực tế về việc cân bằng giữa hiệu năng, khả năng tự động hóa và tối ưu chi phí trên Cloud.
-###  [Blog 3 - ...](3.3-Blog3/)
-Blog này giới thiệu cách bắt đầu xây dựng data lake trong lĩnh vực y tế bằng cách áp dụng kiến trúc microservices. Bạn sẽ tìm hiểu vì sao data lake quan trọng trong việc lưu trữ và phân tích dữ liệu y tế đa dạng (hồ sơ bệnh án điện tử, dữ liệu xét nghiệm, thiết bị IoT y tế…), cách microservices giúp hệ thống linh hoạt, dễ mở rộng và dễ bảo trì hơn. Bài viết cũng hướng dẫn các bước khởi tạo môi trường, tổ chức pipeline xử lý dữ liệu, và đảm bảo tuân thủ các tiêu chuẩn bảo mật & quyền riêng tư như HIPAA.
+Mục này liệt kê và giới thiệu các bài viết kỹ thuật (blog) do nhóm biên soạn và đăng tải công khai trên cộng đồng [AWS Study Group VN](https://www.facebook.com/groups/awsstudygroupfcj). Những bài viết này tổng hợp các trải nghiệm thực chiến, các buổi thảo luận kiến trúc và những cập nhật công nghệ điện toán đám mây mới nhất thu được trong suốt quá trình triển khai đồ án.
+
+### [Blog 1: Thảo luận Kiến trúc Đồ án Mini Social Network](3.1-Blog1/)
+Bài viết này trình bày chi tiết thiết kế kiến trúc của đồ án "Mini Social Network" áp dụng mô hình 3-Tier Architecture tiêu chuẩn trên AWS. Hệ thống được phân tách một cách logic thành Phân hệ dữ liệu (Data Plane - Luồng truy cập & Xử lý dữ liệu) và Phân hệ quản trị (Control Plane - Luồng vận hành & CI/CD), làm nổi bật giải pháp cô lập hạ tầng và bảo mật của nhóm. Bài viết cũng bao gồm phần Hỏi & Đáp (Q&A) giá trị dựa trên các phản hồi thực tế từ các kỹ sư chuyên gia trong cộng đồng AWS.
+
+### [Blog 2: Nhật Ký Đưa Ứng Dụng Lên Cloud – Từ Bài Học $35 Đến Kiến Trúc Tối Ưu Chi Phí](3.2-Blog2/)
+Bài viết chia sẻ hành trình thực tế khi dịch chuyển một ứng dụng monolithic từ máy chủ VPS truyền thống lên kiến trúc Cloud-Native mạnh mẽ trên AWS. Nội dung tập trung vào cách nhóm đối mặt và vượt qua các thách thức kinh điển như chi phí NAT Gateway phát sinh ngoài dự kiến, lỗi định tuyến của ứng dụng SPA trên S3 và nút thắt cổ chai về hiệu năng của mã nguồn. Blog cũng thể hiện cách nhóm phân rã công việc theo từng vai trò chuyên môn (Ops, UI/UX, Observability, DevSecOps) để tối ưu hạ tầng.
+
+### [Blog 3: Amazon ECS ra mắt High-Resolution Metrics giúp tăng tốc Service Auto Scaling gấp 4 lần](3.3-Blog3/)
+Dựa trên những cập nhật công nghệ mới nhất từ AWS, bài viết phân tích chuyên sâu về tính năng chỉ số độ phân giải cao (chu kỳ 20 giây) mới được ra mắt cho Amazon ECS. Bài viết giải thích cơ chế cốt lõi giúp bước tiến đột phá này giảm độ trễ mở rộng hệ thống (scale-out delay) lên tới 76% (từ 363 giây xuống còn 86 giây), cho phép các hệ thống Cloud phản ứng tức thì trước các đợt spike traffic, đồng thời cắt giảm việc lãng phí tài nguyên dự phòng (capacity padding) và chi phí tính toán (compute costs).
