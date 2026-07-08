@@ -13,7 +13,7 @@ chapter: false
 
 &emsp; **Email:** phungductin280504@gmail.com
 
-&emsp; **Trường:** Đại học Công nghệ TP.HCM
+&emsp; **Trường:** Đại học Công nghệ TP.Hồ Chí Minh - HUTECH 
 
 &emsp; **Ngành:** Công nghệ thông tin
 

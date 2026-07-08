@@ -15,7 +15,7 @@ chapter: false
 
 &emsp; **Email:** phungductin280504@gmail.com
 
-&emsp; **University:** Ho Chi Minh City University of Technology
+&emsp; **University:** Ho Chi Minh City University of Technology - HUTECH
 
 &emsp; **Major:** Information Technology
 
