@@ -1,10 +1,15 @@
 ---
-title: "Event AWS First Cloud AI Journey Community Day - June 2026"
+title: "Event 1"
 date: 2026-05-23
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
+# Bài Thu Hoạch "First Cloud AI Journey Community Day - May 2026"
+
+<h4 align="center"><em></em></h4>
+
+![Poster](Evt_1.png)
 
 ### Mục Đích Của Sự Kiện
 
@@ -15,44 +20,44 @@ pre: " <b> 4.1. </b> "
 
 ### Danh Sách Diễn Giả
 
-- **Tịnh Trương** - Platform Engineer, GoTymeX
-- **Anh Phạm** – Cloud Consultant, G-AsiaPacific Vietnam
-- **Thịnh Nguyễn** - Devops Engineer, FCAJ
-- **Thảo Nguyễn** - GenAI Engineer, VIB
-- **Mai Nguyễn** - GenAI Engineer, VIB
-- **Uyển Lê** - GenAI Engineer, VIB
-- **Đức Đào** - Solutions Architect, Cloud Kinetics
-- **Vy Lâm** - Senior Business Systems Analyst, VPBank
+- **Tinh Truong** - Platform Engineer, GoTymeX
+- **Anh Pham** – Cloud Consultant, G-AsiaPacific Vietnam
+- **Thinh Nguyen** - Devops Engineer, FCAJ
+- **Thao Nguyen** - GenAI Engineer, VIB
+- **Mai Nguyen** - GenAI Engineer, VIB
+- **Uyen Le** - GenAI Engineer, VIB
+- **Duc Dao** - Solutions Architect, Cloud Kinetics
+- **Vy Lam** - Senior Business Systems Analyst, VPBank
 
 ### Nội Dung Nổi Bật
 
-#### Tầm quan trọng của Ngữ cảnh (Context) khi giao tiếp với AI (Trình bày: Tịnh Trương)
+#### Tầm quan trọng của Ngữ cảnh (Context) khi giao tiếp với AI (Trình bày: Tinh Truong)
 
 - **Tránh bẫy "Internet Puller":** Không nên thấy công cụ (tool) hay code nào trên mạng cũng tự động "kéo" về dùng mà không rà soát lại xem nó có phù hợp với kiến trúc hệ thống của dự án/công ty mình hay không.
 - **Tối ưu Context:** Tránh chat lan man nhiều chủ đề trong cùng một luồng khiến AI bị "loãng". Hãy cung cấp rõ vai trò, mục tiêu và ngữ cảnh cụ thể để AI làm việc hiệu quả nhất.
 - **AI Mindset:** Khuyến khích tư duy ứng dụng AI vào thực tế để giải quyết các bài toán cụ thể thay vì chỉ lạm dụng prompt một cách không có định hướng.
 
-#### Trợ lý ảo Amazon Q - Giải pháp tự động hóa phân tích dữ liệu kinh doanh (BI) (Trình bày: Anh Phạm)
+#### Trợ lý ảo Amazon Q - Giải pháp tự động hóa phân tích dữ liệu kinh doanh (BI) (Trình bày: Anh Pham)
 
 - **Giải quyết bài toán BI truyền thống:** Đơn giản hóa quá trình lập báo cáo và phân tích dữ liệu kinh doanh phức tạp nhờ trợ lý ảo AI từ AWS.
 - **Tự động hóa hoàn toàn:** Từ một file dữ liệu Excel thô, người dùng có thể giao tiếp trực tiếp để yêu cầu Amazon Q phân tích và tự động vẽ ra các Dashboard (bảng điều khiển) trực quan trong vài giây, giúp tối ưu hóa quá trình ra quyết định mà không cần đội ngũ BI chuyên sâu.
 
-#### Tối ưu chi phí & Bảo mật với Flat-rate pricing của Amazon CloudFront (Trình bày: Thịnh Nguyễn)
+#### Tối ưu chi phí & Bảo mật với Flat-rate pricing của Amazon CloudFront (Trình bày: Thinh Nguyen)
 
 - **Cơ chế Flat-rate pricing:** Giải quyết nỗi lo "Shock Bill" bằng cách cố định hóa chi phí CDN hàng tháng. Doanh nghiệp không còn lo phát sinh chi phí hàng chục ngàn đô la khi website bị tấn công DDoS hay lượt truy cập tăng vọt.
 - **Bảo mật hạ tầng chuyên sâu:** Cung cấp các tính năng bảo mật nâng cao như VPC Origin (ẩn máy chủ khỏi public internet, chỉ cho phép CloudFront truy cập), mTLS (xác thực hai chiều) và giới hạn quyền truy cập theo từng khu vực địa lý.
 
-#### Hành trình 36 giờ Hackathon xây dựng công cụ UTM Morpo (Trình bày: Nhóm Uyển & Thảo & Mai)
+#### Hành trình 36 giờ Hackathon xây dựng công cụ UTM Morpo (Trình bày: Nhóm Uyen & Thao & Mai)
 
 - **Dự án UTM Morpo:** Ứng dụng AI để sinh giao diện người dùng (UI/UX). Điểm nổi bật là tính năng cho phép lập trình viên tương tác trực tiếp (kéo thả, chỉnh sửa component, CSS) ngay trên bản vẽ do AI tạo ra để tiết kiệm thời gian tái tạo (re-render). 
 - **Bài học thực chiến:** Đối diện với các rào cản thực tế như cạn kiệt "token" giữa chừng và hiện tượng AI "over generation" (sinh code dư thừa/nghĩ quá xa). Qua đó, nhóm rút ra kinh nghiệm quý báu về việc cắt tỉa tính năng và tập trung toàn lực vào trải nghiệm cốt lõi khi nguồn lực có hạn.
 
-#### Bản chất xác suất của LLM và cách tinh chỉnh tham số (Trình bày: Đức Đào)
+#### Bản chất xác suất của LLM và cách tinh chỉnh tham số (Trình bày: Duc Dao)
 
 - **Vấn đề định tính của LLM:** LLM bản chất là các mô hình xác suất (probabilistic). Dù thiết lập temperature = 0 (Greedy decoding), kết quả đôi khi vẫn có sự sai lệch giữa các lần chạy do quá trình làm tròn thập phân của GPU và tối ưu hóa suy luận (inference optimization) từ phía nhà cung cấp API.
 - **Chiến lược kiểm soát "Ảo giác":** Hướng dẫn cách cấu hình các thông số (Top-p, Temperature, JSON Mode) để đưa LLM vào các workflow (luồng công việc) đòi hỏi tính ổn định, đồng thời nhấn mạnh tầm quan trọng của việc kiểm thử (Testing) diện rộng trước khi đưa mô hình lên môi trường Production.
 
-#### Xây dựng Enterprise-grade Multi-Agent System để đánh giá tín dụng Startup (Trình bày: Vy Lâm)
+#### Xây dựng Enterprise-grade Multi-Agent System để đánh giá tín dụng Startup (Trình bày: Vy Lam)
 
 - **Kiến trúc Multi-Agent:** Thay vì "nhồi nhét" mọi tác vụ vào một con bot duy nhất, hệ thống được thiết kế chia nhỏ cho nhiều Agent chuyên biệt (Phân tích tài chính, Đánh giá rủi ro, Nghiên cứu thị trường...) hoạt động dưới sự điều phối của một Orchestrator. Điều này giúp tránh quá tải Context Window và nâng cao độ chính xác của output.
 - **Bảo mật & Tuân thủ (Security & Compliance):** Đưa AI vào doanh nghiệp/ngân hàng không chỉ là câu chuyện kỹ thuật. Hệ thống AI phải tuân thủ nghiêm ngặt các lớp rào chắn (Guardrails), phòng chống tấn công qua MCP (MCP Attack Vectors) và luôn phải lưu vết (Audit Trail) để đảm bảo trách nhiệm giải trình trong mọi quyết định.

@@ -1,11 +1,16 @@
 ---
-title: "Event AWS First Cloud AI Journey Community Day - June 2026"
+title: "Event 3"
 date: 2026-06-27
 weight: 3
 chapter: false
 pre: " <b> 4.3. </b> "
 ---
 
+# Bài Thu Hoạch "First Cloud AI Journey Community Day - June 2026"
+
+<h4 align="center"><em></em></h4>
+
+![Poster](Evt_3.png)
 
 ### Mục Đích Của Sự Kiện
 
@@ -16,42 +21,42 @@ pre: " <b> 4.3. </b> "
 
 ### Danh Sách Diễn Giả
 
-- **Steve Trần** - CTO/Founder, CloudThinker
-- **Trung Vũ** – CEO, Revve AI
-- **Nghị Danh** - AI Engineer, Renova Cloud
-- **Kiệt Trần** - AI Engineer, AWS Student Builder Group
-- **Nguyên Nguyễn** - Cloud Engineer, Cloud Kinetics
-- **Bảo Phan** - Cloud Engineer, Cloud Kinetics
-- **Trường Trần** - AI Solution Sales, Noventiq
-- **Anh Đặng** - Solution Sales, Noventiq
-- **Toàn Nguyễn** - AWS Security Builder
+- **Steve Tran** - CTO/Founder, CloudThinker
+- **Trung Vu** – CEO, Revve AI
+- **Nghi Danh** - AI Engineer, Renova Cloud
+- **Kiet Tran** - AI Engineer, AWS Student Builder Group
+- **Nguyen Nguyen** - Cloud Engineer, Cloud Kinetics
+- **Bao Phan** - Cloud Engineer, Cloud Kinetics
+- **Truong Tran** - AI Solution Sales, Noventiq
+- **Anh Dang** - Solution Sales, Noventiq
+- **Toan Nguyen** - AWS Security Builder
 
 ### Nội Dung Nổi Bật
 
-#### Định hướng nghề nghiệp & Ứng dụng Agentic Platform trong hạ tầng Cloud (Trình bày: Steve Trần)
+#### Định hướng nghề nghiệp & Ứng dụng Agentic Platform trong hạ tầng Cloud (Trình bày: Steve Tran)
 
 - **Tư duy AI (AI Mindset) trong lộ trình sự nghiệp:** Thị trường đang dịch chuyển từ việc tuyển dụng số lượng lớn sang ưu tiên các kỹ sư Senior biết ứng dụng AI. Để không bị đào thải, các kỹ sư cần sớm cọ xát với bài toán doanh nghiệp thực tế.
 - **Giải quyết nợ công nghệ (Technical Debt):** Giới thiệu nền tảng Agentic AI chuyên dụng để hỗ trợ vận hành Cloud Infrastructure, giúp tự động hóa việc xử lý sự cố, tối ưu chi phí (FinOps) và kiểm thử bảo mật.
 - **Multi-Agent vs Single-Agent:** Dù Single-Agent có thể làm được hầu hết tác vụ, nhưng kiến trúc Multi-Agent lại ưu việt hơn nhờ khả năng giới hạn Context Window, tiết kiệm chi phí và đặc biệt hiệu quả trong việc phân quyền theo chức năng (RBAC) cho hệ thống lớn.
 
-#### Xây dựng Voice AI Assistant tối ưu cho tiếng Việt (Trình bày: Trung Vũ & Kiệt Trần & Nghị Danh)
+#### Xây dựng Voice AI Assistant tối ưu cho tiếng Việt (Trình bày: Trung Vu & Kiet Tran & Nghi Danh)
 
 - **Thách thức ngôn ngữ:** Tiếng Việt là một ngôn ngữ "low resource" đối với các model Speech-to-Speech lớn. Giải pháp thực tiễn là sử dụng luồng: Speech-to-Text -> LLM xử lý ngữ cảnh -> Text-to-Speech.
 - **Tinh chỉnh cho doanh nghiệp (Enterprise Customization):** Hệ thống AI được tinh chỉnh để biết cách ngắt lời lịch sự, nhận diện giới tính (để xưng hô Anh/Chị), và thực hiện các tác vụ tự động (Tool Calling). Đặc biệt, hệ thống có khả năng chuyển giao mượt mà cho nhân viên tư vấn thật (Human Handoff) khi phát hiện khách hàng không hài lòng.
 
-#### Tự động hóa điều tra sự cố với AWS DevOps Agent (Trình bày: Nguyên Nguyễn & Bảo Phan)
+#### Tự động hóa điều tra sự cố với AWS DevOps Agent (Trình bày: Nguyen Nguyen & Bao Phan)
 
 - **Giải quyết sự phân mảnh dữ liệu:** Khi có lỗi, DevOps thường mất nhiều thời gian tra cứu log/trace rải rác. AWS DevOps Agent giúp tự động tổng hợp thông tin, xây dựng Topology của hệ thống để khoanh vùng sự cố.
 - **Quy trình 4 bước tự động:** Bao gồm Phân loại -> Điều tra nguyên nhân gốc (Root Cause) -> Đề xuất hướng giải quyết -> Đề xuất cải thiện kiến trúc.
 - **Con người làm chủ:** AI đóng vai trò điều tra và xuất kịch bản sửa lỗi (script), nhưng quyền phê duyệt và thực thi (Execute) hoàn toàn thuộc về con người để đảm bảo tính an toàn.
 
-#### Ứng dụng Amazon Q chuyển đổi số quy trình Nhân sự (HR) (Trình bày: Trường Trần & Anh Đặng)
+#### Ứng dụng Amazon Q chuyển đổi số quy trình Nhân sự (HR) (Trình bày: Truong Tran & Anh Dang)
 
 - **Giải quyết nỗi đau của HR:** Các phương pháp sàng lọc CV thủ công mất nhiều thời gian, dễ rập khuôn theo cảm tính, và có nguy cơ rò rỉ dữ liệu nội bộ nếu HR dùng các AI public.
 - **Sức mạnh tự động hóa của Amazon Q:** Có thể được huấn luyện (Skills) để tự động đối chiếu CV ứng viên với Job Description, chấm điểm chi tiết từng kỹ năng và xuất báo cáo tổng quan.
 - **Kết nối linh hoạt:** Dễ dàng đọc dữ liệu trực tiếp từ hệ sinh thái có sẵn của doanh nghiệp như Microsoft SharePoint, OneDrive hay Google Workspace mà không cần di chuyển dữ liệu.
 
-#### Bảo mật kết nối giữa Amazon Q và MCP Server nội bộ (Trình bày: Toàn Nguyễn & Nghị Danh)
+#### Bảo mật kết nối giữa Amazon Q và MCP Server nội bộ (Trình bày: Toan Nguyen & Nghi Danh)
 
 - **Rủi ro Public Endpoint:** Đưa dữ liệu doanh nghiệp từ các MCP Server (như JIRA, Internal Database) ra internet công cộng để AI truy cập là lỗ hổng bảo mật cực kỳ nguy hiểm.
 - **Giải pháp bảo mật mạng riêng (Private Connection):** Kiến trúc kết nối an toàn sử dụng VPC Connection kết hợp với Application Load Balancer (ALB) và mã hóa TLS. Giải pháp này đảm bảo luồng giao tiếp của Amazon Q và hệ thống nội bộ hoàn toàn nằm trong môi trường bảo mật của AWS, tuân thủ nghiêm ngặt các quy định về Compliance.

@@ -1,12 +1,16 @@
 ---
-title: "Event Cloud Architect"
+title: "Event 2"
 date: 2026-06-20
 weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
+# Bài Thu Hoạch "Cloud Architect"
 
+<h4 align="center"><em></em></h4>
+
+![Poster](Evt_2.png)
 
 ### Mục Đích Của Sự Kiện
 

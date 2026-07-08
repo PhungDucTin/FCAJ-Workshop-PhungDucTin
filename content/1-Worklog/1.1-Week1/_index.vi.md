@@ -26,13 +26,13 @@ pre: " <b> 1.1. </b> "
 
 ### Kết quả đạt được tuần 1:
 
-* Thiết lập tài khoản an toàn với MFA; áp dụng triệt để nguyên tắc đặc quyền tối thiểu (Least Privilege) cho nhóm Admins và IAM User. Thực hiện thành công quy trình mở Support Case.
+* Thành công thiết lập tài khoản an toàn với MFA; áp dụng triệt để nguyên tắc đặc quyền tối thiểu (Least Privilege) cho nhóm Admins và IAM User. Thực hiện thành công quy trình mở Support Case.
 
 * Cấu hình thành công AWS Budgets làm hệ thống cảnh báo sớm: đặt trần chi phí, bật cảnh báo tức thời từ mức $0.01 và theo dõi thời gian hoạt động của EC2 để phòng ngừa việc chạy máy chủ trái phép.
 
 * Nắm được 6 trụ cột của AWS Well-Architected Framework và 4 cấp độ Support.
 
-* Thực hiện kiểm thử thủ công trên ứng dụng được public qua Ngrok. Đã mô phỏng tấn công, phát hiện và ghi log thành công các lỗ hổng nghiêm trọng bao gồm SQL Injection, Path Traversal và XSS attack vào file `security_audit.log`.
+* Hoàn thành kiểm thử thủ công trên ứng dụng được public qua Ngrok. Đã mô phỏng tấn công, phát hiện và ghi log thành công các lỗ hổng nghiêm trọng bao gồm SQL Injection, Path Traversal và XSS attack vào file `security_audit.log`.
  ### Minh chứng thực hiện tuần 1: 
 
  #### 1. Thực hiện quét Ngrok với Nmap và Nikto 

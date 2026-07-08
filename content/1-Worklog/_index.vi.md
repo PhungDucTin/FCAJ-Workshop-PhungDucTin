@@ -34,4 +34,4 @@ Các cột mốc chính trong hành trình này:
 
 * **Tuần 12:** [Hoàn thiện báo cáo Hugo và kiểm tra chéo thông tin](1.11-week11/)
 
-Tổng kết lại, hành trình 12 tuần không chỉ làm sâu sắc thêm nền tảng kiến thức AWS, mà còn giúp tôi hoàn thiện tư duy kiến trúc bảo mật (Security Architecture) và năng lực vận hành hệ thống trong môi trường thực chiến.
+> Tổng kết lại, hành trình 12 tuần không chỉ làm sâu sắc thêm nền tảng kiến thức AWS, mà còn giúp tôi hoàn thiện tư duy kiến trúc bảo mật (Security Architecture) và năng lực vận hành hệ thống trong môi trường thực chiến.

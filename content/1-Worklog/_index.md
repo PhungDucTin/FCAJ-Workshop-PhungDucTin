@@ -30,6 +30,8 @@ Key milestones of this journey:
 
 * **Week 10:** [Scanning SAST/DAST, deploying WAF/Parameter Store, and generating vulnerability reports](1.10-week10/)
 
-* **Week 11:** [Fine-tuning WAF Rules, handling false positives, simulating DDoS attacks with K6, and finalizing project handover](1.11-week11/)
+* **Week 11:** [Fine-tuning WAF rules, handling false positives, simulating DDoS attacks with K6, and finalizing project handover](1.11-week11/)
 
-In summary, the 12-week journey not only deepened my foundation of AWS knowledge but also helped me refine my Security Architecture mindset and system operation capabilities in a real-world environment.
+* **Week 12:** [Completing the Hugo Server and cross-checking internship content](1.12-week12/)
+
+In summary, the 12-week journey not only deepened my foundation of AWS knowledge but also helped me refine my security architecture mindset and system operation capabilities in a real-world environment.

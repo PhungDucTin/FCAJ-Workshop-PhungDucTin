@@ -27,7 +27,7 @@ pre: " <b> 1.3. </b> "
 
 * Khởi tạo khiên bảo vệ: Thiết lập thành công tường lửa ứng dụng web (Web ACL) bảo vệ trực tiếp API Gateway.
 
-* Kiểm chứng thực tế (Red/Blue Team): Sử dụng Postman bắn tải trọng (Payload) chứa mã độc SQL Injection và XSS. Kết quả: WAF đánh chặn lập tức mọi nỗ lực xâm nhập và trả về mã lỗi 403 Forbidden ngay tại biên mạng. Đã lưu trữ hình ảnh minh chứng (PoC) thành công.
+* Hoàn thành kiểm chứng thực tế (Red/Blue Team): Sử dụng Postman bắn tải trọng (Payload) chứa mã độc SQL Injection và XSS. Kết quả: WAF đánh chặn lập tức mọi nỗ lực xâm nhập và trả về mã lỗi 403 Forbidden ngay tại biên mạng. Đã lưu trữ hình ảnh minh chứng (PoC) thành công.
 
 
 ### Minh chứng thực hiện tuần 3: 

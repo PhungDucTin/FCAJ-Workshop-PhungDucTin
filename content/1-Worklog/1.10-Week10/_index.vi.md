@@ -28,7 +28,7 @@ pre: " <b> 1.10. </b> "
 
 * Quét repo mã nguồn thành công bằng SonarCloud.
 
-* Thực hiện đánh giá bảo mật động bằng OWASP ZAP hoàn tất cho cả phân vùng API Public và API cần token.
+* Hoàn thiện đánh giá bảo mật động bằng OWASP ZAP hoàn tất cho cả phân vùng API Public và API cần token.
 
 * Khởi tạo thành công tường lửa WAF và gắn trực tiếp vào các điểm endpoint ALB, CloudFront.
 

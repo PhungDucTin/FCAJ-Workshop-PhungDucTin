@@ -25,7 +25,7 @@ pre: " <b> 1.2. </b> "
 
 ### Kết quả đạt được tuần 2:
 
-* Thực hiện các bài Lab <https://cloudjourney.awsstudygroup.com/>.
+* Hoàn thành các bài lab đã thực hiện.
 
 * Hoàn thiện tìm hiểu về AWS WAF managed rules.
 

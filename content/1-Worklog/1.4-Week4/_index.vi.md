@@ -27,9 +27,9 @@ pre: " <b> 1.4. </b> "
 
 * Quản trị rủi ro trên quy mô lớn bằng **AWS Firewall Manager**, thiết lập và ép buộc các chính sách tường lửa đồng nhất trên toàn bộ các tài khoản của tổ chức.
 
-* Thiết lập biên mạng an toàn: Triển khai AWS WAF bảo vệ trực tiếp Application Load Balancer (ALB) thành công. Sử dụng hiệu quả các bộ Managed Rules để chặn đứng lỗi SQLi và XSS.
+* Hoàn thành thiết lập biên mạng an toàn: Triển khai AWS WAF bảo vệ trực tiếp Application Load Balancer (ALB) thành công. Sử dụng hiệu quả các bộ Managed Rules để chặn đứng lỗi SQLi và XSS.
 
-* Kiểm thử đánh chặn (Red Team): Đóng vai kẻ tấn công, sử dụng Postman giả lập bắn request chứa payload mã độc vào hệ thống. WAF đã nhận diện và phòng thủ thành công.
+* Hoàn thành kiểm thử đánh chặn (Red Team): Đóng vai kẻ tấn công, sử dụng Postman giả lập bắn request chứa payload mã độc vào hệ thống. WAF đã nhận diện và phòng thủ thành công.
 
 ### Minh chứng thực hiện tuần 4: 
 

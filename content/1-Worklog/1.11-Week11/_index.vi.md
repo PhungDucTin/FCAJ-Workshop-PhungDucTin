@@ -26,11 +26,11 @@ pre: " <b> 1.11. </b> "
 
 ### Kết quả đạt được tuần 11:
 
-* Tinh chỉnh Scope-Down Statement cho Rate Limiting để giảm khả năng chặn nhầm lưu lượng người dùng hợp lệ.**
+* Hoàn thiện tinh chỉnh Scope-Down Statement cho Rate Limiting để giảm khả năng chặn nhầm lưu lượng người dùng hợp lệ.**
 
-* Thực hiện kiểm tra ở chế độ "Count" cho luồng 1 và xác nhận logic giám sát hoạt động đúng với lưu lượng người dùng thường.**
+* Hoàn thiện kiểm tra ở chế độ "Count" cho luồng 1 và xác nhận logic giám sát hoạt động đúng với lưu lượng người dùng thường.**
 
-* Thực hiện kiểm tra ở chế độ "Block" cho luồng 2 bằng K6 và xác nhận lưu lượng DDoS/API bị chặn hiệu quả.**
+* Hoàn thiện kiểm tra ở chế độ "Block" cho luồng 2 bằng K6 và xác nhận lưu lượng DDoS/API bị chặn hiệu quả.**
 
 ### Minh chứng thực hiện tuần 11:
 
