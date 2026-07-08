@@ -1,78 +1,111 @@
 ---
-title: "Blog 2"
-date: 2026-04-20
+title: "Blog 2: Cloud Deployment Journey – From a $35 Lesson to a Cost-Optimized Architecture"
+date: 2024-01-02
 weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-# A Diary of Bringing an App to the Cloud – From a $35 Lesson to a Cost-Optimized Architecture
+> **Context:** This article chronicles the team's practical journey in optimizing the AWS infrastructure for the "Mini Social Network" project. From classic mistakes regarding network costs and performance bottlenecks, the team broke down tasks by specialized roles to successfully restructure the system. The article was shared and actively discussed in the **AWS Study Group VN** community.
 
 ---
 
-Greetings to the admins and members of the AWS Study Group VN community. This article summarizes our team's practical experiences during the deployment of the "Mini Social Network" project on the AWS environment.
+# The Journey to Optimize a Cloud-Native Architecture
 
-Previously, we received a question: "Why not just rent a Virtual Private Server (VPS) and deploy the entire source code there for simplicity, instead of setting up complex services on AWS?". In fact, our team had the exact same thought in the early days. However, when we officially started migrating the entire project architecture to the Cloud, we learned some very valuable practical lessons.
-
----
-
-## I. Mistakes in the Past (The "Before")
-
-In previous personal projects, our team's deployment mindset was quite simple: "Bundle everything into a single server". We usually rented a virtual machine (VPS), manually installed MySQL, ran the Spring Boot Backend directly, and deployed the React Frontend build via Nginx on the same system. Sensitive information like database passwords or JWT secret keys were stored as plaintext directly in the `.env` file. By simply pointing the domain name to the Public IP, the application was up and running.
-
-At that time, the team thought the system was complete. But in reality, this architecture harbored massive risks: there was no security isolation mechanism, and if the database crashed, the entire application would go down.
+During the development of the "Mini Social Network" internal system, our team faced a common question: *"Why not just rent a Virtual Private Server (VPS) and deploy the entire source code there for simplicity, instead of configuring complex services on AWS?"*. Initially, the team shared this exact mindset. However, upon officially migrating the entire project architecture to the Cloud, we learned some highly valuable practical lessons.
 
 ---
 
-## II. The Turning Point in our Mindset
+## I. PAST MISTAKES (THE "BEFORE")
 
-When migrating to AWS, mechanically applying the theoretical "3-Tier Architecture" revealed several limitations:
+In previous small projects or academic assignments, our deployment mindset was quite simple and followed the traditional path: *"Bundle everything into a single server."* We typically rented a single Virtual Private Server (VPS), manually configured MySQL, ran the Spring Boot Backend directly, and configured Nginx to serve the React Frontend build on the same machine.
 
-*   **Suboptimal costs:** Placing ECS Fargate in a Private Subnet forced the system to maintain a NAT Gateway to pull Docker Images. As a result, the NAT Gateway incurred a cost of ~$35/month, accounting for over 1/3 of the total project budget even though the traffic was still low.
-*   **SPA routing errors:** When deploying the Frontend to S3 Static Website Hosting, if users reloaded the page (Refresh) at sub-paths (e.g., `/profile`), the browser immediately returned a 404 error.
-*   **Performance bottlenecks:** The load testing process with K6 (simulating 500 users) showed that the 0.5 vCPU Fargate container reached the 100% CPU threshold due to overload in decoding JWT Token signatures, even though the database remained unaffected.
+More critically, sensitive information such as database passwords and JWT encryption keys were stored as plaintext directly in the `.env` configuration file.
 
-The system required clear separation and deeper specialization in each department.
+At that time, since the system ran stably after pointing the domain to the Public IP, we mistakenly believed the design was complete. In reality, this architecture harbored massive security risks: there was absolutely no security isolation between layers, and if the database layer encountered an issue, the entire application would immediately crash (Single Point of Failure).
 
 ---
 
-## III. Solutions and Core Knowledge: Optimizing the Cloud-Native Architecture
+## II. THE TURNING POINT
 
-Instead of continuing to patch minor errors, the team decided to restructure the system closely following the Cost-Optimized Architecture Diagram. Here is how each department solved their specialized problems:
+When migrating the system to AWS, mechanically applying the textbook "3-Tier Architecture" exposed several major limitations:
 
-### 1. Infrastructure Team (Cloud/Ops) – Optimizing Cost and Performance
-*   **Challenges:** Placing ECS Fargate in a Private Subnet incurred unnecessary NAT Gateway maintenance costs. Additionally, the container's CPU was overloaded when handling a large volume of JWT authentication operations.
-*   **Solutions:** Realizing the waste of resources, the Infrastructure team reconfigured ECS Fargate, moving it to Public Subnets (activating `AssignPublicIp: ENABLED`) and completely eliminating the NAT Gateway. To ensure the Zero-Trust principle, Fargate was set up with a Security Group that only accepts traffic from the Application Load Balancer (ALB). The RDS database remained isolated in the Private Subnet. For secure DB management, the team set up a t2.micro EC2 instance (Free Tier) as a Bastion Host in the Public Subnet. Combined with using Amazon EventBridge to automatically shut down the Database and scale the number of ECS containers down to 0 at 11:00 PM, then turning them back on at 7:00 AM, the networking cost was reduced to $0.
+* **Suboptimal Infrastructure Costs:** Placing the ECS Fargate compute cluster in a Private Subnet (following security best practices) forced the system to maintain a NAT Gateway so containers could reach the Internet to pull Docker Images. As a result, the NAT Gateway incurred a fixed cost of ~$35/month, consuming over 1/3 of the total project budget despite low testing traffic.
+* **SPA Routing Errors:** When deploying the Frontend on S3 Static Website Hosting, if a user refreshed the page at a sub-path (e.g., `/profile`), the browser immediately returned an `HTTP 404 Not Found` error because S3 does not natively understand client-side routing mechanisms.
+* **Performance Bottlenecks:** Load testing with K6 (simulating 500 concurrent users) pushed the Fargate container's CPU usage (0.5 vCPU instance) to 100%. The system was completely bottlenecked during the JWT signature decryption phase, while the underlying database layer remained unaffected.
 
-### 2. Frontend Team (UI/UX) – Handling Routing Errors and Integrating CloudFront
-*   **Challenges:** Hosting a Single Page Application (SPA) on Amazon S3 caused a 404 error when users reloaded sub-pages. Furthermore, the raw S3 configuration did not support HTTPS certificates and had high page load latency for users far from the storage region.
-*   **Solutions:** To fix the 404 error, the Frontend team configured the Error document to point to `index.html`, handing the navigation control back to React Router. To optimize content delivery speed and ensure transmission security standards, the system integrated the Amazon CloudFront Content Delivery Network (CDN) at the frontline. The subsequent deployment process was fully automated using a Jenkins CI/CD server (running on EC2), which automatically pulls source code from GitHub, packages it, and pushes it to S3/ECR, minimizing manual operations.
-
-### 3. Observability Team – Proactive Monitoring and Alert Management
-*   **Challenges:** System monitoring required an automated mechanism rather than manual supervision. Even though we had integrated AWS CloudWatch, Grafana, and embedded OpenTelemetry (OTLP) into Spring Boot, the biggest problem was how to detect cyberattacks without causing an alert noise issue (Email Storm).
-*   **Solutions:** The team set up Metric Filters on CloudWatch to scan application logs using the syntax `{$.type = "SECURITY"}`. The system only triggers a CloudWatch Alarm when it detects scanning behaviors for SQL Injection or XSS vulnerabilities exceeding the threshold of 1 occurrence/minute. Meanwhile, the "Alert grouping" feature on Grafana was configured to aggregate information before sending it via Amazon SNS, helping the team react quickly while preserving the 1,000 free email limit of AWS.
-
-### 4. Information Security Team (DevSecOps) – Integrating Security from the Design Phase
-*   **Challenges:** During the information security assessment phase, the OWASP ZAP tool initially returned many False Positives. The Backend source code still possessed risks due to storing the DB password and JWT Secret in the configuration file. However, migrating to Cloud environment variables caused the Fargate container to fail during initialization.
-*   **Solutions:** The team applied the "Shift-left Security" approach – introducing security elements right from the design phase. All sensitive information was removed from the source code and centrally managed in the AWS Systems Manager Parameter Store. To fix the Task crash error, the `ssm:GetParameters` permission was added to the execution IAM Role. At the network edge, the AWS WAF firewall was deployed in two layers: protecting the interface on CloudFront and protecting the API traffic on the ALB. Coordinated with the SonarCloud static code scanning tool, risks were analyzed into specific guidelines (such as applying `encodeURIComponent`) so the development team could resolve them promptly.
+From these challenges, the team realized the system required a clearly separated architecture and deeper specialization for each component.
 
 ---
 
-## IV. Conclusion and the Journey Ahead
+## III. SOLUTIONS & CORE KNOWLEDGE: CLOUD-NATIVE ARCHITECTURE OPTIMIZATION
 
-The process of migrating "Mini Social Network" to the Cloud environment helped the team solve the puzzle of balancing cost optimization, automation capabilities, and end-user experience.
+Instead of patching minor bugs, the team decided to comprehensively restructure the system in alignment with the Cloud-Native model. Here is how each specialized role addressed their specific challenges:
 
-However, the architecture in the current diagram is not yet the final version. To ensure the system achieves the highest level of security, the project is entering a rigorous evaluation phase: Code Freeze & Security Audit. The entire architecture will undergo a comprehensive security review before we officially finalize the "Final Architecture".
+### 1. Infrastructure (Cloud/Ops) – Network Cost & Performance Optimization
+* **Challenge:** The excessive cost of maintaining the NAT Gateway and container CPU overload when processing a high volume of cryptographic authentications.
+* **Solution:** The team reconfigured the ECS Fargate cluster, moving it to Public Subnets (enabling the `AssignPublicIp: ENABLED` attribute) to entirely eliminate the NAT Gateway, saving $35/month. To uphold *Zero-Trust* security principles, the Fargate cluster was secured with strict Security Groups: only accepting traffic forwarded from the Application Load Balancer (ALB).
+* Meanwhile, the Amazon RDS database remained completely isolated in the Private Subnet. For secure database administration, the team provisioned a Free Tier `t2.micro` EC2 instance as a Bastion Host in the Public Subnet. Additionally, Amazon EventBridge was used to schedule automatic shutdowns of the Database and scale ECS containers down to 0 at 23:00, then automatically restart them at 7:00 the next morning, bringing idle costs down to $0.
 
-## V. Architecture Diagrams of the "Mini Social Network" Project Before and After
+### 2. Frontend (UI/UX) – Routing Handling & CDN Integration
+* **Challenge:** 404 errors on page reloads on S3, lack of HTTPS support in native S3, and geographic delivery speed limitations.
+* **Solution:** The team configured the *Error Document* property on S3 to point back to `index.html`, handing full routing control back to the React Router library. To optimize page load speeds and apply SSL/TLS certificates, the Amazon CloudFront Content Delivery Network (CDN) was integrated at the edge layer. The entire Frontend packaging process was then automated using a Jenkins CI/CD server (running on EC2), automatically pulling source code from GitHub upon changes for rapid S3 deployment.
 
-<h4 align="center"><em>Initial implemented architecture diagram</em></h4>
+### 3. Observability – Proactive Alert Management
+* **Challenge:** The system needed an automated tracking mechanism to avoid manual monitoring, but also had to solve the "Email Storm" issue during cyberattacks.
+* **Solution:** After instrumenting the Spring Boot source code with OpenTelemetry (OTLP) to push data to AWS CloudWatch and Grafana, the team set up *Metric Filters* in CloudWatch to scan application logs for the `{$.type = "SECURITY"}` condition. The system only triggers a *CloudWatch Alarm* when vulnerability scanning behaviors (SQL Injection, XSS) exceed the threshold of 1 event/minute. The *Alert Grouping* feature in Grafana was also configured to aggregate individual alerts into a single summary notification before pushing it via Amazon SNS, enabling swift responses without exceeding AWS's 1,000 free email quota.
 
-![Initial implemented architecture diagram](anh1.png)
+### 4. Security (DevSecOps) – Secure by Design
+* **Challenge:** The OWASP ZAP tool returned numerous False Positives, the source code still contained plaintext credentials, and containers crashed when switched to using environment variables.
+* **Solution:** Applying the *Shift-left Security* approach, the team removed all sensitive information from the source code and centrally managed it in AWS Systems Manager (SSM) Parameter Store. The container crash issue was completely resolved by adding the `ssm:GetParameters` permission to the ECS Task's execution IAM Role. At the network edge, AWS WAF firewalls were deployed in parallel across two layers: protecting the static interface on CloudFront and the dynamic API traffic on the ALB. Combined with the SonarCloud static code analysis platform, security vulnerabilities were detected and fixed right from the coding phase.
 
-<h4 align="center"><em>Architecture diagram after feedback and cost optimization</em></h4>
+---
 
-![Architecture diagram after feedback and cost optimization](anh2.png)
-> Blog on AWS Study Group: Blog post link https://www.facebook.com/groups/awsstudygroupfcj/permalink/2198727654225528
-<br>
-> We look forward to receiving feedback, evaluations, and shared experiences from the experts and peers in the AWS Study Group VN!
+## IV. SUMMARY & NEXT STEPS
+
+The process of migrating the "Mini Social Network" to the cloud has given the team a profound understanding of balancing infrastructure cost optimization, operational automation, and end-user security.
+
+However, this architectural model is still being refined. To ensure the system meets the highest operational security standards, the project is entering the **Code Freeze & Security Audit** phase. The entire infrastructure configuration will undergo a comprehensive review before the team officially finalizes the architecture.
+
+---
+
+## V. SYSTEM ARCHITECTURE DIAGRAMS
+
+The system structure has significantly shifted after applying practical solutions to optimize costs and enhance security:
+
+#### 1. Initial Deployment Architecture
+![Initial Deployment Architecture](/images/3-BlogsPosted/Architecture_Diagram_V1.png)
+
+#### 2. Cost-Optimized & Hardened Architecture
+![Cost-Optimized Architecture](/images/3-BlogsPosted/MiniSocial-Architect_Cost.png)
+
+---
+
+### VI. RESULTS & LESSONS LEARNED FROM COMMUNITY FEEDBACK
+
+After sharing the post, it sparked lively discussions and multifaceted feedback from system engineers in the AWS Study Group VN community. These practical contributions helped the team identify blind spots in the current infrastructure design and extract 4 major lessons for future optimization phases:
+
+**1. The Trade-off Between Network Security Risks and NAT Gateway Costs**
+* **Flaw in the current architecture:** To eliminate the ~$35/month fixed cost of the NAT Gateway, the team moved the ECS Fargate cluster from the Private Subnet to a Public Subnet (enabling `AssignPublicIp`). The community pointed out that this is a massive security risk. If the Security Group is accidentally modified, the entire Backend cluster would be exposed to the Internet. Furthermore, compliance regulations in many specific industries mandate that core resources (Backend, Database) remain isolated in Private Subnets. Traffic between Public and Private Subnets is essentially Local (free of charge); the system is only billed for NAT when ECS connects to the Internet for external tasks.
+* **Proposed solutions:** To safely return ECS Fargate to the Private Subnet while keeping costs optimized, the community suggested two approaches:
+    * Instead of a NAT Gateway, implement **VPC Endpoints (for S3, ECR, CloudWatch)**. This allows ECS to pull images and push logs entirely via the AWS internal network, which is significantly cheaper than a NAT Gateway.
+    * Use a self-hosted **NAT Instance** with a micro-configuration (`t3.nano` / `t4g.nano`), activating it only when outbound Internet access is truly necessary to pull resources.
+
+**2. Optimizing the Firewall (WAF) Model and Early Warning (Observability) Mindset**
+* **Firewall structure:** The team's current architecture uses two AWS WAFs in parallel (one for CloudFront and one for ALB), which is redundant and wastes fixed costs (WebACL pricing). The recommended standardized model requires **only 1 WAF attached to CloudFront** at the network edge. The standard traffic flow should be: `User -> CloudFront (WAF) -> VPC Origin -> Private ALB -> ECS`. This CloudFront distribution will also handle serving resources for S3.
+* **Monitoring mechanism:** The team currently bases attack alerts on application logs (`$.type = "SECURITY"`). However, if the Spring Boot logs record a security error, it proves the attack has already bypassed the firewall and penetrated the application code. To achieve true early warning, the system must configure **CloudWatch Alarms directly on AWS WAF metrics** at CloudFront to detect and block XSS or SQL Injection scanning behaviors right at the edge.
+
+**3. Overcoming the JWT Performance Bottleneck and Serverless Orientation**
+* **Handling the Bottleneck:** Regarding the Fargate container hitting 100% CPU due to JWT signature decryption during the 500-user load test, the optimal solution for scaling up is to offload the entire Authentication process to an independent **Lambda Authorizer**. This relieves the computational burden on the Fargate cluster, allowing it to focus on business logic.
+* **Serverless Orientation:** Given the project's early stage with relatively low traffic, instead of maintaining a fixed container infrastructure, transitioning to a pure Serverless architecture—utilizing **AWS Lambda combined with Amazon DynamoDB**—would be the most radical cost optimization strategy (approaching $0 thanks to the Pay-as-you-go model).
+
+**4. Standardizing the Cloud-Native CI/CD Pipeline and OIDC Security**
+* **Limitations of Jenkins:** Self-hosting a Jenkins server on EC2 creates an additional burden of OS and configuration maintenance, and poses security risks if the server lacks regular patch updates.
+* **Alternatives:** The team should deprecate Jenkins and fully transition to **GitHub Actions** (if hosting code on GitHub) or the native **AWS CodePipeline + AWS CodeBuild** ecosystem (if using AWS CodeCommit). Notably, when using GitHub Actions, the team should implement **OIDC (OpenID Connect)** authentication to establish direct access with AWS without needing to store long-term AWS Credentials on the repository, ensuring a closed and highly secure CI/CD pipeline.
+
+---
+
+> **References & Links:**
+> * Original Architecture Diagram (Initial): [View details here](https://mini-social-architect.s3.ap-southeast-1.amazonaws.com/MiniSocial-Architect.png)
+> * Refined Architecture Diagram (Optimized): [View details here](https://mini-social-architect.s3.ap-southeast-1.amazonaws.com/MiniSocial-Architect-ToiUuChiPhi.png)
+> * Original post on AWS Study Group VN: [Access the post here](https://www.facebook.com/groups/awsstudygroupfcj/permalink/2198727654225528)

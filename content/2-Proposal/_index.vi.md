@@ -6,136 +6,156 @@ chapter: false
 pre: "  2.  "
 ---
 
-# Mạng Xã Hội Thu Nhỏ (Mini Social Network)
 
-## Triển khai Hạ tầng Cloud-Native AWS với Kênh CI/CD Tự động và Tính năng Gamification
+# Mạng Xã Hội Nội Bộ (Mini Social Network)
+## Triển khai Hạ tầng Cloud-Native AWS với Kênh CI/CD Tự động
 
-### Tổng quan dự án
-- Một nền tảng mạng xã hội full-stack được xây dựng như một minh chứng thực tế cho kỹ năng Cloud Engineering hiện đại.
-- Được thiết kế để phục vụ từ 20 đến 100 người dùng đồng thời, đồng thời vẫn giữ được khả năng mở rộng và tiết kiệm chi phí.
-- Kết hợp AWS, container, tự động hóa CI/CD, bảo mật và giám sát vào một blueprint triển khai chuẩn production.
-- Tập trung vào độ tin cậy vận hành, khả năng quan sát hệ thống và triển khai DevOps thực tế.
+### 1. Tóm tắt dự án
+Mini Social Network (MiniSocial) là một dự án học thuật thực chiến nhằm chứng minh năng lực chuyên sâu về DevOps và Cloud Engineering. Dự án hỗ trợ một nền tảng mạng xã hội full-stack có khả năng mở rộng, sử dụng kiến trúc cloud-native để mang lại tính sẵn sàng và độ bảo mật cao. Nền tảng tận dụng các dịch vụ AWS để cung cấp quy trình CI/CD tự động, mạng lưới nội bộ bảo mật, và hệ thống giám sát thời gian thực, với quyền truy cập được quản lý và phân phối toàn cầu thông qua CloudFront và WAF.
 
-Để giúp người đọc hình dung rõ hơn về toàn bộ ý tưởng, sơ đồ kiến trúc dưới đây minh họa luồng hoạt động từ đầu vào người dùng đến các dịch vụ AWS phía sau.
+### 2. Định nghĩa bài toán 
+**Vấn đề là gì?**
+Việc xây dựng và triển khai một ứng dụng full-stack hiện đại thường gặp phải những phức tạp lớn về hạ tầng. Các môi trường truyền thống thiếu vắng các đường ống triển khai tự động, dẫn đến các thao tác thủ công dễ sai sót và chậm chạp. Hơn nữa, việc đảm bảo tính sẵn sàng cao, bảo mật chống lại các cuộc tấn công web, và tối ưu hóa chi phí trong mô hình triển khai thủ công là cực kỳ khó khăn và tốn kém tài nguyên.
+
+**Giải pháp**
+Nền tảng sử dụng AWS CloudFormation (IaC) để khởi tạo mạng VPC bảo mật và Amazon RDS. Các pipeline Jenkins sẽ tự động hóa quá trình CI/CD, build và push Docker images lên Amazon ECR, sau đó triển khai backend Spring Boot lên Amazon ECS Fargate. Frontend React được lưu trữ trên Amazon S3 và phân phối qua Amazon CloudFront. AWS WAF bảo vệ Application Load Balancer và CloudFront khỏi các lỗ hổng web phổ biến. Tương tự như các kiến trúc cấp doanh nghiệp, dự án này đảm bảo triển khai không gián đoạn (zero-downtime) và bảo mật tuyệt đối, được tối ưu cho mục đích học thuật.
+
+**Lợi ích và Hiệu quả đầu tư**
+Giải pháp tạo ra một bộ khuôn mẫu (blueprint) nềnảng để các kỹ sư học hỏi và áp dụng các thực tiễn DevOps doanh nghiệp. Dự án thay thế hoàn toàn quy trình triển khai thủ công bằng Jenkins pipeline tự động, tiết kiệm thời gian đáng kể và giảm thiểu sai sót do con người. Chi phí hạ tầng hàng tháng được tối ưu cực mạnh xuống còn khoảng $45.00 – $60.00 USD thông qua việc dùng ECS Fargate Spot và EventBridge Scheduler để tắt hạ tầng ngoài giờ cao điểm (tiết kiệm ~37.5% chi phí chạy máy). Giá trị hoàn vốn đạt được nhờ vào lượng lớn thời gian tiết kiệm được và việc sở hữu một thư viện CloudFormation IaC có khả năng tái sử dụng cao.
+
+### 3. Kiến trúc giải pháp
+Nền tảng sử dụng kiến trúc AWS serverless và container hóa để quản lý lưu lượng người dùng và logic ứng dụng. Dữ liệu được lưu trữ trong Amazon RDS cho SQL Server, xử lý backend được thực hiện bởi ECS Fargate, và frontend được phân phối qua CloudFront. Chi tiết kiến trúc như sau:
+
+#### 1. Luồng Request chính
+
+```mermaid
+flowchart LR
+    %% DNS Resolution
+    User["👤 User"] -.->|"[1] Phân giải DNS"| R53["Amazon Route 53"]
+    
+    %% Frontend Flow
+    User -->|"[2a] Truy cập Web"| CF["CloudFront (có WAF)"]
+    CF -->|"OAC"| S3F["S3 Frontend (Private)"]
+    
+    %% API Flow
+    User -->|"[2] Gọi API"| IGW["Internet Gateway"]
+    IGW -->|"[3] Chuyển tiếp"| ALB["ALB (có WAF)"]
+    
+    %% Backend Compute
+    ALB -->|"[4] Phân tải"| ECS1["ECS Fargate (AZ-1)"]
+    ALB -->|"[4] Phân tải"| ECS2["ECS Fargate (AZ-2)"]
+    
+    %% Secrets & DB
+    SSM["SSM Parameter Store"] -.->|"[5b] Lấy config"| ECS1
+    SSM -.->|"[5b] Lấy config"| ECS2
+    ECS1 -->|"[6] Đọc/Ghi dữ liệu"| RDS["RDS SQL Server"]
+    ECS2 -->|"[6] Đọc/Ghi dữ liệu"| RDS
+    
+    %% VPC Endpoint & NAT
+    ECS1 -->|"[7a] Upload Media"| VPCE["S3 VPC Endpoint"]
+    ECS2 -->|"[7a] Upload Media"| VPCE
+    VPCE --> S3M["S3 Media Storage"]
+    
+    %% Monitoring
+    ECS1 -->|"[8] Ghi Logs"| CW["CloudWatch"]
+    CW -->|"[9] Trực quan hóa"| Grafana["Grafana Cloud"]
+```
+
+#### 2. Luồng CI/CD
+
+```mermaid
+flowchart LR
+    Dev["👨💻 Developer"] -->|"Git Push"| GH["GitHub"]
+    GH -->|"Kích hoạt"| Jenkins["Jenkins Server"]
+    
+    %% Backend Deployment
+    Jenkins -->|"[A] Build & Push"| ECR["AWS ECR"]
+    Jenkins -->|"[B] Cập nhật Task"| ECS["ECS Fargate"]
+    ECR -.->|"Pull Image (qua NAT)"| ECS
+    
+    %% Frontend Deployment
+    Jenkins -->|"[C] Upload File tĩnh"| S3["S3 Frontend"]
+    Jenkins -->|"[D] Xóa Cache"| CF["CloudFront"]
+```
 
 ![MiniSocial Architecture](/Minisocial-Architect_final.png)
 
-### 1. Tóm tắt dự án (Executive Summary)
-Mini Social Network (MiniSocial) là một nền tảng mạng xã hội thu nhỏ tích hợp các tính năng gamification (trò chơi hóa), được xây dựng dưới dạng một dự án học thuật thực chiến nhằm chứng minh năng lực chuyên sâu về DevOps và Cloud Engineering. Hệ thống được thiết kế để vận hành ổn định phục vụ từ 20 đến 100 người dùng đồng thời, có khả năng mở rộng linh hoạt nhờ kiến trúc Cloud-native. Được triển khai hoàn toàn trên hạ tầng điện toán đám mây AWS thông qua mã nguồn hạ tầng (IaC) CloudFormation và quản lý tự động bởi hệ thống Jenkins CI/CD đặt bên ngoài, dự án áp dụng các best practices tiêu chuẩn doanh nghiệp về bảo mật, kiểm thử tự động, giám sát thời gian thực và tối ưu hóa chi phí một cách chủ động.
+**Các dịch vụ AWS được sử dụng**
+- **Amazon VPC & Networking:** Multi-AZ subnets, NAT Gateway, và S3 Gateway Endpoint để cô lập mạng an toàn.
+- **Amazon ECS Fargate:** Môi trường chạy container serverless cho các ứng dụng backend.
+- **Amazon RDS cho SQL Server:** Dịch vụ cơ sở dữ liệu quản lý đặt trong subnet riêng biệt.
+- **Amazon S3 & CloudFront:** Lưu trữ an toàn frontend qua OAC và phân phối nội dung toàn cầu.
+- **AWS WAF & ACM:** Tường lửa bảo vệ ứng dụng web cấp doanh nghiệp và cấp phát chứng chỉ SSL/TLS tự động.
+- **Amazon Route 53:** Quản lý DNS với tính sẵn sàng cao.
+- **Amazon ECR & Jenkins:** Kho lưu trữ Docker bảo mật và hệ thống pipeline CI/CD tự động.
+- **Amazon CloudWatch & EventBridge:** Thu thập log hệ thống, giám sát hạ tầng và lập lịch tự động.
+- **AWS Systems Manager Parameter Store:** Lưu trữ và quản lý cấu hình ứng dụng và bí mật an toàn.
 
-### 2. Định nghĩa bài toán (Problem Statement)
+**Thiết kế thành phần**
+- **Frontend (Giao diện Web):** Ứng dụng React được xây dựng bằng TypeScript, phân phối giao diện thông qua CloudFront.
+- **Backend (Tầng API):** Ứng dụng Spring Boot chạy trong các Docker container trên ECS Fargate để xử lý logic nghiệp vụ.
+- **Lưu trữ Dữ liệu:** Amazon RDS cho SQL Server đóng vai trò là cơ sở dữ liệu quan hệ chính.
+- **CI/CD Pipeline:** Máy chủ Jenkins điều phối quá trình build, test, và triển khai sử dụng kịch bản Jenkinsfile.
+- **Bảo mật & Truy cập:** AWS WAF kiểm tra lưu lượng truy cập từ ngoài rìa mạng (edge) và tại ALB để chặn các request độc hại.
 
-### Vấn đề là gì?
-Việc xây dựng và triển khai một ứng dụng mạng xã hội fullstack hiện đại đòi hỏi phải giải quyết những thách thức lớn về mặt hạ tầng kỹ thuật. Các môi trường triển khai truyền thống thường thiếu các kênh phân phối tự động (CI/CD pipeline), gây ra sự chậm trễ và sai sót giữa giai đoạn phát triển và vận hành. Thêm vào đó, việc duy trì các tính năng thời gian thực (như chat và thông báo) cùng hệ thống cơ sở dữ liệu trên Cloud rất dễ dẫn đến chi phí vận hành tăng cao, lỗ hổng bảo mật và thiếu cơ chế giám sát chi tiết, gây khó khăn cho việc chứng minh tính sẵn sàng của sản phẩm khi đưa ra môi trường Production.
-
-### Giải pháp
-Nền tảng MiniSocial giải quyết triệt để các vấn đề trên bằng cách áp dụng kiến trúc Serverless và Container hóa tiên tiến của AWS. Frontend của hệ thống sử dụng React 19, TypeScript 5.9 và Vite, được lưu trữ an toàn trên Amazon S3 và phân phối toàn cầu qua Amazon CloudFront với cơ chế kiểm soát truy cập nguồn gốc OAC. Backend được phát triển bằng Spring Boot 3.2.6 (Java 17), chạy trong các container Docker được quản lý bởi Amazon ECS Fargate trên nhiều Availability Zone (AZ) khác nhau. Dữ liệu được lưu trữ và bảo mật nghiêm ngặt bên trong hệ quản trị cơ sở dữ liệu Amazon RDS cho SQL Server đặt tại các subnet riêng biệt (Private Subnet). Toàn bộ quy trình Tích hợp và Triển khai liên tục (CI/CD) được tự động hóa hoàn toàn qua hệ thống Jenkins local với hai pipeline độc lập để tự động kiểm thử, đóng gói và phát hành mã nguồn. Chi phí vận hành được tối ưu hóa tối đa thông qua công cụ AWS EventBridge Scheduler (bật/tắt hạ tầng tự động) và cấu hình ECS Fargate Spot.
-
-### Lợi ích và Hiệu quả đầu tư (ROI)
-Là một dự án học thuật và xây dựng portfolio cá nhân, giá trị đầu tư cốt lõi của dự án không nằm ở nguồn thu tài chính trực tiếp, mà ở việc chứng minh năng lực triển khai một hệ thống tiêu chuẩn Production hoàn chỉnh trên AWS. Về mặt kinh tế, chi phí vận hành được kiểm soát vô cùng chặt chẽ, chỉ dao động từ $45–$60 USD/tháng nhờ áp dụng các giải pháp tối ưu: tự động đưa hạ tầng vào trạng thái "ngủ" từ 22:00 đến 07:00 hàng ngày (tiết kiệm ~37.5% thời gian chạy), sử dụng Fargate Spot cho các task dự phòng (giảm ~70% chi phí compute), và thiết lập S3 VPC Gateway Endpoint để truyền tải dữ liệu trực tiếp không qua NAT Gateway, giúp loại bỏ hoàn toàn phí chuyển đổi dữ liệu. Dự án mang lại một bộ khuôn mẫu (blueprint) có tính tái sử dụng cao bao gồm 4 stack CloudFormation và các file cấu hình Jenkinsfile mẫu, dễ dàng áp dụng cho các dự án quy mô doanh nghiệp sau này.
-
-### 3. Kiến trúc giải pháp (Solution Architecture)
-Nền tảng này không chỉ là một ứng dụng web hoạt động bình thường mà còn là một blueprint triển khai hạ tầng Cloud hoàn chỉnh, chú trọng cả tính năng lẫn hiệu quả vận hành. Kiến trúc được xây dựng quanh ba nguyên tắc cốt lõi:
-- Đưa lưu lượng truy cập vào hệ thống một cách an toàn thông qua Route 53 và AWS WAF.
-- Chạy logic nghiệp vụ trên ECS Fargate ở nhiều Availability Zone để đảm bảo độ sẵn sàng.
-- Phân phối tài nguyên tĩnh nhanh chóng và ổn định thông qua S3 và CloudFront.
-
-Lưu lượng từ người dùng được định tuyến qua Amazon Route 53, đi qua bộ lọc AWS WAF để ngăn chặn các cuộc tấn công DDoS và Injection trước khi chuyển đến bộ cân bằng tải Application Load Balancer (ALB) qua giao thức bảo mật HTTPS. Các tác vụ xử lý logic backend được thực hiện bởi các task ECS Fargate phân bổ trong các Private Subnet, đảm bảo tính sẵn sàng cao và khả năng chịu lỗi tốt.
-
-### Các dịch vụ AWS được sử dụng
-
-- **VPC & Networking**: Thiết lập hệ thống subnet phân tách (Public Subnet cho ALB, Private Subnet cho Compute và Data), NAT Gateway, và S3 VPC Gateway Endpoint.
-- **Amazon ECS Fargate**: Khởi chạy container serverless cho các node ứng dụng backend mà không cần quản lý server EC2.
-- **Amazon ECR**: Kho lưu trữ bảo mật cho các bản đóng gói Docker image production.
-- **Amazon RDS cho SQL Server**: Dịch vụ cơ sở dữ liệu được quản lý (db.t3.small) đặt trong subnet dữ liệu riêng biệt, mã hóa dữ liệu lưu trữ.
-- **Amazon S3 & CloudFront**: Lưu trữ mã nguồn frontend tĩnh và tài nguyên media, phân phối qua CDN với chứng chỉ bảo mật OAC.
-- **AWS WAF & ACM**: Tường lửa ứng dụng web bảo vệ hệ thống và dịch vụ cấp phát, tự động gia hạn chứng chỉ SSL/TLS miễn phí.
-- **Amazon Route 53**: Hệ thống quản lý tên miền và định tuyến DNS độ trễ thấp.
-- **AWS SSM Parameter Store**: Lưu trữ tập trung và mã hóa các thông tin cấu hình nhạy cảm, mật khẩu hệ thống (Secrets).
-- **Amazon CloudWatch & EventBridge**: Thu thập log, giám sát chỉ số hạ tầng và lập lịch tự động hóa tác vụ tắt/bật.
-
-### Thiết kế thành phần (Component Design)
-
-- **Giao diện người dùng (Frontend)**: Phát triển trên React 19, TypeScript và thư viện MUI 7.x, giao tiếp qua HTTP Client Axios và xử lý các sự kiện thời gian thực bằng STOMP.js chạy trên nền WebSocket.
-- **Xử lý nghiệp vụ (Backend)**: Kiến trúc Spring Boot chia thành 28 package nghiệp vụ chuyên sâu, tích hợp Spring Security + JWT để xác thực phi trạng thái, Spring Data JPA để tương tác cơ sở dữ liệu và Spring WebSocket điều phối luồng chat STOMP.
-- **Cơ sở dữ liệu (Database)**: Sử dụng Microsoft SQL Server 2022 Express chạy trên Docker ở môi trường local phục vụ phát triển, đồng bộ cấu hình để chuyển đổi mượt mà lên Amazon RDS khi lên Production.
-- **Hệ thống giám sát (Monitoring)**: Sử dụng thư viện Micrometer OTLP tích hợp trong backend để thu thập và đẩy trực tiếp các chỉ số hệ thống về dashboard quản trị tập trung trên Grafana Cloud kết hợp cùng CloudWatch Logs.
-
-### 4. Triển khai kỹ thuật (Technical Implementation)
+### 4. Triển khai kỹ thuật 
 **Các giai đoạn triển khai**
-Quy trình xây dựng và triển khai dự án MiniSocial được chia nhỏ thành 5 giai đoạn cuốn chiếu tuần tự:
+Dự án được chia thành 5 giai đoạn rõ rệt để xây dựng hạ tầng và tự động hóa triển khai một cách mượt mà:
 
-- Giai đoạn 1 — Nền tảng cơ bản (Foundation): Thiết kế cấu trúc Database Schema (MSSQL), hoàn thiện các REST API cốt lõi (Auth JWT, CRUD bài đăng), xây dựng bộ khung React SPA và đóng gói môi trường phát triển local bằng Docker Compose.
-- Giai đoạn 2 — Tính năng xã hội (Social Features): Hiện thực hóa các tính năng tương tác thời gian thực bao gồm kết bạn (Friend Requests), nhắn tin trực tuyến qua WebSocket STOMP, quản lý hội thoại, gửi thông báo hệ thống và thả cảm xúc bài đăng (Post Reactions).
-- Giai đoạn 3 — Gamification & Cosmetics: Tích hợp cơ chế trò chơi hóa nâng cao trải nghiệm người dùng bao gồm hệ thống điểm thưởng VPTL, cửa hàng vật phẩm trang trí, vòng quay may mắn Gacha/Lootbox, các hiệu ứng hình ảnh (Avatar Frame, Name Color) và mini-games (Rắn săn mồi, Tích-tắc-tô).
-- Giai đoạn 4 — Cloud Deployment & DevOps: Thiết kế hoàn chỉnh 4 stack mã nguồn hạ tầng AWS CloudFormation, cấu hình mạng Multi-AZ an toàn, khởi tạo cluster ECS Fargate, quản lý tập trung secrets trên SSM và cấu hình hệ thống tự động hóa Jenkins CI/CD.
-- Giai đoạn 5 — Giám sát & Kiểm thử tải (Monitoring & Load Testing): Kết nối Grafana Cloud qua Micrometer OTLP, viết kịch bản kiểm thử hiệu năng bằng K6 (giả lập người dùng bình thường, giả lập tấn công DDoS, stress test bảng tin), nâng tỷ lệ bao phủ code (Code Coverage) của JaCoCo đạt ≥70% và chạy kiểm thử Selenium E2E.
+1. **Giai đoạn 1 – Hạ tầng cơ sở:** Khởi tạo tài nguyên mạng (VPC, subnets, NAT Gateway) và Amazon RDS bằng AWS CloudFormation.
+2. **Giai đoạn 2 – Thiết lập CI/CD:** Cấu hình máy chủ Jenkins, thông tin xác thực, pipelines, và môi trường triển khai.
+3. **Giai đoạn 3 – Triển khai Backend & WAF:** Build Docker image, đẩy lên Amazon ECR, triển khai Spring Boot lên Amazon ECS Fargate, và bảo vệ ALB bằng AWS WAF.
+4. **Giai đoạn 4 – Triển khai Frontend & WAF:** Triển khai ứng dụng React lên Amazon S3, phân phối qua CloudFront, và cấu hình AWS WAF.
+5. **Giai đoạn 5 – Giám sát & Tối ưu hóa:** Thu thập logs và metrics sử dụng CloudWatch và Grafana Cloud, đồng thời kiểm thử tải hệ thống.
 
 **Yêu cầu kỹ thuật**
+- **Hạ tầng:** Tài khoản AWS với quyền admin để khởi tạo VPC, RDS, ECS, S3, CloudFront, WAF, và Route 53.
+- **Công cụ DevOps:** Máy chủ Jenkins (local hoặc cloud) có cài đặt Docker, AWS CLI, Node.js, và môi trường Java.
+- **Tự động hóa:** Kiến thức thực tiễn về AWS CloudFormation (IaC) và kịch bản Jenkins Pipeline (Jenkinsfile) phục vụ phân phối liên tục.
 
-- Tên miền ứng dụng: Vận hành live môi trường Production tại địa chỉ `https://minisocial-network.id.vn` và hệ thống API tại `api.minisocial-network.id.vn`.
-- Hạ tầng CI/CD: Sử dụng máy chủ Jenkins đặt ngoài đám mây (chạy local trên Windows), lắng nghe các thay đổi mã nguồn từ GitHub thông qua cơ chế tự động quét (Poll SCM) để kích hoạt pipeline.
-- Tiêu chuẩn kiểm thử: Ràng buộc quy trình build CI/CD nghiêm ngặt, đảm bảo các bài kiểm thử tự động của JUnit 5 phải vượt qua và đạt tỷ lệ bao phủ mã nguồn theo chuẩn JaCoCo đề ra.
-
-### 5. Lịch trình & Các cột mốc dự kiến (Timeline & Milestones)
+### 5. Lịch trình & Các cột mốc
 **Lịch trình dự án**
-Tổng thời gian triển khai từ khi phác thảo kiến trúc đến khi hệ thống vận hành thực tế trên Production kéo dài từ 14 đến 21 tuần:
+Dự án được triển khai xuyên suốt trong 12 tuần, bắt đầu từ việc phát triển local cho đến khi hệ thống vận hành hoàn toàn tự động trên Cloud:
 
-- Tuần 1–3 (Giai đoạn 1): Đạt cột mốc MVP — Hoàn thành hệ thống xác thực, API cơ bản và môi trường Docker local chạy ổn định.
-- Tuần 4–6 (Giai đoạn 2): Đạt cột mốc Social Ready — Kênh chat WebSocket, thông báo trực tuyến và logic kết bạn đi vào hoạt động.
-- Tuần 7–8 (Giai đoạn 3): Đạt cột mốc Gamification Live — Mở cửa hàng vật phẩm, thuật toán quay Gacha và các mini-game hoàn thiện.
-- Tuần 9–10 (Giai đoạn 4): Đạt cột mốc AWS Production Live — Toàn bộ hạ tầng đám mây được khởi tạo tự động, kích hoạt tường lửa WAF và thông suốt các đường ống Jenkins CI/CD.
-- Tuần 11–12 (Giai đoạn 5): Đạt cột mốc Hoàn thiện sản phẩm — Hệ thống Grafana giám sát đầy đủ chỉ số, hoàn thành các báo cáo kiểm thử tải K6 và JaCoCo đạt mục tiêu đề ra.
+- **Tuần 1-2** Phân tích yêu cầu, thiết kế kiến trúc hệ thống và thiết lập môi trường Docker local.
+- **10 tuần thực thi cốt lõi:**
+  - **Tuần 3-5 (Phát triển phần mềm):** Xây dựng các tính năng cốt lõi (Xác thực, Bài đăng, Chat, Gamification) bằng Spring Boot và React.
+  - **Tuần 6-8 (Hạ tầng & CI/CD):** Khởi tạo tài nguyên mạng AWS qua CloudFormation và thiết lập tự động hóa Jenkins.
+  - **Tuần 9-10 (Triển khai):** Triển khai backend lên ECS Fargate và phân phối frontend qua S3/CloudFront.
+  - **Tuần 11-12 (Bảo mật & Ra mắt):** Cấu hình bảo mật AWS WAF, gắn tên miền Route 53, tích hợp giám sát CloudWatch/Grafana, kiểm thử tải và ra mắt.
+- **Hậu ra mắt:** Liên tục giám sát hệ thống và tối ưu hóa chi phí hạ tầng.
 
-### 6. Ước tính ngân sách (Budget Estimation)
-Bảng tính toán chi phí hạ tầng Cloud được thiết kế tối ưu tối đa nhờ các cơ chế lập lịch tự động nhằm loại bỏ lãng phí tài nguyên khi không có nhu cầu sử dụng.
+### 6. Ước tính ngân sách
+**Chi phí hạ tầng**
+Dịch vụ AWS (Ước tính hàng tháng):
+- **Amazon ECS Fargate:** ~$15.00 – $20.00/tháng (Hoạt động 15h/ngày).
+- **ECS Fargate Spot:** ~$3.00 – $5.00/tháng (Các task dự phòng giảm chi phí).
+- **Amazon RDS (db.t3.small):** ~$10.00 – $15.00/tháng (Hoạt động 15h/ngày).
+- **AWS NAT Gateway:** ~$5.00 – $8.00/tháng (Tối ưu thông qua S3 Endpoint).
+- **Application Load Balancer & AWS WAF:** ~$10.00/tháng.
+- **Amazon S3, CloudFront, CloudWatch:** ~$2.00 – $4.00/tháng.
+- **Tổng ước tính:** ~$45.00 – $60.00 / tháng.
 
-### Chi phí hạ tầng
-Chi phí vận hành hạ tầng AWS ước tính hàng tháng chi tiết như sau:
+### 7. Đánh giá rủi ro 
+**Ma trận rủi ro**
+- **Fargate Spot bị thu hồi:** Tác động trung bình, xác suất trung bình.
+- **Vượt ngân sách chi phí:** Tác động cao, xác suất thấp.
+- **Sự cố Cơ sở dữ liệu:** Tác động cao, xác suất thấp.
 
-- Amazon ECS Fargate (Chạy 2 task chính, cấu hình 0.5 vCPU / 1GB RAM, hoạt động 15 giờ/ngày): ~$15.00 – $20.00/tháng
-- ECS Fargate Spot (Khởi chạy 1 task phụ bổ sung, giúp tiết kiệm đến 70% chi phí compute): ~$3.00 – $5.00/tháng
-- Amazon RDS cho SQL Server (Gói db.t3.small, dung lượng 20GB gp2, hoạt động 15 giờ/ngày): ~$10.00 – $15.00/tháng
-- AWS NAT Gateway (1 NAT Instance + tối ưu hóa lưu lượng qua S3 Endpoint): ~$5.00 – $8.00/tháng
-- Application Load Balancer (Bộ cân bằng tải định tuyến traffic): ~$5.00/tháng
-- AWS WAF (Bảo vệ an toàn ứng dụng web): ~$5.00/tháng
-- Amazon S3 & CloudFront (Lưu trữ frontend và dữ liệu media hình ảnh): ~$1.00 – $2.00/tháng
-- Amazon CloudWatch & ECR (Lưu trữ log hệ thống và Docker images): ~$1.00 – $2.00/tháng
-- Amazon Route 53, ACM, SSM, EventBridge Scheduler: ~$0.50/tháng (Áp dụng các gói Free Tier có sẵn)
-Tổng chi phí hạ tầng ước tính: ~$45.00 – $60.00 / tháng
+**Chiến lược giảm thiểu rủi ro**
+- **Fargate Spot:** Duy trì tối thiểu một task On-Demand cơ bản (Base=1) để đảm bảo node chính không bao giờ bị sập.
+- **Chi phí:** Sử dụng AWS EventBridge Scheduler để tắt nghiêm ngặt các môi trường máy tính vào ban đêm (22:00 đến 07:00).
+- **Cơ sở dữ liệu:** Cấu hình sao lưu tự động và bật cờ StorageEncrypted cho RDS.
 
-Các chi phí ngoại vi khác bao gồm: Chi phí duy trì tên miền (`.id.vn`) khoảng ~$5.00 – $10.00/năm; Máy chủ Jenkins, tài khoản Grafana Cloud và GitHub sử dụng hoàn toàn các gói miễn phí ($0 Free Tier).
+**Kế hoạch dự phòng**
+- Nếu chi phí cloud tăng đột biến ngoài dự kiến, tự động kích hoạt cảnh báo để đóng băng các node không thiết yếu.
+- Nếu hệ thống CI/CD Jenkins bị lỗi, các pipelines có thể được nhanh chóng chuyển đổi sang GitHub Actions nhờ sử dụng các kịch bản module hóa.
 
-### 7. Đánh giá rủi ro (Risk Assessment)
+### 8. Kết quả kỳ vọng
+**Cải tiến kỹ thuật**
+- Quy trình CI/CD tự động thay thế hoàn toàn các bước triển khai thủ công.
+- Đạt mức bảo mật cấp doanh nghiệp thông qua AWS WAF và cơ chế cô lập mạng Private Subnet.
 
-#### Ma trận rủi ro (Risk Matrix)
-
-- R1: Tác vụ Fargate Spot bị AWS thu hồi đột ngột (Xác suất: Trung bình | Tác động: Thấp) — Gây gián đoạn dịch vụ tạm thời đối với task phụ do đặc thù chi phí rẻ của Spot Instance.
-- R2: Chi phí AWS vượt kiểm soát / Bill Shock (Xác suất: Thấp | Tác động: Cao) — Phát sinh chi phí ngoài ý muốn do mã nguồn lặp vô hạn hoặc bị tấn công làm tăng lưu lượng truyền tải.
-- R3: Sự cố lỗi Cơ sở dữ liệu vùng đơn Single-AZ (Xác suất: Thấp | Tác động: Cao) — Phiên bản SQL Server Express trên RDS không hỗ trợ Multi-AZ, dễ dẫn đến downtime nếu zone đó gặp sự cố.
-- R4: Máy chủ Jenkins local bị hỏng hóc phần cứng (Xác suất: Trung bình | Tác động: Trung bình) — Làm gián đoạn quy trình tự động hóa triển khai code lên AWS.
-- R5: Rò rỉ thông tin bảo mật / Lộ API Keys (Xác suất: Thấp | Tác động: Cao) — Kẻ xấu có thể chiếm quyền điều khiển hạ tầng hoặc thao túng dữ liệu người dùng.
-
-#### Chiến lược giảm thiểu rủi ro (Mitigation Strategies)
-
-- R1 (Xử lý Spot): Luôn thiết lập cấu hình chạy tối thiểu một task On-demand cố định (Base=1) không bao giờ bị thu hồi. ALB sẽ tự động chuyển hướng toàn bộ traffic sang task On-demand này nếu task Spot bị AWS thu hồi.
-- R2 (Kiểm soát chi phí): Sử dụng EventBridge Scheduler tự động tắt toàn bộ cụm ECS và RDS SQL Server từ 22:00 tối đến 07:00 sáng hôm sau, giúp cắt giảm trực tiếp 37.5% chi phí lãng phí.
-- R3 (Bảo vệ Database): Cấu hình chiến lược sao lưu tự động (Auto-backup) cuốn chiếu 7 ngày, bật tính năng mã hóa lưu trữ StorageEncrypted và áp dụng chính sách DeletionPolicy: Snapshot để giữ lại dữ liệu an toàn ngay cả khi stack bị xóa nhầm.
-- R5 (Bảo mật Secrets): Loại bỏ hoàn toàn mật khẩu dạng chữ thuần (Plaintext) khỏi mã nguồn, lưu trữ tập trung vào AWS SSM Parameter Store và cô lập ứng dụng trong Private Subnet.
-
-#### Kế hoạch dự phòng (Contingency Plans)
-
-- Khi các task Fargate Spot bị thu hồi, hệ thống cảnh báo tự động kích hoạt giúp dịch vụ On-demand tự động gánh tải mà không làm gián đoạn trải nghiệm người dùng.
-- Trong trường hợp máy chủ Jenkins local gặp sự cố phần cứng nghiêm trọng, các tệp cấu hình Jenkinsfile lưu trên Git có thể nhanh chóng được import và chuyển đổi sang chạy trên dịch vụ GitHub Actions chỉ trong thời gian ngắn.
-
-### 8. Kết quả kỳ vọng (Expected Outcomes)
-
-#### Cải tiến kỹ thuật
-Việc chuyển dịch từ mô hình phát triển cục bộ lên hạ tầng đám mây chuẩn Enterprise mang lại những bước tiến kỹ thuật vượt bậc:
-
-- Loại bỏ hoàn toàn thao tác cấu hình thủ công bằng tay (FTP/SSH), thay thế bằng các đường ống dẫn mã nguồn tự động hóa 100% từ khi push code đến khi lên production.
-- Thay thế việc đọc log mò mẫm truyền thống bằng hệ thống Dashboard giám sát trực quan, sinh động thời gian thực trên Grafana Cloud.
-- Thiết lập một nền tảng bảo mật vững chắc (WAF, SSL mã hóa, cô lập subnet) giúp ngăn chặn hiệu quả các cuộc tấn công mạng cơ bản.
-
-#### Giá trị lâu dài
-Tài sản lớn nhất dự án để lại chính là bộ Blueprint (khuôn mẫu) DevOps có tính thực tiễn cao. Bộ 4 stack CloudFormation IaC có thể nhanh chóng được tái sử dụng, nhân bản cho các dự án khác chỉ bằng cách thay đổi tham số đầu vào. Đồng thời, cấu trúc cấu hình phân tách luồng của hai file Jenkinsfile (Frontend và Backend) đóng vai trò như một cẩm nang kiến trúc triển khai tiêu chuẩn cho mọi kỹ sư Cloud/DevOps trong tương lai.
+**Giá trị lâu dài**
+- Sở hữu một bộ CloudFormation blueprint dạng module hóa, tái sử dụng cao cho các ứng dụng tương lai.
+- Tạo ra một môi trường đào tạo mạnh mẽ cho các kỹ sư đang chuyển đổi sang kiến trúc Cloud-Native trên AWS.
