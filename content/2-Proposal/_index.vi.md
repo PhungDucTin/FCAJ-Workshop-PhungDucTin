@@ -3,7 +3,7 @@ title: "Đề xuất Dự án"
 date: 2026-07-01
 weight: 2
 chapter: false
-pre: "  2.  "
+pre: " <b> 2. </b> "
 ---
 
 
@@ -65,8 +65,9 @@ flowchart LR
     ECS2 -->|"[6] Đọc/Ghi dữ liệu"| RDS
     
     %% [7] Upload Media qua VPC Endpoint
-    ECS1 -->|"[7] Upload Media Files"| S3M["S3 Media Storage"]
-    ECS2 -->|"[7] Upload Media Files"| S3M
+    ECS1 -->|"[7a] Upload Media"| VPCE["S3 VPC Gateway Endpoint"]
+    ECS2 -->|"[7a] Upload Media"| VPCE
+    VPCE -->|"[7b] Save to S3"| S3M["Amazon S3 (Media Storage)"]
     
     %% [8-9] Monitoring
     ECS1 -->|"[8] Đẩy Logs & Metrics"| CW["CloudWatch"]
@@ -89,11 +90,11 @@ flowchart LR
     ECR -->|"[B] Pull Docker Image"| ECS["ECS Fargate"]
     
     %% Frontend Pipeline
-    Jenkins -->|"Upload file tĩnh"| S3["S3 Frontend (Private)"]
-    Jenkins -->|"[C] Xóa Cache"| CF["CloudFront"]
+    Jenkins -.->|"[E] Upload Static Files"| S3["S3 Frontend (Private)"]
+    Jenkins -.->|"[C] Create Invalidation (Clear Cache)"| CF["CloudFront"]
 ```
 
-![MiniSocial Architecture](/Minisocial_Architect_final.png)
+![MiniSocial Architecture](/Minisocial-Architect_final.png)
 
 **Các dịch vụ AWS được sử dụng**
 - **Amazon VPC & Networking:** Multi-AZ subnets, NAT Gateway, và S3 Gateway Endpoint để cô lập mạng an toàn.
@@ -176,4 +177,4 @@ Dịch vụ AWS (Ước tính hàng tháng):
 - Sở hữu một bộ CloudFormation blueprint dạng module hóa, tái sử dụng cao cho các ứng dụng tương lai.
 - Tạo ra một môi trường đào tạo mạnh mẽ cho các kỹ sư đang chuyển đổi sang kiến trúc Cloud-Native trên AWS.
 
-> * Sơ đồ Kiến trúc (Bản Full HD): [Xem chi tiết tại đây](https://mini-social-architect.s3.ap-southeast-1.amazonaws.com/Minisocial_Architect_final.png)
+> * Sơ đồ Kiến trúc (Bản Full HD): [Xem chi tiết tại đây](https://mini-social-architect.s3.ap-southeast-1.amazonaws.com/MiniSocial_Architect_final.png)

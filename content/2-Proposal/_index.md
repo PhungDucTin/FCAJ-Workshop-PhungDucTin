@@ -63,9 +63,10 @@ flowchart LR
     ECS1 -->|"[6] Read/Write Data"| RDS["RDS SQL Server (Private Subnet)"]
     ECS2 -->|"[6] Read/Write Data"| RDS
     
-    %% [7] Media Upload via VPC Endpoint
-    ECS1 -->|"[7] Upload Media Files"| S3M["S3 Media Storage"]
-    ECS2 -->|"[7] Upload Media Files"| S3M
+    %% [7] Upload Media to VPC Endpoint
+    ECS1 -->|"[7a] Upload Media"| VPCE["S3 VPC Gateway Endpoint"]
+    ECS2 -->|"[7a] Upload Media"| VPCE
+    VPCE -->|"[7b] Save to S3"| S3M["Amazon S3 (Media Storage)"]
     
     %% [8-9] Monitoring
     ECS1 -->|"[8] Push Logs & Metrics"| CW["CloudWatch"]
@@ -88,11 +89,11 @@ flowchart LR
     ECR -->|"[B] Pull Docker Image"| ECS["ECS Fargate"]
     
     %% Frontend Pipeline
-    Jenkins -->|"Sync static files"| S3["S3 Frontend (Private)"]
-    Jenkins -->|"[C] Invalidate Cache"| CF["CloudFront"]
+    Jenkins -.->|"[E] Upload Static Files"| S3["S3 Frontend (Private)"]
+    Jenkins -.->|"[C] Create Invalidation (Clear Cache)"| CF["CloudFront"]
 ```
 
-![MiniSocial Architecture](/Minisocial_Architect_final.png)
+![MiniSocial Architecture](/Minisocial-Architect_final.png)
 
 **AWS Services Used**
 - **Amazon VPC & Networking:** Multi-AZ subnets, NAT Gateway, and S3 Gateway Endpoint for secure network isolation.
@@ -175,4 +176,4 @@ AWS Services (Estimated Monthly):
 - A highly reusable, modular CloudFormation blueprint for future enterprise applications.
 - A robust training environment for engineers transitioning to AWS Cloud-Native architectures.
 
-> * Logical Architecture Diagram (Full HD): [View details here](https://mini-social-architect.s3.ap-southeast-1.amazonaws.com/Minisocial_Architect_final.png)
+> * Logical Architecture Diagram (Full HD): [View details here](https://mini-social-architect.s3.ap-southeast-1.amazonaws.com/MiniSocial_Architect_final.png)
