@@ -1,9 +1,9 @@
 ---
 title: "Self-Evaluation"
 date: 2026-06-20
-weight: 6
+weight: 7
 chapter: false
-pre: " <b> 6. </b> "
+pre: " <b> 7. </b> "
 ---
 Throughout my internship at the **First Cloud AI Journey (FCAJ) Bootcamp** from **April 15, 2026** to **July 15, 2026**, I had the opportunity to transform my foundational knowledge of Information Security into practical, real-world capabilities within a Cloud environment. 
 

@@ -36,5 +36,6 @@ chapter: false
 3.  [Translated Blogs](3-BlogsTranslated/)
 4.  [Events Participated](4-EventParticipated/)
 5.  [Workshop](5-Workshop/)
-6.  [Self-evaluation](6-Self-evaluation/)
-7.  [Sharing and Feedback](7-Feedback/)
+6.  [Demo](6-Demo/)
+7.  [Self-evaluation](7-Self-evaluation/)
+8.  [Sharing and Feedback](8-Feedback/)

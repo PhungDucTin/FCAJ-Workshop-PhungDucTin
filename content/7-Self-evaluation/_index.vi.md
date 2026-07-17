@@ -1,9 +1,9 @@
 ---
 title: "Tự đánh giá"
 date: 2026-06-20
-weight: 6
+weight: 7
 chapter: false
-pre: " <b> 6. </b> "
+pre: " <b> 7. </b> "
 ---
 Trong suốt thời gian thực tập tại chương trình **Bootcamp First Cloud AI Journey (FCAJ)** từ **15/04/2026** đến **15/07/2026**, tôi đã có cơ hội chuyển hóa kiến thức nền tảng An toàn thông tin thành năng lực thực chiến trên môi trường Cloud. 
 

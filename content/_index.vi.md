@@ -36,5 +36,6 @@ chapter: false
 3.  [Các bài blogs đã dịch](3-BlogsTranslated/)
 4.  [Các events đã tham gia](4-EventParticipated/)
 5.  [Workshop](5-Workshop/)
-6.  [Tự đánh giá](6-Self-evaluation/)
-7.  [Chia sẻ, đóng góp ý kiến](7-Feedback/)
+6.  [Demo](6-Demo/)
+7.  [Tự đánh giá](7-Self-evaluation/)
+8.  [Chia sẻ, đóng góp ý kiến](8-Feedback/)
