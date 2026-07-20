@@ -1,4 +1,4 @@
----
+﻿---
 title: "Khởi tạo Stack Backend"
 date: 2026-07-02
 weight: 53
@@ -52,7 +52,7 @@ Amazon ECR
 
 Chọn Repository đã được tạo ở bài Lab trước.
 
-![Amazon ECR Repository](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR-With-image.png)
+![Amazon ECR Repository](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR-With-image.png)
 
 <center><i>Mở Repository Amazon ECR chứa Docker Image được Jenkins build và đẩy lên ở bài Lab trước.</i></center>
 
@@ -76,7 +76,7 @@ Sao chép toàn bộ Docker Image URI.
 
 Giá trị này sẽ được sử dụng khi tạo CloudFormation Stack.
 
-![Amazon ECR Image Details](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR_details.png)
+![Amazon ECR Image Details](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR_details.png)
 
 <center><i>Sao chép Docker Image URI từ Amazon ECR để CloudFormation sử dụng khi tạo ECS Task Definition.</i></center>
 
@@ -112,7 +112,7 @@ final-minisocial-backend.yaml
 
 Sau đó nhấn **Next**.
 
-![Create Backend Stack](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack-backend.png)
+![Create Backend Stack](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack-backend.png)
 
 <center><i>Tải lên CloudFormation Template để bắt đầu triển khai hạ tầng Backend trên Amazon ECS.</i></center>
 
@@ -132,7 +132,7 @@ Cấu hình Stack với các thông tin sau.
 
 Điền các tham số theo hình minh họa dưới đây.
 
-![Backend Stack Parameters](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack_backend2.png)
+![Backend Stack Parameters](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack_backend2.png)
 
 <center><i>Điền các tham số được thu thập từ các CloudFormation Stack trước đó và Docker Image URI từ Amazon ECR.</i></center>
 
@@ -156,7 +156,7 @@ Submit
 CREATE_COMPLETE
 ```
 
-![CloudFormation Complete](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack-backend.png)
+![CloudFormation Complete](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack-backend.png)
 
 <center><i>Đợi CloudFormation hoàn tất việc khởi tạo toàn bộ hạ tầng Backend.</i></center>
 
@@ -198,7 +198,7 @@ Xác nhận đã có hai Scheduled Actions:
 
 Hai lịch trình phải hiển thị đúng như cấu hình.
 
-![Scheduled Auto Scaling](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Scheduled_Action.png)
+![Scheduled Auto Scaling](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Scheduled_Action.png)
 
 <center><i>Kiểm tra Scheduled Auto Scaling đã được cấu hình để tự động giảm số lượng Task lúc 22:00 và tăng trở lại lúc 07:00 theo giờ Việt Nam.</i></center>
 

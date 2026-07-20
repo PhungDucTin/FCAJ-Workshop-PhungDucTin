@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Week 12"
 date: 2026-07-06
 weight: 12
@@ -33,4 +33,4 @@ pre: " <b> 1.12 </b> "
 
 <h4 align="center"><em>Team meeting discussing completed tasks</em></h4>
 
-![Team meeting discussing completed tasks](/807_meeting_week12.jpg)
+![Team meeting discussing completed tasks](/images/1-Worklog/1.12-Week12/807_meeting_week12.jpg)

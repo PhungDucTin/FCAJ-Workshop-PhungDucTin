@@ -1,4 +1,4 @@
----
+﻿---
 title: "Thiết lập Jenkins"
 date: 2026-07-02
 weight: 41
@@ -51,7 +51,7 @@ Manage Jenkins
             └── Installed Plugins
 ```
 
-![Kiểm tra Plugin Jenkins](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.4-Phase2-CICD-Setup/InstalledJenkins.png)
+![Kiểm tra Plugin Jenkins](/images/5-Workshop/5.4-Phase2-CICD-Setup/InstalledJenkins.png)
 <center><i>Kiểm tra danh sách Plugin đã cài đặt trong Jenkins.</i></center>
 
 Thực hiện rà soát theo các khuyến nghị dưới đây.
@@ -96,7 +96,7 @@ Manage Jenkins
                     └── Global Credentials
 ```
 
-![Mở Jenkins Credentials](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.4-Phase2-CICD-Setup/ConfigCred_1.png)
+![Mở Jenkins Credentials](/images/5-Workshop/5.4-Phase2-CICD-Setup/ConfigCred_1.png)
 <center><i>Điều hướng đến trang <b>Global Credentials</b> để quản lý các thông tin xác thực.</i></center>
 
 Nhấn **Add Credentials**.
@@ -111,7 +111,7 @@ Cấu hình với các giá trị sau:
 | ID | `aws-credentials` |
 | Description | AWS Credentials for MiniSocial |
 
-![Cấu hình AWS Credentials](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.4-Phase2-CICD-Setup/ConfigCred_2.png)
+![Cấu hình AWS Credentials](/images/5-Workshop/5.4-Phase2-CICD-Setup/ConfigCred_2.png)
 <center><i>Cấu hình AWS Credentials bằng Access Key và Secret Access Key của IAM User.</i></center>
 
 Nhấn **Create** để lưu thông tin xác thực.

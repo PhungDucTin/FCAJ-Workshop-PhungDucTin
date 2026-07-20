@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 4"
 date: 2026-05-11
 weight: 4
@@ -37,14 +37,14 @@ pre: " <b> 1.4. </b> "
 
 <h4 align="center"><em>Họp nhóm trao đổi nhiệm vụ đã thực hiện</em></h4>
 
-![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/1505_meeting_w4.JPG)
+![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/images/1-Worklog/1.4-Week4/1505_meeting_w4.JPG)
 
 #### 2. Kiểm thử hệ thống với Postman
 
 <h4 align="center"><em>Kiểm thử tấn công SQL Injection trả về Status: 403 Forbidden</em></h4>
 
-![Kiểm thử tấn công SQL Injection trả về Status: 403 Forbidden](/sql_injection_alb.png)
+![Kiểm thử tấn công SQL Injection trả về Status: 403 Forbidden](/images/1-Worklog/1.4-Week4/sql_injection_alb.png)
 
 <h4 align="center"><em>Kiểm thử tấn công XSS trả về Status: 403 Forbidden</em></h4>
 
-![Kiểm thử tấn công XSS trả về Status: 403 Forbidden](/xss_alb.png)
+![Kiểm thử tấn công XSS trả về Status: 403 Forbidden](/images/1-Worklog/1.4-Week4/xss_alb.png)

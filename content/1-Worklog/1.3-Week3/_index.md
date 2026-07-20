@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Week 3"
 date: 2026-05-04
 weight: 3
@@ -36,26 +36,26 @@ pre: " <b> 1.3. </b> "
 
 <h4 align="center"><em>Mock API initialization for testing</em></h4>
 
-![Mock API initialization for testing](/mock_api.png)
+![Mock API initialization for testing](/images/1-Worklog/1.3-Week3/mock_api.png)
 
 <h4 align="center"><em>Web ACL initialization</em></h4>
 
-![Web ACL initialization](/waf.png)
+![Web ACL initialization](/images/1-Worklog/1.3-Week3/waf.png)
 
 #### 2. System Testing with Postman
 
 <h4 align="center"><em>Sending a valid request returns Status: 200 OK</em></h4>
 
-![Sending a valid request returns Status: 200 OK](/200.png)
+![Sending a valid request returns Status: 200 OK](/images/1-Worklog/1.3-Week3/200.png)
 
 <h4 align="center"><em>SQL Injection attack test returns Status: 403 Forbidden</em></h4>
 
-![SQL Injection attack test returns Status: 403 Forbidden](/sql_injection.png)
+![SQL Injection attack test returns Status: 403 Forbidden](/images/1-Worklog/1.3-Week3/sql_injection.png)
 
 <h4 align="center"><em>XSS attack test returns Status: 403 Forbidden</em></h4>
 
-![XSS attack test returns Status: 403 Forbidden](/xss.png)
+![XSS attack test returns Status: 403 Forbidden](/images/1-Worklog/1.3-Week3/xss.png)
 
 <h4 align="center"><em>Path Traversal attack test returns Status: 403 Forbidden</em></h4>
 
-![Path Traversal attack test returns Status: 403 Forbidden](/path_traversal.png)
+![Path Traversal attack test returns Status: 403 Forbidden](/images/1-Worklog/1.3-Week3/path_traversal.png)

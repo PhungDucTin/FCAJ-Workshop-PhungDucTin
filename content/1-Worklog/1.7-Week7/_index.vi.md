@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 7"
 date: 2026-06-01
 weight: 7
@@ -41,23 +41,23 @@ pre: " <b> 1.7. </b> "
 
 <h4 align="center"><em>Quản lý 4 khóa cấu hình cốt lõi trên AWS Systems Manager (Parameter Store)</em></h4>
 
-![Quản lý 4 khóa cấu hình cốt lõi trên AWS Systems Manager (Parameter Store)](/ssm.png)
+![Quản lý 4 khóa cấu hình cốt lõi trên AWS Systems Manager (Parameter Store)](/images/1-Worklog/1.7-Week7/ssm.png)
 
 #### 2. Cấu hình các bộ luật nền tảng cho hệ thống
 
 <h4 align="center"><em>Triển khai và cấu hình các Rule-set WAF trên ALB</em></h4>
 
-![Triển khai và cấu hình các Rule-set WAF trên ALB](/waf.png)
+![Triển khai và cấu hình các Rule-set WAF trên ALB](/images/1-Worklog/1.7-Week7/waf.png)
 
 #### 3. Thực hiện rà quét với OWASP ZAP
 
 <h4 align="center"><em>Rà quét bảo mật hệ thống bằng OWASP ZAP</em></h4>
 
-![Rà quét bảo mật hệ thống bằng OWASP ZAP](/zap.png)
+![Rà quét bảo mật hệ thống bằng OWASP ZAP](/images/1-Worklog/1.7-Week7/zap.png)
 
 #### 4. Họp nhóm trao đổi thông tin thực hiện
 
 <h4 align="center"><em>Lên văn phòng học tập và làm việc nhóm</em></h4>
 
-![Lên văn phòng học tập và làm việc nhóm](/0406_meeting_w7.JPG)
+![Lên văn phòng học tập và làm việc nhóm](/images/1-Worklog/1.7-Week7/0406_meeting_w7.JPG)
 

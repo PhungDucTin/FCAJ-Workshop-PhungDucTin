@@ -1,4 +1,4 @@
----
+﻿---
 title: "VPC Networking"
 date: 2026-07-02
 weight: 31
@@ -66,7 +66,7 @@ Navigate to:
 
 **AWS Certificate Manager → List certificates → Request**
 
-![AWS Certificate Manager Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/DashboardACM.png)
+![AWS Certificate Manager Dashboard](/images/5-Workshop/5.3-Phase1-Foundation/DashboardACM.png)
 <center><i>AWS Certificate Manager – Dashboard overview.</i></center>
 
 ---
@@ -79,7 +79,7 @@ Select:
 
 Click **Next**.
 
-![Request Public Certificate](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Request1_ACM.png)
+![Request Public Certificate](/images/5-Workshop/5.3-Phase1-Foundation/Request1_ACM.png)
 <center><i>Selecting the public certificate request option.</i></center>
 
 ---
@@ -104,7 +104,7 @@ arn:aws:acm:ap-southeast-1:123456789012:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxx
 
 This ARN will be used in the next step.
 
-![Certificate Details](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Request2_ACM.png)
+![Certificate Details](/images/5-Workshop/5.3-Phase1-Foundation/Request2_ACM.png)
 <center><i>Certificate details showing the ARN to copy.</i></center>
 
 ---
@@ -144,7 +144,7 @@ Navigate to:
 3. Click **Choose file**
 4. Select **final-minisocial-architect.yaml**
 
-![Create CloudFormation Stack](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack.png)
+![Create CloudFormation Stack](/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack.png)
 <center><i>Uploading the CloudFormation template file.</i></center>
 
 Click **Next**.
@@ -173,7 +173,7 @@ Deployment typically takes **5–10 minutes**. Do not close the browser tab whil
 
 Wait until the CloudFormation stack reaches the **CREATE_COMPLETE** status.
 
-![CloudFormation Deployment Complete](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Complete_Stack.png)
+![CloudFormation Deployment Complete](/images/5-Workshop/5.3-Phase1-Foundation/Complete_Stack.png)
 <center><i>CloudFormation stack deployment completed successfully.</i></center>
 
 ---
@@ -188,7 +188,7 @@ Open the **Outputs** tab and record the following values for future labs:
 - Security Group IDs
 - ALB DNS Name
 
-![Stack Outputs](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Output_Stack1.png)
+![Stack Outputs](/images/5-Workshop/5.3-Phase1-Foundation/Output_Stack1.png)
 <center><i>CloudFormation stack Outputs tab showing deployed resource identifiers.</i></center>
 
 ---

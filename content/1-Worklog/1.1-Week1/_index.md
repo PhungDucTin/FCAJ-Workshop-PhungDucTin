@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Week 1"
 date: 2026-04-20
 weight: 1
@@ -40,13 +40,13 @@ pre: " <b> 1.1. </b> "
 
 <h4 align="center"><em>Execution results</em></h4>
 
-![Execution results](/nmap_nikto.png)
+![Execution results](/images/1-Worklog/1.1-Week1/nmap_nikto.png)
 
 #### 2. Scanning Ngrok with OWASP ZAP 
 
 <h4 align="center"><em>Execution results</em></h4>
 
-![Execution results](/owaspzap.png)
+![Execution results](/images/1-Worklog/1.1-Week1/owaspzap.png)
 
 #### 3. Vulnerability logging in the `security_audit.log` file
 
@@ -61,4 +61,4 @@ pre: " <b> 1.1. </b> "
 
 <h4 align="center"><em>Meeting group Online</em></h4>
 
-![Meeting group Online](/2604_meetingOnl_w1.png)
+![Meeting group Online](/images/1-Worklog/1.1-Week1/2604_meetingOnl_w1.png)

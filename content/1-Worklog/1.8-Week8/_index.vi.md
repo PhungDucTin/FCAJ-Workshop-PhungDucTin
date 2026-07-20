@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 8"
 date: 2026-06-08
 weight: 8
@@ -36,16 +36,16 @@ pre: " <b> 1.8. </b> "
 
 <h4 align="center"><em>Lên văn phòng học tập và làm việc nhóm</em></h4>
 
-![Lên văn phòng học tập và làm việc nhóm](/1206_meeting_w9.JPG)
+![Lên văn phòng học tập và làm việc nhóm](/images/1-Worklog/1.8-Week8/1206_meeting_w9.JPG)
 
 #### 2. Cấu hình ZAP thực hiện BAC
 
 <h4 align="center"><em>Kiểm tra thông tin để thực hiện BAC</em></h4>
 
-![Kiểm tra thông tin để thực hiện BAC](/preview.png)
+![Kiểm tra thông tin để thực hiện BAC](/images/1-Worklog/1.8-Week8/preview.png)
 
 #### 3. Cấu hình ZAP thực hiện Header Authorization
 
 <h4 align="center"><em>Cấu hình ZAP gắn Header Authorization</em></h4>
 
-![Cấu hình ZAP gắn Header Authorization](/delete.png)
+![Cấu hình ZAP gắn Header Authorization](/images/1-Worklog/1.8-Week8/delete.png)

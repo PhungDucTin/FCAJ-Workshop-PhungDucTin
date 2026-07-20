@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 10"
 date: 2026-06-22
 weight: 10
@@ -40,28 +40,28 @@ pre: " <b> 1.10. </b> "
 
 <h4 align="center"><em>AWS WAF được thiết kế để tích hợp (attach) trực tiếp vào ALB ở cấp độ khu vực (Regional)</em></h4>
 
-![AWS WAF được thiết kế để tích hợp (attach) trực tiếp vào ALB ở cấp độ khu vực (Regional)](/wafalb.png)
+![AWS WAF được thiết kế để tích hợp (attach) trực tiếp vào ALB ở cấp độ khu vực (Regional)](/images/1-Worklog/1.10-Week10/wafalb.png)
 
 #### 2. Khởi tạo tường lửa WAF gắn vào CloudFront
 
 <h4 align="center"><em>AWS WAF được thiết kế để tích hợp (attach) trực tiếp vào CloudFront ở cấp độ toàn cầu (Global)</em></h4>
 
-![AWS WAF được thiết kế để tích hợp (attach) trực tiếp vào CloudFront ở cấp độ toàn cầu (Global)](/waf.png)
+![AWS WAF được thiết kế để tích hợp (attach) trực tiếp vào CloudFront ở cấp độ toàn cầu (Global)](/images/1-Worklog/1.10-Week10/waf.png)
 
 #### 3. Khởi tạo biến ở Region Singapore
 
 <h4 align="center"><em>Khởi tạo các biến an toàn trên Parameter Store ở Region Singapore</em></h4>
 
-![Khởi tạo các biến an toàn trên Parameter Store ở Region Singapore](/pssg.png)
+![Khởi tạo các biến an toàn trên Parameter Store ở Region Singapore](/images/1-Worklog/1.10-Week10/pssg.png)
 
 #### 4. Khởi tạo biến ở Region N.Virginia
 
 <h4 align="center"><em>Khởi tạo các biến an toàn trên Parameter Store ở Region N.Virginia</em></h4>
 
-![Khởi tạo các biến an toàn trên Parameter Store ở N.Virginia](/psus.png)
+![Khởi tạo các biến an toàn trên Parameter Store ở N.Virginia](/images/1-Worklog/1.10-Week10/psus.png)
 
 #### 5. Kết quả quét hệ thống với OWASP ZAP
 
 <h4 align="center"><em>Thực hiện quét hệ thống với OWASP ZAP</em></h4>
 
-![Thực hiện quét hệ thống với OWASP ZAP](/zap.png)
+![Thực hiện quét hệ thống với OWASP ZAP](/images/1-Worklog/1.10-Week10/zap.png)

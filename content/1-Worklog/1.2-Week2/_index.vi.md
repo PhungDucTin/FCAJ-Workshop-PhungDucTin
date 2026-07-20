@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 2"
 date: 2026-04-27
 weight: 2
@@ -36,10 +36,10 @@ pre: " <b> 1.2. </b> "
 
 <h4 align="center"><em>Hoàn thành gửi báo cáo</em></h4>
 
-![Hoàn thành gửi báo cáo](/research_waf.png)
+![Hoàn thành gửi báo cáo](/images/1-Worklog/1.2-Week2/research_waf.png)
 
 #### 2. Các Rule set được tìm hiểu 
 
 <h4 align="center"><em>Các Rule Set giúp chặn các lỗ hổng</em></h4>
 
-![Các Rule Set giúp chặn các lỗ hổng](/research_rule.png)
+![Các Rule Set giúp chặn các lỗ hổng](/images/1-Worklog/1.2-Week2/research_rule.png)

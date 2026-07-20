@@ -1,4 +1,4 @@
----
+﻿---
 title: "Action & Verify Backend"
 date: 2026-07-02
 weight: 54
@@ -53,7 +53,7 @@ Amazon S3
             └── Create bucket
 ```
 
-![Amazon S3 Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/S3Dashboard.png)
+![Amazon S3 Dashboard](/images/5-Workshop/5.5-Phase3-Backend-Deployment/S3Dashboard.png)
 
 <center><i>Open the Amazon S3 console and create a new bucket for storing uploaded files.</i></center>
 
@@ -92,7 +92,7 @@ Leave the remaining settings as their default values, then click:
 Create bucket
 ```
 
-![Create Amazon S3 Bucket](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateS3.png)
+![Create Amazon S3 Bucket](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateS3.png)
 
 <center><i>Create the upload bucket that will be used by the Backend application to store media files.</i></center>
 
@@ -110,7 +110,7 @@ Select:
 MiniSocial-Backend-Pipeline
 ```
 
-![Backend Pipeline Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardPipeline_backend.png)
+![Backend Pipeline Dashboard](/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardPipeline_backend.png)
 
 <center><i>Open the Backend Pipeline created in the previous lab.</i></center>
 
@@ -154,7 +154,7 @@ This time Jenkins will successfully perform the following stages:
 
 The pipeline should finish successfully.
 
-![Successful Pipeline Build](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/BuildSuccess.png)
+![Successful Pipeline Build](/images/5-Workshop/5.5-Phase3-Backend-Deployment/BuildSuccess.png)
 
 <center><i>The second pipeline execution completes successfully because the Amazon ECS infrastructure already exists.</i></center>
 
@@ -206,7 +206,7 @@ http://MiniSocial-ALB-xxxxxxxx.ap-southeast-1.elb.amazonaws.com/api/health/statu
 ```
 
 If the deployment succeeds, the API should return a healthy response such as:
-![Backend Health Check](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ALBCheck.png)
+![Backend Health Check](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ALBCheck.png)
 
 <center><i>Verify that the backend Health Check endpoint is accessible through the Application Load Balancer DNS Name.</i></center>
 

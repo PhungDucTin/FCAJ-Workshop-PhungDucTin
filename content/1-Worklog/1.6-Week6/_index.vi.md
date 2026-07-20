@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 6"
 date: 2026-05-25
 weight: 6
@@ -36,16 +36,16 @@ pre: " <b> 1.6. </b> "
 
 <h4 align="center"><em>Họp nhóm trao đổi nhiệm vụ đã thực hiện</em></h4>
 
-![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/2905_meeting_w6.JPG)
+![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/images/1-Worklog/1.6-Week6/2905_meeting_w6.JPG)
 
 #### 2. Chuyển đổi biến từ file .env lên AWS 
 
 <h4 align="center"><em>Chuyển đổi quản lý biến môi trường</em></h4>
 
-![Chuyển đổi quản lý biến môi trường](/ssm.png)
+![Chuyển đổi quản lý biến môi trường](/images/1-Worklog/1.6-Week6/ssm.png)
 
 #### 3. Tích hợp SonarCloud để quét lỗ hổng
 
 <h4 align="center"><em>Tích hợp SonarCloud vào dự án</em></h4>
 
-![Tích hợp SonarCloud vào dự án](/SonarCloud.png)
+![Tích hợp SonarCloud vào dự án](/images/1-Worklog/1.6-Week6/SonarCloud.png)

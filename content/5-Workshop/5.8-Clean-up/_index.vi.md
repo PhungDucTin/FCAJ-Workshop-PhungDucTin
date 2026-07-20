@@ -1,4 +1,4 @@
----
+﻿---
 title: "Dọn dẹp tài nguyên"
 date: 2026-07-02
 weight: 58
@@ -23,7 +23,7 @@ AWS CloudFormation sẽ từ chối xóa Stack nếu Amazon S3 Bucket hoặc Ama
 - Tìm Bucket chứa mã nguồn Frontend tĩnh của bạn.
 - Chọn nút **Empty** để xóa sạch toàn bộ các file bên trong (`index.html`, `css`, `js`...).
 
-![Empty S3 Bucket](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/S3.png)
+![Empty S3 Bucket](/images/5-Workshop/5.8-Clean-up/S3.png)
 <center><i>Làm rỗng S3 Bucket trước khi xóa Stack để tránh lỗi Dependency Violation.</i></center>
 
 ### 2. Dọn dẹp Amazon ECR (Backend Stack)
@@ -31,7 +31,7 @@ AWS CloudFormation sẽ từ chối xóa Stack nếu Amazon S3 Bucket hoặc Ama
 - Tìm Repository có tên `minisocial-backend`.
 - Chọn tất cả các Image tags bên trong và nhấn **Delete**.
 
-![Empty ECR Repository](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/ECR.png)
+![Empty ECR Repository](/images/5-Workshop/5.8-Clean-up/ECR.png)
 <center><i>Xóa toàn bộ Docker Images bên trong ECR Repository.</i></center>
 
 ---
@@ -49,7 +49,7 @@ Truy cập vào giao diện **AWS CloudFormation**, chuyển sang phần **Stack
 - **Hành động:** Chọn stack **Frontend** → **Delete**.
 - **Lý do:** Việc này giúp ngắt toàn bộ traffic từ người dùng. CloudFormation sẽ tiến hành xóa CloudFront Distribution (quá trình này có thể mất 5-10 phút để disable và delete hoàn toàn) và xóa S3 Bucket (đã được làm rỗng ở Bước 1).
 
-![CloudFormation US East](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Cloudformation_US.png)
+![CloudFormation US East](/images/5-Workshop/5.8-Clean-up/Cloudformation_US.png)
 <center><i>Xóa Stack Frontend tại Region US East (N. Virginia).</i></center>
 
 ---
@@ -59,7 +59,7 @@ Truy cập vào giao diện **AWS CloudFormation**, chuyển sang phần **Stack
 - **Hành động:** Chọn stack **Backend** → **Delete**.
 - **Lý do:** Khi xóa stack này, CloudFormation sẽ tắt các Fargate Tasks, xóa ECS Cluster, xóa ECR Repository (đã rỗng), và đặc biệt là xóa Target Group cùng Application Load Balancer (ALB). Việc này giúp giải phóng các Network Interfaces (ENI) và Security Groups đang kết nối trong VPC.
 
-![CloudFormation Singapore](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Cloudformation_Sing.png)
+![CloudFormation Singapore](/images/5-Workshop/5.8-Clean-up/Cloudformation_Sing.png)
 <center><i>Chuyển về Region Singapore để tiếp tục xóa các Stack còn lại.</i></center>
 
 ### 3. Xóa Stack DB
@@ -83,7 +83,7 @@ Sau khi CloudFormation xóa xong các Stack, một số tài nguyên ngoại vi 
 - Chọn mục **Snapshots** ở thanh menu bên trái.
 - Chọn các bản sao lưu (snapshot) cuối cùng vừa được tự động tạo ra và nhấn **Delete**.
 
-![RDS Snapshot](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Snapshot_RDS.png)
+![RDS Snapshot](/images/5-Workshop/5.8-Clean-up/Snapshot_RDS.png)
 <center><i>Xóa bản sao lưu RDS tự động để tránh phí lưu trữ phát sinh.</i></center>
 
 ### 2. Xóa AWS Certificate Manager (ACM)
@@ -91,14 +91,14 @@ Sau khi CloudFormation xóa xong các Stack, một số tài nguyên ngoại vi 
   - Truy cập **AWS Certificate Manager** → **List certificates**.
   - Chọn các chứng chỉ (Certificates) đã tạo cho Backend và nhấn **Delete**.
 
-![ACM Singapore](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/ACM_Sing.png)
+![ACM Singapore](/images/5-Workshop/5.8-Clean-up/ACM_Sing.png)
 <center><i>Xóa chứng chỉ ACM tại Region Singapore.</i></center>
 
 - **Tại Region N. Virginia (us-east-1):** 
   - Chuyển Region sang **N. Virginia**.
   - Xóa các chứng chỉ (Certificates) đã tạo cho Frontend.
 
-![ACM US East](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/ACM_US.png)
+![ACM US East](/images/5-Workshop/5.8-Clean-up/ACM_US.png)
 <center><i>Xóa chứng chỉ ACM tại Region N. Virginia.</i></center>
 
 ### 3. Xóa AWS Systems Manager - Parameter Store
@@ -106,14 +106,14 @@ Sau khi CloudFormation xóa xong các Stack, một số tài nguyên ngoại vi 
   - Truy cập **AWS Systems Manager** → **Parameter Store**.
   - Xóa các parameters hiện tại.
 
-![Parameter Store US East](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Param_US.png)
+![Parameter Store US East](/images/5-Workshop/5.8-Clean-up/Param_US.png)
 <center><i>Dọn dẹp cấu hình Parameter Store tại N. Virginia.</i></center>
 
 - **Tại Region Singapore (ap-southeast-1):**
   - Chuyển về Region **Singapore**.
   - Chọn toàn bộ các parameters của dự án MiniSocial và nhấn **Delete**.
 
-![Parameter Store Singapore](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Param_Sing.png)
+![Parameter Store Singapore](/images/5-Workshop/5.8-Clean-up/Param_Sing.png)
 <center><i>Dọn dẹp cấu hình Parameter Store tại Singapore.</i></center>
 
 ### 4. Xóa Amazon Route 53 Hosted Zone
@@ -122,7 +122,7 @@ Sau khi CloudFormation xóa xong các Stack, một số tài nguyên ngoại vi 
 - Chọn vào Hosted Zone đã tạo (ví dụ: `minisocial-network.id.vn`) và nhấn **Delete**. 
 *(Lưu ý: Bạn phải xóa toàn bộ các bản ghi DNS bên trong Hosted Zone trước khi có thể xóa chính Hosted Zone đó).*
 
-![Route 53 Hosted Zone](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Route53.png)
+![Route 53 Hosted Zone](/images/5-Workshop/5.8-Clean-up/Route53.png)
 <center><i>Xóa bản ghi và Hosted Zone trong Route 53 để kết thúc quy trình dọn dẹp.</i></center>
 
 ---

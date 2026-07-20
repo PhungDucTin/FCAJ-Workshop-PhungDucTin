@@ -1,4 +1,4 @@
----
+﻿---
 title: "Blog 3: Amazon ECS ra mắt High-Resolution Metrics giúp tăng tốc Service Auto Scaling gấp 4 lần"
 date: 2026-06-20
 weight: 3
@@ -67,7 +67,7 @@ Tính năng Service Auto Scaling nhanh hơn với metric độ phân giải cao 
 
 Để trực quan hóa sự khác biệt cốt lõi giữa hai cơ chế, sơ đồ dưới đây mô tả chi tiết luồng phản hồi tự động (feedback loop) từ lúc hệ thống gặp spike traffic cho đến khi các Task mới được bổ sung thành công:
 
-![Sơ đồ so sánh cơ chế ECS Auto Scaling](/Blog3_Architect.png)
+![Sơ đồ so sánh cơ chế ECS Auto Scaling](/images/3-BlogsTranslated/3.3-Blog3/Blog3_Architect.png)
 
 **Phân tích sơ đồ cơ chế:**
 * **Luồng 1 (Cơ chế tiêu chuẩn):** Chu kỳ thu thập metric kéo dài 60 giây tạo ra một độ trễ lớn (điểm mù thời gian) trong việc kích hoạt CloudWatch Alarm. Do đó, tổng thời gian hệ thống phát hiện, ra quyết định scale và provision thành công task mới kéo dài lên tới **363 giây**. Trong khoảng thời gian phản ứng chậm này, hệ thống rất dễ rơi vào trạng thái nghẽn hoặc sập hoàn toàn do quá tải.

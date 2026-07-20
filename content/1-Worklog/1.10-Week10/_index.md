@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Week 10"
 date: 2026-06-22
 weight: 10
@@ -40,28 +40,28 @@ pre: " <b> 1.10. </b> "
 
 <h4 align="center"><em>AWS WAF is designed to be attached directly to the ALB at the Regional level</em></h4>
 
-![AWS WAF is designed to be attached directly to the ALB at the Regional level](/wafalb.png)
+![AWS WAF is designed to be attached directly to the ALB at the Regional level](/images/1-Worklog/1.10-Week10/wafalb.png)
 
 #### 2. Initializing WAF firewall attached to CloudFront
 
 <h4 align="center"><em>AWS WAF is designed to be attached directly to CloudFront at the Global level</em></h4>
 
-![AWS WAF is designed to be attached directly to CloudFront at the Global level](/waf.png)
+![AWS WAF is designed to be attached directly to CloudFront at the Global level](/images/1-Worklog/1.10-Week10/waf.png)
 
 #### 3. Initializing variables in the Singapore Region
 
 <h4 align="center"><em>Initializing secure variables on Parameter Store in the Singapore Region</em></h4>
 
-![Initializing secure variables on Parameter Store in the Singapore Region](/pssg.png)
+![Initializing secure variables on Parameter Store in the Singapore Region](/images/1-Worklog/1.10-Week10/pssg.png)
 
 #### 4. Initializing variables in the N.Virginia Region
 
 <h4 align="center"><em>Initializing secure variables on Parameter Store in the N.Virginia Region</em></h4>
 
-![Initializing secure variables on Parameter Store in the N.Virginia Region](/psus.png)
+![Initializing secure variables on Parameter Store in the N.Virginia Region](/images/1-Worklog/1.10-Week10/psus.png)
 
 #### 5. System scanning results with OWASP ZAP
 
 <h4 align="center"><em>Performing system scan with OWASP ZAP</em></h4>
 
-![Performing system scan with OWASP ZAP](/zap.png)
+![Performing system scan with OWASP ZAP](/images/1-Worklog/1.10-Week10/zap.png)

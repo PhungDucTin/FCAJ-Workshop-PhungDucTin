@@ -1,4 +1,4 @@
----
+﻿---
 title: "Chạy Pipeline & Kiểm tra Backend"
 date: 2026-07-02
 weight: 54
@@ -53,7 +53,7 @@ Amazon S3
             └── Create bucket
 ```
 
-![Bảng điều khiển Amazon S3](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/S3Dashboard.png)
+![Bảng điều khiển Amazon S3](/images/5-Workshop/5.5-Phase3-Backend-Deployment/S3Dashboard.png)
 
 <center><i>Mở Amazon S3 Console và tạo một Bucket mới để lưu trữ các tệp được tải lên.</i></center>
 
@@ -92,7 +92,7 @@ Giữ nguyên các thiết lập còn lại theo mặc định, sau đó nhấn:
 Create bucket
 ```
 
-![Tạo Amazon S3 Bucket](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateS3.png)
+![Tạo Amazon S3 Bucket](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateS3.png)
 
 <center><i>Tạo Bucket lưu trữ Upload được Backend sử dụng để lưu hình ảnh và các tệp đa phương tiện.</i></center>
 
@@ -110,7 +110,7 @@ Chọn:
 MiniSocial-Backend-Pipeline
 ```
 
-![Pipeline Backend](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardPipeline_backend.png)
+![Pipeline Backend](/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardPipeline_backend.png)
 
 <center><i>Mở Pipeline Backend đã tạo trong bài Lab trước.</i></center>
 
@@ -154,7 +154,7 @@ Lần này Jenkins sẽ thực hiện thành công các bước sau:
 
 Pipeline sẽ kết thúc với trạng thái **Success**.
 
-![Pipeline thành công](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/BuildSuccess.png)
+![Pipeline thành công](/images/5-Workshop/5.5-Phase3-Backend-Deployment/BuildSuccess.png)
 
 <center><i>Lần chạy Pipeline thứ hai hoàn tất thành công vì hạ tầng Amazon ECS đã được triển khai ở bài Lab trước.</i></center>
 
@@ -207,7 +207,7 @@ http://MiniSocial-ALB-xxxxxxxx.ap-southeast-1.elb.amazonaws.com/api/health/statu
 
 Nếu quá trình triển khai thành công, API sẽ trả về kết quả tương tự như hình dưới đây.
 
-![Kiểm tra Health Check Backend](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ALBCheck.png)
+![Kiểm tra Health Check Backend](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ALBCheck.png)
 
 <center><i>Xác minh rằng API Health Check của Backend có thể truy cập thông qua DNS Name của Application Load Balancer.</i></center>
 

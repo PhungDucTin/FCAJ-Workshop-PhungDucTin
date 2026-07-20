@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 3"
 date: 2026-05-04
 weight: 3
@@ -36,27 +36,27 @@ pre: " <b> 1.3. </b> "
 
 <h4 align="center"><em>Khởi tạo Mock API để kiểm thử</em></h4>
 
-![Khởi tạo Mock API để kiểm thử](/mock_api.png)
+![Khởi tạo Mock API để kiểm thử](/images/1-Worklog/1.3-Week3/mock_api.png)
 
 <h4 align="center"><em>Khởi tạo Web ACL</em></h4>
 
-![Khởi tạo Web ACL](/waf.png)
+![Khởi tạo Web ACL](/images/1-Worklog/1.3-Week3/waf.png)
 
 #### 2. Kiểm thử hệ thống với Postman
 
 <h4 align="center"><em>Gửi link truy cập hợp lệ trả về Status: 200 Ok</em></h4>
 
-![Gửi link truy cập hợp lệ trả về Status: 200 Ok](/200.png)
+![Gửi link truy cập hợp lệ trả về Status: 200 Ok](/images/1-Worklog/1.3-Week3/200.png)
 
 <h4 align="center"><em>Kiểm thử tấn công SQL Injection trả về Status: 403 Forbidden</em></h4>
 
-![Kiểm thử tấn công SQL Injection trả về Status: 403 Forbidden](/sql_injection.png)
+![Kiểm thử tấn công SQL Injection trả về Status: 403 Forbidden](/images/1-Worklog/1.3-Week3/sql_injection.png)
 
 <h4 align="center"><em>Kiểm thử tấn công XSS trả về Status: 403 Forbidden</em></h4>
 
-![Kiểm thử tấn công XSS trả về Status: 403 Forbidden](/xss.png)
+![Kiểm thử tấn công XSS trả về Status: 403 Forbidden](/images/1-Worklog/1.3-Week3/xss.png)
 
 <h4 align="center"><em>Kiểm thử tấn công Path Traversal trả về Status: 403 Forbidden</em></h4>
 
-![Kiểm thử tấn công Path Traversal trả về Status: 403 Forbidden](/path_traversal.png)
+![Kiểm thử tấn công Path Traversal trả về Status: 403 Forbidden](/images/1-Worklog/1.3-Week3/path_traversal.png)
 

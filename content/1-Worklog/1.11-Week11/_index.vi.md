@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 11"
 date: 2026-06-29
 weight: 11
@@ -38,32 +38,32 @@ pre: " <b> 1.11. </b> "
 
 <h4 align="center"><em>Thực hiện thiết lập Web ACL với 4 Rule trên ALB cho hệ thống</em></h4>
 
-![Thực hiện thiết lập Web ACL với 4 Rule Group trên ALB cho hệ thống](/ruleset.png)
+![Thực hiện thiết lập Web ACL với 4 Rule Group trên ALB cho hệ thống](/images/1-Worklog/1.11-Week11/ruleset.png)
 
 <h4 align="center"><em>Cấu hình thông số Rate-Limit để chống DDOS</em></h4>
 
-![Cấu hình thông số Rate-Limit để chống DDOS](/config1.png)
+![Cấu hình thông số Rate-Limit để chống DDOS](/images/1-Worklog/1.11-Week11/config1.png)
 
-![Cấu hình thông số Rate-Limit để chống DDOS](/config2.png)
+![Cấu hình thông số Rate-Limit để chống DDOS](/images/1-Worklog/1.11-Week11/config2.png)
 
 #### 2. Kết quả kiểm thử luồng 1 bằng K6
 
 <h4 align="center"><em>Dashboard hiển thị WAF cho phép luồng hợp lệ vào hệ thống</em></h4>
 
-![Dashboard hiển thị WAF cho phép luồng hợp lệ vào hệ thống](/k6_flow1.png)
+![Dashboard hiển thị WAF cho phép luồng hợp lệ vào hệ thống](/images/1-Worklog/1.11-Week11/k6_flow1.png)
 
-![Dashboard hiển thị WAF cho phép luồng hợp lệ vào hệ thống](/k6_flow1_1.png)
+![Dashboard hiển thị WAF cho phép luồng hợp lệ vào hệ thống](/images/1-Worklog/1.11-Week11/k6_flow1_1.png)
 
 #### 3. Kết quả kiểm thử luồng 2 bằng K6
 
 <h4 align="center"><em>Dashboard hiển thị WAF chặn tấn công DDoS hệ thống</em></h4>
 
-![Dashboard hiển thị WAF chặn tấn công DDoS hệ thống](/k6_flow2.png)
+![Dashboard hiển thị WAF chặn tấn công DDoS hệ thống](/images/1-Worklog/1.11-Week11/k6_flow2.png)
 
-![Dashboard hiển thị WAF chặn tấn công DDoS hệ thống](/k6_flow2_1.png)
+![Dashboard hiển thị WAF chặn tấn công DDoS hệ thống](/images/1-Worklog/1.11-Week11/k6_flow2_1.png)
 
 #### 4. Họp nhóm trao đổi thông tin 
 
 <h4 align="center"><em>Họp nhóm trao đổi nhiệm vụ đã thực hiện</em></h4>
 
-![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/307_meeting_w11.JPG)
+![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/images/1-Worklog/1.11-Week11/307_meeting_w11.JPG)

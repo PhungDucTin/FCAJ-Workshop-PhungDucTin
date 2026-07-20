@@ -1,4 +1,4 @@
----
+﻿---
 title: "Grafana & CloudWatch Monitoring"
 date: 2026-07-02
 weight: 571
@@ -431,7 +431,7 @@ Return to your **Grafana Dashboard**. During the load test, you should observe t
 - ECS Memory Utilization
 - Amazon RDS Database Connections
 
-![K6 and Grafana Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.7-Phase5-Monitoring/Picture47.png)
+![K6 and Grafana Dashboard](/images/5-Workshop/5.7-Phase5-Monitoring/Picture47.png)
 <center><i>The Grafana Dashboard and K6 Terminal displaying the sudden spike in network traffic and resource utilization under heavy load.</i></center>
 
 If the incoming traffic exceeds the threshold configured in your Grafana Alert Rule, the alert status will transition through the following states:

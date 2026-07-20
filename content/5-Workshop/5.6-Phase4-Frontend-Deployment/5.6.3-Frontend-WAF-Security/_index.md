@@ -1,4 +1,4 @@
----
+﻿---
 title: "Frontend WAF Security"
 date: 2026-07-02
 weight: 563
@@ -56,7 +56,7 @@ Amazon CloudFront is a global service. Therefore, to attach a WAF to CloudFront,
 2. In the "Tell us about your app" section:
    - **App category:** Select the category that best fits your application (e.g., Social Networking or General Web).
    - **App focus:** Select **Both API and web** (as your frontend interacts heavily with the backend API).
-   ![Create WAF Protection Pack](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/CreateWAF_Frontend.png)
+   ![Create WAF Protection Pack](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/CreateWAF_Frontend.png)
    <center><i>Select the appropriate categories for your frontend application.</i></center>
 
 3. **Select resources to protect:** Click **Add AWS resources**, choose **Amazon CloudFront distribution**, and select the `MiniSocial-Frontend` distribution you created in **Lab 5.6.1**.
@@ -72,7 +72,7 @@ AWS WAF operates based on rules. We will add a foundational managed rule set pro
 2. Click **Add rules** > **Managed rule groups**.
 3. Expand **AWS managed rule groups**.
 4. Find the **Core rule set** (often displayed as `AWS-AWSManagedRulesCommonRuleSet`) and toggle it to **Add to web ACL**. This rule set provides out-of-the-box protection against a wide variety of common threats, including the OWASP Top 10.
-   ![WAF Rules Frontend](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/WAF_Frontend_Rules.png)
+   ![WAF Rules Frontend](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/WAF_Frontend_Rules.png)
    <center><i>Add the Core rule set to protect against common web vulnerabilities.</i></center>
 
 5. Scroll down to the default web ACL action and ensure it is set to **Allow** (this means traffic is allowed unless a rule specifically blocks it).

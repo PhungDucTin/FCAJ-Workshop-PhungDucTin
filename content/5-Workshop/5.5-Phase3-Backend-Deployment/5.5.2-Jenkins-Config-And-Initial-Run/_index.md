@@ -1,4 +1,4 @@
----
+﻿---
 title: "Jenkins Config & Initial Run"
 date: 2026-07-02
 weight: 52
@@ -54,7 +54,7 @@ Manage Jenkins
 
 Click **Manage Jenkins**.
 
-![Manage Jenkins](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ManageJenkins.png)
+![Manage Jenkins](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ManageJenkins.png)
 
 <center><i>Open the Jenkins administration page to access Managed Files.</i></center>
 
@@ -62,7 +62,7 @@ Click **Manage Jenkins**.
 
 Open **Managed Files**.
 
-![Managed Files](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Configfile_1.png)
+![Managed Files](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Configfile_1.png)
 
 <center><i>Navigate to the Managed Files page provided by the Config File Provider plugin.</i></center>
 
@@ -82,7 +82,7 @@ Custom file
 
 Then click **Next**.
 
-![Create Managed File](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Configfile_2.png)
+![Create Managed File](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Configfile_2.png)
 
 <center><i>Create a new Custom Managed File for the ECS Task Definition template.</i></center>
 
@@ -327,7 +327,7 @@ Under the **Pipeline** section, configure:
 
 Fill in the Pipeline configuration as shown below.
 
-![Configure Jenkins Pipeline](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ConfigPipeline.png)
+![Configure Jenkins Pipeline](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ConfigPipeline.png)
 
 <center><i>Configure the Pipeline to retrieve the Jenkinsfile directly from your GitHub repository using Pipeline script from SCM.</i></center>
 
@@ -355,7 +355,7 @@ Using **Pipeline script from SCM** ensures Jenkins always executes the latest Je
 
 Return to the main Jenkins Dashboard. You should see the newly created Pipeline ready for execution.
 
-![Jenkins Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardJenkins.png)
+![Jenkins Dashboard](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardJenkins.png)
 <center><i>The Jenkins Dashboard displaying the successfully created Pipeline.</i></center>
 
 ---
@@ -389,7 +389,7 @@ If everything is configured correctly, Jenkins will perform the following stages
 
 The pipeline console should look similar to the following example.
 
-![First Pipeline Build](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/BuildFalse.png)
+![First Pipeline Build](/images/5-Workshop/5.5-Phase3-Backend-Deployment/BuildFalse.png)
 
 <center><i>The first pipeline execution successfully builds and pushes the Docker image to Amazon ECR, but the deployment stage fails because the ECS infrastructure has not yet been provisioned.</i></center>
 
@@ -429,7 +429,7 @@ minisocial-backend
 
 Confirm that a new image has been uploaded successfully.
 
-![Amazon ECR Repository](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR-With-image.png)
+![Amazon ECR Repository](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR-With-image.png)
 
 <center><i>Verify that Jenkins successfully pushed the Docker image to the Amazon ECR repository during the first pipeline execution.</i></center>
 

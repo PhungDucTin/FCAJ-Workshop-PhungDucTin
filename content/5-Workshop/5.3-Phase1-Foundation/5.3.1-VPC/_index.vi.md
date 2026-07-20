@@ -1,4 +1,4 @@
----
+﻿---
 title: "Thiết lập mạng VPC"
 date: 2026-07-02
 weight: 31
@@ -66,7 +66,7 @@ Vui lòng tải xuống tệp CloudFormation trước khi tiếp tục bài Lab.
 
 **AWS Certificate Manager → List certificates → Request**
 
-![AWS Certificate Manager Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/DashboardACM.png)
+![AWS Certificate Manager Dashboard](/images/5-Workshop/5.3-Phase1-Foundation/DashboardACM.png)
 <center><i>AWS Certificate Manager – Giao diện tổng quan.</i></center>
 
 ---
@@ -79,7 +79,7 @@ Thực hiện các lựa chọn sau:
 
 Sau đó nhấn **Next**.
 
-![Request Public Certificate](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Request1_ACM.png)
+![Request Public Certificate](/images/5-Workshop/5.3-Phase1-Foundation/Request1_ACM.png)
 <center><i>Chọn loại chứng chỉ công khai.</i></center>
 
 ---
@@ -104,7 +104,7 @@ arn:aws:acm:ap-southeast-1:123456789012:certificate/xxxxxxxx-xxxx-xxxx-xxxx-xxxx
 
 Bạn sẽ sử dụng ARN này ở bước tiếp theo.
 
-![Certificate Details](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Request2_ACM.png)
+![Certificate Details](/images/5-Workshop/5.3-Phase1-Foundation/Request2_ACM.png)
 <center><i>Chi tiết chứng chỉ – sao chép ARN để sử dụng.</i></center>
 
 ---
@@ -144,7 +144,7 @@ Truy cập:
 3. Nhấn **Choose file**
 4. Chọn tệp **final-minisocial-architect.yaml**
 
-![Create CloudFormation Stack](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack.png)
+![Create CloudFormation Stack](/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack.png)
 <center><i>Tải lên tệp CloudFormation template.</i></center>
 
 Nhấn **Next**.
@@ -173,7 +173,7 @@ Quá trình triển khai thường mất **5–10 phút**. Không đóng trình 
 
 Đợi đến khi CloudFormation Stack chuyển sang trạng thái **CREATE_COMPLETE**.
 
-![CloudFormation Deployment Complete](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Complete_Stack.png)
+![CloudFormation Deployment Complete](/images/5-Workshop/5.3-Phase1-Foundation/Complete_Stack.png)
 <center><i>CloudFormation Stack đã triển khai thành công.</i></center>
 
 ---
@@ -188,7 +188,7 @@ Mở tab **Outputs** và ghi lại các thông tin sau để sử dụng trong n
 - Security Group IDs
 - ALB DNS Name
 
-![Stack Outputs](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Output_Stack1.png)
+![Stack Outputs](/images/5-Workshop/5.3-Phase1-Foundation/Output_Stack1.png)
 <center><i>Tab Outputs hiển thị các thông tin tài nguyên đã triển khai.</i></center>
 
 ---

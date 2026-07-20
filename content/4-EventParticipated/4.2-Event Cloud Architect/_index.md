@@ -1,4 +1,4 @@
----
+﻿---
 title: "Event 2"
 date: 2026-06-20
 weight: 2
@@ -10,7 +10,7 @@ pre: " <b> 4.2. </b> "
 
 <h4 align="center"><em></em></h4>
 
-![Poster](Evt_2.png)
+![Poster](/images/4-EventParticipated/4.2-Event Cloud Architect/Evt_2.png)
 
 ### Event Objectives
 
@@ -74,14 +74,14 @@ Competing in the "Cloud Architect" event was a tense but incredibly valuable pra
 #### Event Photos
 <h4 align="center"><em>Group check-in photo at the event</em></h4>
 
-![Group check-in photo at the event](anh1.jpg)
+![Group check-in photo at the event](/images/4-EventParticipated/4.2-Event Cloud Architect/anh1.jpg)
 
 <h4 align="center"><em>Photo of competing in the event</em></h4>
 
-![Photo of competing in the event](anh2.jpg)
+![Photo of competing in the event](/images/4-EventParticipated/4.2-Event Cloud Architect/anh2.jpg)
 
 <h4 align="center"><em>Photo of attendees at the event</em></h4>
 
-![Photo of attendees at the event](anh3.jpg)
+![Photo of attendees at the event](/images/4-EventParticipated/4.2-Event Cloud Architect/anh3.jpg)
 
 > Overall, the "Cloud Architect" competition was not just a mind game about scores, but a journey forcing oneself to think bigger, moving beyond the boundaries of a regular developer to initially approach the vision of a Solutions Architect.

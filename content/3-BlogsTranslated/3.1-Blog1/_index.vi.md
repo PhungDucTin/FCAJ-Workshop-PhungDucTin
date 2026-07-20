@@ -1,4 +1,4 @@
----
+﻿---
 title: "Blog 1: Thảo luận Kiến trúc Đồ án Mini Social Network"
 date: 2024-01-01
 weight: 1
@@ -85,7 +85,7 @@ Dù bài viết thiên về chuyên môn sâu và hệ thống đặc thù, nhó
 * **Định hướng:** Nhóm quyết định sẽ dịch chuyển từ Jenkins sang cấu hình triển khai qua GitHub Actions trong Phase 2 để tiết kiệm chi phí EC2.
 
 ---
-![Sơ đồ Kiến trúc Mini Social Network](/Architecture_Diagram_V1.png)
+![Sơ đồ Kiến trúc Mini Social Network](/images/3-BlogsTranslated/3.1-Blog1/Architecture_Diagram_V1.png)
 
 > **Tài liệu tham khảo:**
 > * Sơ đồ Kiến trúc Logic (Bản Full HD): [Xem chi tiết tại đây](https://mini-social-architect.s3.ap-southeast-1.amazonaws.com/MiniSocial-Architect.png)

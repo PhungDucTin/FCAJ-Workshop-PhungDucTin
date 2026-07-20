@@ -1,4 +1,4 @@
----
+﻿---
 title: "Blog 2: Nhật Ký Đưa Ứng Dụng Lên Cloud – Từ Bài Học $35 Đến Kiến Trúc Tối Ưu Chi Phí"
 date: 2024-01-02
 weight: 2
@@ -74,10 +74,10 @@ Tuy nhiên, mô hình kiến trúc này vẫn đang tiếp tục được cải 
 Cấu trúc hệ thống đã có sự chuyển dịch rõ rệt sau khi nhóm áp dụng các giải pháp thực chiến để tối ưu hóa chi phí và tăng cường bảo mật:
 
 #### 1. Sơ đồ kiến trúc triển khai ban đầu
-![Sơ đồ kiến trúc triển khai ban đầu](/Architecture_Diagram_V1.png)
+![Sơ đồ kiến trúc triển khai ban đầu](/images/3-BlogsTranslated/3.2-Blog2/Architecture_Diagram_V1.png)
 
 #### 2. Sơ đồ kiến trúc sau khi tối ưu hóa chi phí và xử lý lỗ hổng
-![Sơ đồ kiến trúc sau khi tối ưu hóa chi phí](/Minisocial-Architect_Cost.png)
+![Sơ đồ kiến trúc sau khi tối ưu hóa chi phí](/images/3-BlogsTranslated/3.2-Blog2/Minisocial-Architect_Cost.png)
 
 ### VI. KẾT QUẢ VÀ BÀI HỌC RÚT RA TỪ PHẢN BIỆN CỘNG ĐỒNG
 

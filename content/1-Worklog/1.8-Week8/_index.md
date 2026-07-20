@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Week 8"
 date: 2026-06-08
 weight: 8
@@ -36,16 +36,16 @@ pre: " <b> 1.8. </b> "
 
 <h4 align="center"><em>Working together at the office for study and team collaboration</em></h4>
 
-![Going to the office for studying and teamwork](/1206_meeting_w9.JPG)
+![Going to the office for studying and teamwork](/images/1-Worklog/1.8-Week8/1206_meeting_w9.JPG)
 
 #### 2. Configuring ZAP to execute BAC
 
 <h4 align="center"><em>Checking information to execute BAC</em></h4>
 
-![Checking information to execute BAC](/preview.png)
+![Checking information to execute BAC](/images/1-Worklog/1.8-Week8/preview.png)
 
 #### 3. Configuring ZAP to implement Header Authorization
 
 <h4 align="center"><em>Configuring ZAP to attach Header Authorization</em></h4>
 
-![Configuring ZAP to attach Header Authorization](/delete.png)
+![Configuring ZAP to attach Header Authorization](/images/1-Worklog/1.8-Week8/delete.png)

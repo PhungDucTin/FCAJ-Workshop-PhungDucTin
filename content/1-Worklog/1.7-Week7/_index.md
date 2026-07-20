@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Week 7"
 date: 2026-06-01
 weight: 7
@@ -41,22 +41,22 @@ pre: " <b> 1.7. </b> "
 
 <h4 align="center"><em>Managing 4 core configuration keys on AWS Systems Manager (Parameter Store)</em></h4>
 
-![Managing 4 core configuration keys on AWS Systems Manager (Parameter Store)](/ssm.png)
+![Managing 4 core configuration keys on AWS Systems Manager (Parameter Store)](/images/1-Worklog/1.7-Week7/ssm.png)
 
 #### 2. Configuring foundational rule sets for the system
 
 <h4 align="center"><em>Deploying and configuring WAF Rule-sets on ALB</em></h4>
 
-![Deploying and configuring WAF Rule-sets on ALB](/waf.png)
+![Deploying and configuring WAF Rule-sets on ALB](/images/1-Worklog/1.7-Week7/waf.png)
 
 #### 3. Conducting a scan with OWASP ZAP
 
 <h4 align="center"><em>System security scanning with OWASP ZAP</em></h4>
 
-![System security scanning with OWASP ZAP](/zap.png)
+![System security scanning with OWASP ZAP](/images/1-Worklog/1.7-Week7/zap.png)
 
 #### 4. Team meeting to exchange implementation information
 
 <h4 align="center"><em>Working together at the office for study and project collaboration</em></h4>
 
-![Going to the office for studying and teamwork](/0406_meeting_w7.JPG)
+![Going to the office for studying and teamwork](/images/1-Worklog/1.7-Week7/0406_meeting_w7.JPG)

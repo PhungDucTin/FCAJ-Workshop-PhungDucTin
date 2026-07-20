@@ -1,4 +1,4 @@
----
+﻿---
 title: "Frontend CI/CD Pipeline"
 date: 2026-07-02
 weight: 562
@@ -179,7 +179,7 @@ Under the **Pipeline** section, configure the following settings:
 
 Configure the Pipeline as shown in the image below.
 
-![Configure Jenkins Pipeline](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ConfigPipeline.png)
+![Configure Jenkins Pipeline](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ConfigPipeline.png)
 <center><i>Configure the Pipeline so Jenkins fetches the Jenkinsfile directly from GitHub using the Pipeline script from SCM option.</i></center>
 
 After completing the configuration, click:
@@ -204,7 +204,7 @@ Using **Pipeline script from SCM** ensures Jenkins always executes the latest ve
 
 Return to the main Jenkins Dashboard. You should see the newly created Pipeline ready for execution.
 
-![Jenkins Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardJenkins.png)
+![Jenkins Dashboard](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardJenkins.png)
 <center><i>The Jenkins Dashboard displaying the successfully created Pipeline.</i></center>
 
 ---
@@ -254,7 +254,7 @@ Wait until the Pipeline finishes successfully.
 
 The completed pipeline should look similar to the following example.
 
-![Successful Frontend Pipeline](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/BuildSuccess_FE.png)
+![Successful Frontend Pipeline](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/BuildSuccess_FE.png)
 
 <center><i>The Frontend Pipeline successfully builds the React application, uploads the generated files to Amazon S3, and invalidates the Amazon CloudFront cache, making the latest website immediately available to users.</i></center>
 

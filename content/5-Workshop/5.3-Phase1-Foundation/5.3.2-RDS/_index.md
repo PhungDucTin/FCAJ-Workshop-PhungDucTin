@@ -1,4 +1,4 @@
----
+﻿---
 title: "Amazon RDS Database"
 date: 2026-07-02
 weight: 32
@@ -65,7 +65,7 @@ Record the following values from the **Outputs** tab of **MiniSocial-Network-Sta
 - `PrivateSubnetDataId`
 - `BackendSecurityGroupId`
 
-![CloudFormation Stack Outputs](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Output_Stack1.png)
+![CloudFormation Stack Outputs](/images/5-Workshop/5.3-Phase1-Foundation/Output_Stack1.png)
 <center><i>Stack 1 Outputs – values required for the database stack deployment.</i></center>
 
 ---
@@ -87,7 +87,7 @@ Under **Prerequisite**, choose:
 1. Select **Upload a template file**
 2. Select **final-minisocial-db.yaml**
 
-![Upload Database Template](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack1.png)
+![Upload Database Template](/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack1.png)
 <center><i>Uploading the database CloudFormation template.</i></center>
 
 Click **Next**.
@@ -116,7 +116,7 @@ Fill in the parameters collected from **Stack 1**:
 Do **not** use the characters `/` or `@` in **DBMasterPassword**, as they may cause connection issues when configuring the JDBC URL later.
 {{% /notice %}}
 
-![Configure Stack Parameters](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack1_2.png)
+![Configure Stack Parameters](/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack1_2.png)
 <center><i>Entering stack parameters from Stack 1 Outputs.</i></center>
 
 Continue clicking **Next** through the remaining configuration pages.
@@ -133,7 +133,7 @@ Deployment usually takes **5–10 minutes**. Do not close the browser tab while 
 
 Wait until the CloudFormation stack reaches the **CREATE_COMPLETE** status.
 
-![CloudFormation Deployment Complete](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Complete_Stack.png)
+![CloudFormation Deployment Complete](/images/5-Workshop/5.3-Phase1-Foundation/Complete_Stack.png)
 <center><i>Database stack deployment completed successfully.</i></center>
 
 ---
@@ -150,7 +150,7 @@ minisocial-sqlserver
 
 Confirm that its status is **Available**.
 
-![Amazon RDS Instance Status](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/CheckDB.png)
+![Amazon RDS Instance Status](/images/5-Workshop/5.3-Phase1-Foundation/CheckDB.png)
 <center><i>Verify that the <strong>minisocial-sqlserver</strong> RDS instance is in the <strong>Available</strong> state.</i></center>
 
 ---
@@ -166,7 +166,7 @@ Confirm that the following schedules have been created:
 | Auto Start Schedule | Enabled |
 | Auto Stop Schedule | Enabled |
 
-![Amazon EventBridge Scheduler](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/CheckEvtBridge.png)
+![Amazon EventBridge Scheduler](/images/5-Workshop/5.3-Phase1-Foundation/CheckEvtBridge.png)
 <center><i>Verify that both <strong>Auto Start</strong> and <strong>Auto Stop</strong> schedules are in the <strong>Enabled</strong> state.</i></center>
 
 ---

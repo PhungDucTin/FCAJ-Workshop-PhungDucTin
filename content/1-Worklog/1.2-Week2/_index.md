@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Week 2"
 date: 2026-04-27
 weight: 2
@@ -34,10 +34,10 @@ pre: " <b> 1.2. </b> "
 
 <h4 align="center"><em>Successfully submitted the report</em></h4>
 
-![Successfully submitted the report](/research_waf.png)
+![Successfully submitted the report](/images/1-Worklog/1.2-Week2/research_waf.png)
 
 #### 2. Researched Rule Sets 
 
 <h4 align="center"><em>Rule Sets utilized to block vulnerabilities</em></h4>
 
-![Rule Sets utilized to block vulnerabilities](/research_rule.png)
+![Rule Sets utilized to block vulnerabilities](/images/1-Worklog/1.2-Week2/research_rule.png)

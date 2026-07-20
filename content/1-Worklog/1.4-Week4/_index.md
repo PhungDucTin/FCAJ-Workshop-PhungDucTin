@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Week 4"
 date: 2026-05-11
 weight: 4
@@ -37,14 +37,14 @@ pre: " <b> 1.4. </b> "
 
 <h4 align="center"><em>Team meeting discussing completed tasks</em></h4>
 
-![Team meeting discussing completed tasks](/1505_meeting_w4.JPG)
+![Team meeting discussing completed tasks](/images/1-Worklog/1.4-Week4/1505_meeting_w4.JPG)
 
 #### 2. System Testing with Postman
 
 <h4 align="center"><em>SQL Injection attack test returns Status: 403 Forbidden</em></h4>
 
-![SQL Injection attack test returns Status: 403 Forbidden](/sql_injection_alb.png)
+![SQL Injection attack test returns Status: 403 Forbidden](/images/1-Worklog/1.4-Week4/sql_injection_alb.png)
 
 <h4 align="center"><em>XSS attack test returns Status: 403 Forbidden</em></h4>
 
-![XSS attack test returns Status: 403 Forbidden](/xss_alb.png)
+![XSS attack test returns Status: 403 Forbidden](/images/1-Worklog/1.4-Week4/xss_alb.png)

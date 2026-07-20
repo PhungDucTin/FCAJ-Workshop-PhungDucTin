@@ -1,4 +1,4 @@
----
+﻿---
 title: "Clean Up Resources"
 date: 2026-07-02
 weight: 58
@@ -23,7 +23,7 @@ AWS CloudFormation will refuse to delete a Stack if an Amazon S3 Bucket or Amazo
 - Locate the Bucket containing your static Frontend code.
 - Click the **Empty** button to permanently delete all files (`index.html`, `css`, `js`, etc.).
 
-![Empty S3 Bucket](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/S3.png)
+![Empty S3 Bucket](/images/5-Workshop/5.8-Clean-up/S3.png)
 <center><i>Empty the S3 Bucket before deleting the Stack to avoid Dependency Violations.</i></center>
 
 ### 2. Clean Up Amazon ECR (Backend Stack)
@@ -31,7 +31,7 @@ AWS CloudFormation will refuse to delete a Stack if an Amazon S3 Bucket or Amazo
 - Locate the repository named `minisocial-backend`.
 - Select all Image tags inside and click **Delete**.
 
-![Empty ECR Repository](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/ECR.png)
+![Empty ECR Repository](/images/5-Workshop/5.8-Clean-up/ECR.png)
 <center><i>Delete all Docker Images inside the ECR Repository.</i></center>
 
 ---
@@ -49,7 +49,7 @@ Navigate to the **AWS CloudFormation** console, switch to the **Stacks** section
 - **Action:** Select the **Frontend** stack → **Delete**.
 - **Reason:** This immediately cuts off all user traffic. CloudFormation will delete the CloudFront Distribution (which may take 5-10 minutes to disable and delete) and the S3 Bucket (which was emptied in Step 1).
 
-![CloudFormation US East](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Cloudformation_US.png)
+![CloudFormation US East](/images/5-Workshop/5.8-Clean-up/Cloudformation_US.png)
 <center><i>Delete the Frontend Stack in the US East (N. Virginia) Region.</i></center>
 
 ---
@@ -59,7 +59,7 @@ Navigate to the **AWS CloudFormation** console, switch to the **Stacks** section
 - **Action:** Select the **Backend** stack → **Delete**.
 - **Reason:** Deleting this stack forces CloudFormation to terminate Fargate Tasks, destroy the ECS Cluster, remove the empty ECR Repository, and delete the Target Group and Application Load Balancer (ALB). This releases all associated Network Interfaces (ENIs) and Security Groups.
 
-![CloudFormation Singapore](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Cloudformation_Sing.png)
+![CloudFormation Singapore](/images/5-Workshop/5.8-Clean-up/Cloudformation_Sing.png)
 <center><i>Switch to the Singapore region to delete the remaining infrastructure Stacks.</i></center>
 
 ### 3. Delete the DB Stack
@@ -83,7 +83,7 @@ After CloudFormation finishes deleting the Stacks, a few peripheral resources mu
 - Select **Snapshots** from the left navigation pane.
 - Select the final snapshots that were automatically generated during deletion and click **Delete**.
 
-![RDS Snapshot](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Snapshot_RDS.png)
+![RDS Snapshot](/images/5-Workshop/5.8-Clean-up/Snapshot_RDS.png)
 <center><i>Delete the automated RDS snapshots to avoid recurring storage fees.</i></center>
 
 ### 2. Delete AWS Certificate Manager (ACM) Certificates
@@ -91,14 +91,14 @@ After CloudFormation finishes deleting the Stacks, a few peripheral resources mu
   - Navigate to **AWS Certificate Manager** → **List certificates**.
   - Select the certificates created for the Backend and click **Delete**.
 
-![ACM Singapore](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/ACM_Sing.png)
+![ACM Singapore](/images/5-Workshop/5.8-Clean-up/ACM_Sing.png)
 <center><i>Delete the ACM certificates in the Singapore region.</i></center>
 
 - **In the N. Virginia Region (us-east-1):** 
   - Switch your region to **N. Virginia**.
   - Delete the certificates created for the Frontend.
 
-![ACM US East](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/ACM_US.png)
+![ACM US East](/images/5-Workshop/5.8-Clean-up/ACM_US.png)
 <center><i>Delete the ACM certificates in the N. Virginia region.</i></center>
 
 ### 3. Clean Up AWS Systems Manager - Parameter Store
@@ -106,14 +106,14 @@ After CloudFormation finishes deleting the Stacks, a few peripheral resources mu
   - Navigate to **AWS Systems Manager** → **Parameter Store**.
   - Delete the existing parameters.
 
-![Parameter Store US East](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Param_US.png)
+![Parameter Store US East](/images/5-Workshop/5.8-Clean-up/Param_US.png)
 <center><i>Clean up Parameter Store configurations in N. Virginia.</i></center>
 
 - **In the Singapore Region (ap-southeast-1):**
   - Switch back to the **Singapore** region.
   - Select all parameters associated with the MiniSocial project and click **Delete**.
 
-![Parameter Store Singapore](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Param_Sing.png)
+![Parameter Store Singapore](/images/5-Workshop/5.8-Clean-up/Param_Sing.png)
 <center><i>Clean up Parameter Store configurations in Singapore.</i></center>
 
 ### 4. Delete Amazon Route 53 Hosted Zone
@@ -122,7 +122,7 @@ After CloudFormation finishes deleting the Stacks, a few peripheral resources mu
 - Select the Hosted Zone you created (e.g., `minisocial-network.id.vn`) and click **Delete**. 
 *(Note: You must delete all custom DNS records inside the Hosted Zone before you can delete the Hosted Zone itself).*
 
-![Route 53 Hosted Zone](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.8-Clean-up/Route53.png)
+![Route 53 Hosted Zone](/images/5-Workshop/5.8-Clean-up/Route53.png)
 <center><i>Delete records and the Hosted Zone in Route 53 to finalize the cleanup.</i></center>
 
 ---

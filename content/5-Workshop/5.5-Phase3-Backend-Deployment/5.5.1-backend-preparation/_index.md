@@ -1,4 +1,4 @@
----
+﻿---
 title: "Backend Preparation (ECR & SSM)"
 date: 2026-07-02
 weight: 51
@@ -37,7 +37,7 @@ We need a place to store our Docker images before the CI/CD pipeline runs.
 
 1. Navigate to the **Amazon Elastic Container Registry (ECR)** dashboard in the AWS Console.
 
-![ECR Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardECR.png)
+![ECR Dashboard](/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardECR.png)
 <center><i>Amazon ECR Console – Dashboard overview.</i></center>
 
 2. Click on the **Create repository** button.
@@ -48,7 +48,7 @@ We need a place to store our Docker images before the CI/CD pipeline runs.
 You **must** name the repository exactly `minisocial-backend`. This name must match the `ECR_REPO_NAME` variable defined in your Jenkinsfile.
 {{% /notice %}}
 
-![Create ECR Repository](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateRepo.png)
+![Create ECR Repository](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateRepo.png)
 <center><i>Creating the ECR repository with the required name.</i></center>
 
 4. Leave other settings as default and click **Create repository**.
@@ -61,7 +61,7 @@ Our backend requires sensitive information (database passwords, secret keys) to 
 
 1. Navigate to **AWS Systems Manager** → **Parameter Store**.
 
-![SSM Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardSSM.png)
+![SSM Dashboard](/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardSSM.png)
 <center><i>AWS Systems Manager – Parameter Store dashboard.</i></center>
 
 2. Click **Create parameter**.
@@ -78,7 +78,7 @@ Our backend requires sensitive information (database passwords, secret keys) to 
 | `/minisocial/backend/mail-password` | SMTP Email App Password |
 | `/minisocial/acm/certificate-arn` | SSL Certificate ARN for Backend |
 
-![Create SSM Parameter](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateSSM.png)
+![Create SSM Parameter](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateSSM.png)
 <center><i>Creating a SecureString parameter in SSM Parameter Store.</i></center>
 
 4. Repeat this process until all required secrets are created.
@@ -93,5 +93,5 @@ Before continuing, verify that:
 - ✅ All required parameters appear in the Parameter Store list
 - ✅ All parameters use **SecureString** type
 
-![SSM Parameters Done](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardSSM_DONE.png)
+![SSM Parameters Done](/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardSSM_DONE.png)
 <center><i>All SSM parameters created successfully.</i></center>

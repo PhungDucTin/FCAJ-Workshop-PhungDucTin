@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 12"
 date: 2026-07-06
 weight: 12
@@ -36,4 +36,4 @@ pre: " <b> 1.12 </b> "
 
 <h4 align="center"><em>Họp nhóm trao đổi nhiệm vụ đã thực hiện</em></h4>
 
-![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/807_meeting_week12.jpg)
+![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/images/1-Worklog/1.12-Week12/807_meeting_week12.jpg)

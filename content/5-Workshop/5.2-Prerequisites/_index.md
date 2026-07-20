@@ -1,4 +1,4 @@
----
+﻿---
 title: "Prerequisites"
 date: 2026-07-02
 weight: 2
@@ -59,7 +59,7 @@ Because Jenkins will provision infrastructure and deploy applications on your be
 7. Attach the **AdministratorAccess** policy.
 8. Finish creating the user.
 
-![IAM User Permission](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.2-Prerequisite/PermissionIAM.png)
+![IAM User Permission](/images/5-Workshop/5.2-Prerequisite/PermissionIAM.png)
 <center><i>Creating an IAM User with the AdministratorAccess policy.</i></center>
 
 ## Create Access Keys
@@ -73,7 +73,7 @@ Because Jenkins will provision infrastructure and deploy applications on your be
 - Access Key ID
 - Secret Access Key
 
-![AWS Access Key Creation](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.2-Prerequisite/SecretKey.png)
+![AWS Access Key Creation](/images/5-Workshop/5.2-Prerequisite/SecretKey.png)
 <center><i>Creating an AWS Access Key for an application running outside AWS.</i></center>
 
 {{% notice warning %}}
@@ -187,7 +187,7 @@ services.msc
 8. Apply changes
 9. Restart the Jenkins service
 
-![Configure Jenkins Windows Service](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.2-Prerequisite/Config_Jenkins.png)
+![Configure Jenkins Windows Service](/images/5-Workshop/5.2-Prerequisite/Config_Jenkins.png)
 <center><i>Configure the Jenkins Windows Service to run using the current Windows user account instead of the Local System account.</i></center>
 
 ---

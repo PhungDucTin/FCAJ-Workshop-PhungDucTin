@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 9"
 date: 2026-06-15
 weight: 9
@@ -34,13 +34,13 @@ pre: " <b> 1.9. </b> "
 
 <h4 align="center"><em>Họp nhóm trao đổi nhiệm vụ đã thực hiện</em></h4>
 
-![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/1906_meeting_w10.JPG)
+![Họp nhóm trao đổi nhiệm vụ đã thực hiện](/images/1-Worklog/1.9-Week9/1906_meeting_w10.JPG)
 
 #### 2. Đăng tải Blog 2 lên AWS Study Group
 
 <h4 align="center"><em>Thực hiện đăng tải bài Blog số 2 lên AWS Study Group</em></h4>
 
-![Thực hiện đăng tải bài Blog số 2 lên AWS Study Group](/blog.png)
+![Thực hiện đăng tải bài Blog số 2 lên AWS Study Group](/images/1-Worklog/1.9-Week9/blog.png)
 
 
 

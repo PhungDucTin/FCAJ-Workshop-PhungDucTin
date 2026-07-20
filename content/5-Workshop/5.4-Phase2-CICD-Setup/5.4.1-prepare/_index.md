@@ -1,4 +1,4 @@
----
+﻿---
 title: "Jenkins Preparation"
 date: 2026-07-02
 weight: 41
@@ -51,7 +51,7 @@ Manage Jenkins
             └── Installed Plugins
 ```
 
-![Installed Jenkins Plugins](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.4-Phase2-CICD-Setup/InstalledJenkins.png)
+![Installed Jenkins Plugins](/images/5-Workshop/5.4-Phase2-CICD-Setup/InstalledJenkins.png)
 <center><i>Review the installed plugins before configuring Jenkins.</i></center>
 
 Review your plugins using the following recommendations.
@@ -98,7 +98,7 @@ Manage Jenkins
                     └── Global Credentials
 ```
 
-![Open Jenkins Credentials](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.4-Phase2-CICD-Setup/ConfigCred_1.png)
+![Open Jenkins Credentials](/images/5-Workshop/5.4-Phase2-CICD-Setup/ConfigCred_1.png)
 <center><i>Navigate to the Global Credentials page where Jenkins securely stores sensitive information.</i></center>
 
 Click **Add Credentials**.
@@ -113,7 +113,7 @@ Configure the credential using the following settings:
 | ID | `aws-credentials` |
 | Description | AWS Credentials for MiniSocial |
 
-![Configure AWS Credentials](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.4-Phase2-CICD-Setup/ConfigCred_2.png)
+![Configure AWS Credentials](/images/5-Workshop/5.4-Phase2-CICD-Setup/ConfigCred_2.png)
 <center><i>Configure AWS Credentials using the IAM Access Key and Secret Access Key created during the Prerequisites phase.</i></center>
 
 Click **Create** to save the credential.

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Deploy the Backend Stack"
 date: 2026-07-02
 weight: 53
@@ -52,7 +52,7 @@ Amazon ECR
 
 Locate the repository created in the previous lab.
 
-![Amazon ECR Repository](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR-With-image.png)
+![Amazon ECR Repository](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR-With-image.png)
 
 <center><i>Open the Amazon ECR repository containing the Docker image built by Jenkins.</i></center>
 
@@ -76,7 +76,7 @@ Copy the complete Image URI.
 
 This value will be required when creating the CloudFormation stack.
 
-![Amazon ECR Image Details](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR_details.png)
+![Amazon ECR Image Details](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR_details.png)
 
 <center><i>Copy the Docker Image URI from Amazon ECR. CloudFormation will use this image to create the ECS Task Definition.</i></center>
 
@@ -114,7 +114,7 @@ final-minisocial-backend.yaml
 
 Then click **Next**.
 
-![Create Backend Stack](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack-backend.png)
+![Create Backend Stack](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack-backend.png)
 
 <center><i>Upload the Backend CloudFormation template to begin provisioning the Amazon ECS infrastructure.</i></center>
 
@@ -134,7 +134,7 @@ Configure the stack using the following information.
 
 Fill in the parameters as shown below.
 
-![Backend Stack Parameters](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack_backend2.png)
+![Backend Stack Parameters](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack_backend2.png)
 
 <center><i>Provide the required parameters collected from the previous CloudFormation stacks and the Docker Image URI from Amazon ECR.</i></center>
 
@@ -158,7 +158,7 @@ Wait until the CloudFormation stack reaches the status:
 CREATE_COMPLETE
 ```
 
-![CloudFormation Complete](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack-backend.png)
+![CloudFormation Complete](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateStack-backend.png)
 
 <center><i>Wait until the Backend CloudFormation stack finishes provisioning successfully.</i></center>
 
@@ -200,7 +200,7 @@ Verify that two scheduled actions have been configured:
 
 Both schedules should appear as configured.
 
-![Scheduled Auto Scaling](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Scheduled_Action.png)
+![Scheduled Auto Scaling](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Scheduled_Action.png)
 
 <center><i>Verify that Scheduled Auto Scaling automatically scales the ECS service down at 22:00 and back up at 07:00 (Vietnam time).</i></center>
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Blog 2: Cloud Deployment Journey – From a $35 Lesson to a Cost-Optimized Architecture"
 date: 2024-01-02
 weight: 2
@@ -74,10 +74,10 @@ However, this architectural model is still being refined. To ensure the system m
 The system structure has significantly shifted after applying practical solutions to optimize costs and enhance security:
 
 #### 1. Initial Deployment Architecture
-![Initial Deployment Architecture](/images/3-BlogsPosted/Architecture_Diagram_V1.png)
+![Initial Deployment Architecture](/images/3-BlogsTranslated/3.2-Blog2/Architecture_Diagram_V1.png)
 
 #### 2. Cost-Optimized & Hardened Architecture
-![Cost-Optimized Architecture](/images/3-BlogsPosted/MiniSocial-Architect_Cost.png)
+![Cost-Optimized Architecture](/images/3-BlogsTranslated/3.2-Blog2/MiniSocial-Architect_Cost.png)
 
 ---
 

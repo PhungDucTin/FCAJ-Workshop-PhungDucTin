@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Week 9"
 date: 2026-06-15
 weight: 9
@@ -34,10 +34,10 @@ pre: " <b> 1.9. </b> "
 
 <h4 align="center"><em>Group meeting to exchange completed tasks</em></h4>
 
-![Group meeting to exchange completed tasks](/1906_meeting_w10.JPG)
+![Group meeting to exchange completed tasks](/images/1-Worklog/1.9-Week9/1906_meeting_w10.JPG)
 
 #### 2. Publishing Blog 2 on the AWS Study Group
 
 <h4 align="center"><em>Publishing Blog Post #2 on the AWS Study Group</em></h4>
 
-![Publishing Blog post #2 on the AWS Study Group](/blog.png)
+![Publishing Blog post #2 on the AWS Study Group](/images/1-Worklog/1.9-Week9/blog.png)

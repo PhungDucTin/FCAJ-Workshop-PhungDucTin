@@ -1,4 +1,4 @@
----
+﻿---
 title: "Event 3"
 date: 2026-06-27
 weight: 3
@@ -10,7 +10,7 @@ pre: " <b> 4.3. </b> "
 
 <h4 align="center"><em></em></h4>
 
-![Poster](Evt_3.png)
+![Poster](/images/4-EventParticipated/4.3-Event AWS FCAJ Community Day - June 2026/Evt_3.png)
 
 ### Event Objectives
 
@@ -115,10 +115,10 @@ The "FCAJ Community Day - June 2026" event was one of the most authentic and val
 #### Event Photos
 <h4 align="center"><em>Group check-in photo at the event</em></h4>
 
-![Group check-in photo at the event](anh1.jpg)
+![Group check-in photo at the event](/images/4-EventParticipated/4.3-Event AWS FCAJ Community Day - June 2026/anh1.jpg)
 
 <h4 align="center"><em>Photo of attendees at the event</em></h4>
 
-![Photo of attendees at the event](anh2.jpg)
+![Photo of attendees at the event](/images/4-EventParticipated/4.3-Event AWS FCAJ Community Day - June 2026/anh2.jpg)
 
 > Overall, the "AWS First Cloud AI Journey Community Day - June 2026" event painted a complete picture of a new technological era: AI is no longer limited to simple text-based Q&A but is evolving into specialized Agents (for Infrastructure Operations, Security, HR). To survive and thrive, IT engineers must break away from the rut of being mere "coders" to become creators who master automated workflows.

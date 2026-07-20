@@ -1,4 +1,4 @@
----
+﻿---
 title: "Hạ tầng Frontend & Route 53"
 date: 2026-07-02
 weight: 561
@@ -63,7 +63,7 @@ AWS Certificate Manager (ACM)
     └── Request a certificate
 ```
 
-![Request ACM](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/RequestACM.png)
+![Request ACM](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/RequestACM.png)
 <center><i>Yêu cầu cấp mới chứng chỉ SSL/TLS công khai qua AWS Certificate Manager.</i></center>
 
 ---
@@ -84,7 +84,7 @@ Cấu hình chứng chỉ với các thông số sau:
 | Validation method | Chọn DNS validation (Khuyến nghị) |
 | Key algorithm | Chọn RSA 2048 |
 
-![Send Request ACM](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/SendRequestACM.png)
+![Send Request ACM](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/SendRequestACM.png)
 <center><i>Cấu hình chứng chỉ công khai với phương thức xác thực DNS.</i></center>
 
 ---
@@ -97,7 +97,7 @@ Request
 
 Khi chứng chỉ đã được cấp (Issued), hãy vào trang chi tiết và **copy chuỗi ARN** của chứng chỉ.
 
-![Dashboard ACM](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardACM.png)
+![Dashboard ACM](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardACM.png)
 <center><i>Sao chép chuỗi ARN của chứng chỉ ACM sau khi đã được cấp phát thành công.</i></center>
 
 ---
@@ -168,7 +168,7 @@ minisocial-frontend+cloudfront.yaml
 
 Nhấn **Next**.
 
-![Create Stack FE](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/CreateStack_FE.png)
+![Create Stack FE](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/CreateStack_FE.png)
 <center><i>Tải lên template CloudFormation cho Frontend.</i></center>
 
 ---
@@ -181,7 +181,7 @@ Nhấn **Next**.
 | FrontendDomainName | Nhập chính xác tên miền của bạn (ví dụ: `minisocial-network.id.vn`) |
 | ACM Parameter Path | Giữ nguyên đường dẫn mặc định |
 
-![Create Stack FE 2](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/CreateStack_FE_2.png)
+![Create Stack FE 2](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/CreateStack_FE_2.png)
 <center><i>Cung cấp tên miền Frontend và giữ nguyên đường dẫn SSM Parameter.</i></center>
 
 ---
@@ -238,7 +238,7 @@ Cấu hình bản ghi như sau:
 | Route traffic to | Chọn **Alias to CloudFront distribution** |
 | Value | Chọn CloudFront Distribution bạn vừa tạo |
 
-![Dashboard R53](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardR53.png)
+![Dashboard R53](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardR53.png)
 <center><i>Tạo bản ghi Alias A để trỏ tên miền tùy chỉnh về CloudFront distribution.</i></center>
 
 ---

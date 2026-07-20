@@ -1,4 +1,4 @@
----
+﻿---
 title: "Đề xuất Dự án"
 date: 2026-07-01
 weight: 2
@@ -94,7 +94,7 @@ flowchart LR
     Jenkins -.->|"[C] Create Invalidation (Clear Cache)"| CF["CloudFront"]
 ```
 
-![MiniSocial Architecture](/Minisocial-Architect_final.png)
+![MiniSocial Architecture](/images/2-Proposal/Minisocial-Architect_final.png)
 
 **Các dịch vụ AWS được sử dụng**
 - **Amazon VPC & Networking:** Multi-AZ subnets, NAT Gateway, và S3 Gateway Endpoint để cô lập mạng an toàn.

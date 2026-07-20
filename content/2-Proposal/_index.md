@@ -1,4 +1,4 @@
----
+﻿---
 title: "Proposal"
 date: 2026-07-01
 weight: 2
@@ -93,7 +93,7 @@ flowchart LR
     Jenkins -.->|"[C] Create Invalidation (Clear Cache)"| CF["CloudFront"]
 ```
 
-![MiniSocial Architecture](/Minisocial-Architect_final.png)
+![MiniSocial Architecture](/images/2-Proposal/Minisocial-Architect_final.png)
 
 **AWS Services Used**
 - **Amazon VPC & Networking:** Multi-AZ subnets, NAT Gateway, and S3 Gateway Endpoint for secure network isolation.

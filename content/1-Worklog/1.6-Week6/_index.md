@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Week 6"
 date: 2026-05-25
 weight: 6
@@ -33,16 +33,16 @@ pre: " <b> 1.6. </b> "
 
 <h4 align="center"><em>Team meeting to exchange completed tasks</em></h4>
 
-![Group meeting to exchange completed tasks](/2905_meeting_w6.JPG)
+![Group meeting to exchange completed tasks](/images/1-Worklog/1.6-Week6/2905_meeting_w6.JPG)
 
 #### 2. Migrating variables from the .env file to AWS
 
 <h4 align="center"><em>Migrating environment variable management</em></h4>
 
-![Migrating environment variable management](/ssm.png)
+![Migrating environment variable management](/images/1-Worklog/1.6-Week6/ssm.png)
 
 #### 3. Integrating SonarCloud for vulnerability scanning
 
 <h4 align="center"><em>Integrating SonarCloud into the project</em></h4>
 
-![Integrating SonarCloud into the project](/SonarCloud.png)
+![Integrating SonarCloud into the project](/images/1-Worklog/1.6-Week6/SonarCloud.png)

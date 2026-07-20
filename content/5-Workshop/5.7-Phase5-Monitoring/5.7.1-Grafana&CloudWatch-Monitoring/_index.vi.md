@@ -1,4 +1,4 @@
----
+﻿---
 title: "Giám sát Grafana & CloudWatch"
 date: 2026-07-02
 weight: 571
@@ -430,7 +430,7 @@ Quay trở lại **Grafana Dashboard**. Trong quá trình thử tải, bạn s�
 - ECS Memory Utilization
 - Số lượng kết nối Amazon RDS
 
-![K6 and Grafana Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.7-Phase5-Monitoring/Picture47.png)
+![K6 and Grafana Dashboard](/images/5-Workshop/5.7-Phase5-Monitoring/Picture47.png)
 <center><i>Giao diện Grafana Dashboard và K6 Terminal hiển thị sự gia tăng đột biến của lưu lượng mạng và việc sử dụng tài nguyên khi hệ thống chịu tải cao.</i></center>
 
 Nếu lưu lượng vượt quá ngưỡng trong Alert Rule, trạng thái cảnh báo sẽ lần lượt chuyển qua:

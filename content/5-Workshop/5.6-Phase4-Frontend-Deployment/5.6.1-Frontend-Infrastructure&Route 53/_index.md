@@ -1,4 +1,4 @@
----
+﻿---
 title: "Frontend Infrastructure & Route 53"
 date: 2026-07-02
 weight: 561
@@ -65,7 +65,7 @@ AWS Certificate Manager (ACM)
     └── Request a certificate
 ```
 
-![Request ACM Certificate](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/RequestACM.png)
+![Request ACM Certificate](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/RequestACM.png)
 
 <center><i>Request a new public SSL/TLS certificate using AWS Certificate Manager.</i></center>
 
@@ -87,7 +87,7 @@ Configure the certificate using the following values.
 | Validation Method | DNS validation (Recommended) |
 | Key Algorithm | RSA 2048 |
 
-![Configure ACM Certificate](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/SendRequestACM.png)
+![Configure ACM Certificate](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/SendRequestACM.png)
 
 <center><i>Configure the public certificate using DNS validation.</i></center>
 
@@ -103,7 +103,7 @@ After the certificate has been issued, open the ACM Dashboard.
 
 Copy the **Certificate ARN**.
 
-![ACM Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardACM.png)
+![ACM Dashboard](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardACM.png)
 
 <center><i>Copy the ACM Certificate ARN after the certificate has been successfully issued.</i></center>
 
@@ -178,7 +178,7 @@ minisocial-frontend+cloudfront.yaml
 
 Click **Next**.
 
-![Create Frontend Stack](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/CreateStack_FE.png)
+![Create Frontend Stack](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/CreateStack_FE.png)
 
 <center><i>Upload the Frontend CloudFormation template.</i></center>
 
@@ -192,7 +192,7 @@ Configure the stack using the following values.
 | FrontendDomainName | Your custom domain (for example: `minisocial-network.id.vn`) |
 | ACM Parameter Path | Keep the default value |
 
-![Configure Frontend Stack](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/CreateStack_FE_2.png)
+![Configure Frontend Stack](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/CreateStack_FE_2.png)
 
 <center><i>Provide the Frontend domain name and keep the default SSM Parameter path.</i></center>
 
@@ -254,7 +254,7 @@ Configure the record using the following settings.
 | Route Traffic To | Alias to CloudFront distribution |
 | Value | Select your newly created CloudFront distribution |
 
-![Configure Route 53](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardR53.png)
+![Configure Route 53](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardR53.png)
 
 <center><i>Create an Alias A Record that routes your custom domain to the CloudFront distribution.</i></center>
 

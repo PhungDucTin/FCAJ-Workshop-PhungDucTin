@@ -1,4 +1,4 @@
----
+﻿---
 title: "WAF & Route 53 Configuration"
 date: 2026-07-02
 weight: 55
@@ -45,7 +45,7 @@ Navigate to:
 AWS WAF
 ```
 
-![AWS WAF Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardWAF.png)
+![AWS WAF Dashboard](/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardWAF.png)
 
 <center><i>Open the AWS WAF console to create a new Web ACL for protecting the Backend Application Load Balancer.</i></center>
 
@@ -59,7 +59,7 @@ Create protection pack (Web ACL)
 
 Configure the Web ACL.
 
-![Create Web ACL](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateWAF_1.png)
+![Create Web ACL](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateWAF_1.png)
 
 <center><i>Create a new Web ACL and associate it with the Backend Application Load Balancer.</i></center>
 
@@ -86,7 +86,7 @@ First, create a rule to explicitly allow specific APIs through the WAF.
   - **Rule Name**: `PostAndProfile`
   - **If a request**: `matches at least one of the statements (OR)`
 
-![PostAndProfile Statement 1](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/RulePost%26Profile_1.png)
+![PostAndProfile Statement 1](/images/5-Workshop/5.5-Phase3-Backend-Deployment/RulePost&Profile_1.png)
 <center><i>Configure the first statement for the profile API.</i></center>
 
 - **Statement 1**:
@@ -98,7 +98,7 @@ First, create a rule to explicitly allow specific APIs through the WAF.
   - **Match type**: `Starts with string`
   - **String to match**: `/api/posts`
 
-![PostAndProfile Statement 2](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/RulePost%26Profile_2.png)
+![PostAndProfile Statement 2](/images/5-Workshop/5.5-Phase3-Backend-Deployment/RulePost&Profile_2.png)
 <center><i>Configure the second statement for the posts API and set the Action to Allow.</i></center>
 
 - Select **Add rule** to finish creating the rule.
@@ -116,7 +116,7 @@ This rule limits the number of requests to the Login API to mitigate DDoS or Bru
   - **Evaluation window**: `5 minutes`
   - **Request criteria**: Select `Only consider requests that match the criteria in a rule statement`
 
-![Block DDoS Login 1](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Block-DDoS-Login_1.png)
+![Block DDoS Login 1](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Block-DDoS-Login_1.png)
 <center><i>Configure the rate limit specifically for the Login API.</i></center>
 
 - In the Statement configuration below:
@@ -125,7 +125,7 @@ This rule limits the number of requests to the Login API to mitigate DDoS or Bru
   - **Match type**: `Starts with string`
   - **String to match**: `/api/auth/login`
 
-![Block DDoS Login 2](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Block-DDoS-Login_2.png)
+![Block DDoS Login 2](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Block-DDoS-Login_2.png)
 <center><i>Define the matching statement and set the Action to Block for requests exceeding the limit.</i></center>
 
 - Select **Add Rule** to finish creating the rule.
@@ -142,7 +142,7 @@ Next, add AWS Managed Rules to protect against common web exploits:
 
 Once completed, your Web ACL should list all 4 rules, similar to the following:
 
-![WAF Rules](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/RuleWAF.png)
+![WAF Rules](/images/5-Workshop/5.5-Phase3-Backend-Deployment/RuleWAF.png)
 <center><i>Combine custom and managed rules to comprehensively protect the Backend API.</i></center>
 
 ---
@@ -164,7 +164,7 @@ Amazon Route 53
     └── Hosted Zones
 ```
 
-![Route 53 Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/R53Dashboard.png)
+![Route 53 Dashboard](/images/5-Workshop/5.5-Phase3-Backend-Deployment/R53Dashboard.png)
 
 <center><i>Open Amazon Route 53 and create a Hosted Zone for your domain.</i></center>
 
@@ -181,7 +181,7 @@ Configure the Hosted Zone using the following values:
 | Domain Name | minisocial-network.id.vn |
 | Type | Public Hosted Zone |
 
-![Create Hosted Zone](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateR53.png)
+![Create Hosted Zone](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateR53.png)
 
 <center><i>Create a Public Hosted Zone for your custom domain.</i></center>
 
@@ -193,7 +193,7 @@ Create hosted zone
 
 Wait until the Hosted Zone has been created successfully.
 
-![Hosted Zone Created](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/R53Dashboard_2.png)
+![Hosted Zone Created](/images/5-Workshop/5.5-Phase3-Backend-Deployment/R53Dashboard_2.png)
 
 <center><i>The Hosted Zone is now ready for creating DNS records.</i></center>
 
@@ -230,7 +230,7 @@ Configure the record as follows:
 | Region | ap-southeast-1 |
 | Load Balancer | MiniSocial ALB |
 
-![Create DNS Record](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Create_Record.png)
+![Create DNS Record](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Create_Record.png)
 
 <center><i>Create an Alias A Record pointing your custom domain to the Backend Application Load Balancer.</i></center>
 

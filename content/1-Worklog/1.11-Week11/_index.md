@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Week 11"
 date: 2026-06-29
 weight: 11
@@ -39,32 +39,32 @@ pre: " <b> 1.11. </b> "
 
 <h4 align="center"><em>Implementing Web ACL setup with 4 Rules on ALB for the system</em></h4>
 
-![Implementing Web ACL setup with 4 Rule Groups on ALB for the system](/ruleset.png)
+![Implementing Web ACL setup with 4 Rule Groups on ALB for the system](/images/1-Worklog/1.11-Week11/ruleset.png)
 
 <h4 align="center"><em>Configuring Rate-Limit parameters to prevent DDoS</em></h4>
 
-![Configuring Rate-Limit parameters to prevent DDoS](/config1.png)
+![Configuring Rate-Limit parameters to prevent DDoS](/images/1-Worklog/1.11-Week11/config1.png)
 
-![Configuring Rate-Limit parameters to prevent DDoS](/config2.png)
+![Configuring Rate-Limit parameters to prevent DDoS](/images/1-Worklog/1.11-Week11/config2.png)
 
 #### 2. Flow 1 test results using K6
 
 <h4 align="center"><em>Dashboard showing WAF allowing valid traffic into the system</em></h4>
 
-![Dashboard showing WAF allowing valid traffic into the system](/k6_flow1.png)
+![Dashboard showing WAF allowing valid traffic into the system](/images/1-Worklog/1.11-Week11/k6_flow1.png)
 
-![Dashboard showing WAF allowing valid traffic into the system](/k6_flow1_1.png)
+![Dashboard showing WAF allowing valid traffic into the system](/images/1-Worklog/1.11-Week11/k6_flow1_1.png)
 
 #### 3. Flow 2 test results using K6
 
 <h4 align="center"><em>Dashboard showing WAF blocking DDoS attacks on the system</em></h4>
 
-![Dashboard showing WAF blocking DDoS attacks on the system](/k6_flow2.png)
+![Dashboard showing WAF blocking DDoS attacks on the system](/images/1-Worklog/1.11-Week11/k6_flow2.png)
 
-![Dashboard showing WAF blocking DDoS attacks on the system](/k6_flow2_1.png)
+![Dashboard showing WAF blocking DDoS attacks on the system](/images/1-Worklog/1.11-Week11/k6_flow2_1.png)
 
 #### 4. Group meeting to exchange information 
 
 <h4 align="center"><em>Group meeting to exchange completed tasks</em></h4>
 
-![Group meeting to exchange completed tasks](/307_meeting_w11.JPG)
+![Group meeting to exchange completed tasks](/images/1-Worklog/1.11-Week11/307_meeting_w11.JPG)

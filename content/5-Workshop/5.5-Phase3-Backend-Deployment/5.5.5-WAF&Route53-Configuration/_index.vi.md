@@ -1,4 +1,4 @@
----
+﻿---
 title: "Thiết lập WAF & Route 53"
 date: 2026-07-02
 weight: 55
@@ -46,7 +46,7 @@ Truy cập:
 AWS WAF
 ```
 
-![AWS WAF Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardWAF.png)
+![AWS WAF Dashboard](/images/5-Workshop/5.5-Phase3-Backend-Deployment/DashboardWAF.png)
 
 <center><i>Mở bảng điều khiển AWS WAF để tạo Web ACL bảo vệ Application Load Balancer.</i></center>
 
@@ -63,7 +63,7 @@ Sau đó cấu hình:
 - **Application Category:** Both API and Web
 - **Resource:** Chọn Application Load Balancer của Backend
 
-![Create WAF](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateWAF_1.png)
+![Create WAF](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateWAF_1.png)
 
 <center><i>Liên kết Web ACL với Application Load Balancer để bảo vệ toàn bộ lưu lượng truy cập đến Backend.</i></center>
 
@@ -81,7 +81,7 @@ Trong phần **Rules**, chúng ta sẽ thêm 4 Rule (bao gồm 2 Custom Rules v�
   - **Rule Name**: `PostAndProfile`
   - **If a request**: `matches at least one of the statements (OR)`
 
-![PostAndProfile Statement 1](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/RulePost%26Profile_1.png)
+![PostAndProfile Statement 1](/images/5-Workshop/5.5-Phase3-Backend-Deployment/RulePost&Profile_1.png)
 <center><i>Thiết lập Statement đầu tiên cho API profile.</i></center>
 
 - **Statement 1**:
@@ -93,7 +93,7 @@ Trong phần **Rules**, chúng ta sẽ thêm 4 Rule (bao gồm 2 Custom Rules v�
   - **Match type**: `Starts with string`
   - **String to match**: `/api/posts`
 
-![PostAndProfile Statement 2](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/RulePost%26Profile_2.png)
+![PostAndProfile Statement 2](/images/5-Workshop/5.5-Phase3-Backend-Deployment/RulePost&Profile_2.png)
 <center><i>Thiết lập Statement thứ hai cho API posts và cấu hình Action Allow.</i></center>
 
 - Nhấn **Add Rule** để hoàn thành tạo Rule.
@@ -111,7 +111,7 @@ Rule này dùng để giới hạn số lượng request gọi vào API Login nh
   - **Evaluation window**: `5 minutes` (Trong mỗi 5 phút)
   - **Request criteria**: Chọn `Only consider requests that match the criteria in a rule statement`
 
-![Block DDoS Login 1](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Block-DDoS-Login_1.png)
+![Block DDoS Login 1](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Block-DDoS-Login_1.png)
 <center><i>Cấu hình giới hạn Rate limit cho API Login.</i></center>
 
 - Ở phần Statement bên dưới:
@@ -120,7 +120,7 @@ Rule này dùng để giới hạn số lượng request gọi vào API Login nh
   - **Match type**: `Starts with string`
   - **String to match**: `/api/auth/login`
 
-![Block DDoS Login 2](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Block-DDoS-Login_2.png)
+![Block DDoS Login 2](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Block-DDoS-Login_2.png)
 <center><i>Thiết lập Statement chặn các request vượt ngưỡng và chọn Action Block.</i></center>
 
 - Nhấn **Add Rule** để hoàn thành tạo Rule.
@@ -137,7 +137,7 @@ Tiếp theo, thêm các bộ quy tắc (Managed Rules) có sẵn của AWS để
 
 Sau khi hoàn tất, danh sách Rules của bạn sẽ bao gồm 4 Rule và có thứ tự tương tự như sau:
 
-![WAF Rules](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/RuleWAF.png)
+![WAF Rules](/images/5-Workshop/5.5-Phase3-Backend-Deployment/RuleWAF.png)
 <center><i>Kết hợp các Custom Rules và Managed Rules để tăng cường bảo vệ cho Backend API.</i></center>
 
 ---
@@ -164,7 +164,7 @@ Amazon Route 53
     └── Hosted zones
 ```
 
-![Route 53 Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/R53Dashboard.png)
+![Route 53 Dashboard](/images/5-Workshop/5.5-Phase3-Backend-Deployment/R53Dashboard.png)
 
 <center><i>Mở Amazon Route 53 để quản lý DNS cho tên miền của bạn.</i></center>
 
@@ -183,7 +183,7 @@ Sau đó cấu hình:
 | Domain name | Tên miền của bạn (ví dụ: minisocial-network.id.vn) |
 | Type | Public Hosted Zone |
 
-![Create Hosted Zone](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateR53.png)
+![Create Hosted Zone](/images/5-Workshop/5.5-Phase3-Backend-Deployment/CreateR53.png)
 
 <center><i>Tạo Public Hosted Zone để Route 53 quản lý DNS cho tên miền.</i></center>
 
@@ -191,7 +191,7 @@ Sau đó cấu hình:
 
 Sau vài phút, Hosted Zone sẽ được tạo thành công.
 
-![Hosted Zone Created](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/R53Dashboard_2.png)
+![Hosted Zone Created](/images/5-Workshop/5.5-Phase3-Backend-Deployment/R53Dashboard_2.png)
 
 <center><i>Hosted Zone sau khi được tạo thành công trên Amazon Route 53.</i></center>
 
@@ -224,7 +224,7 @@ Cấu hình:
 | Alias | Yes |
 | Alias Target | Application Load Balancer của Backend |
 
-![Create Route 53 Record](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Create_Record.png)
+![Create Route 53 Record](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Create_Record.png)
 
 <center><i>Tạo bản ghi Alias để ánh xạ tên miền đến Application Load Balancer.</i></center>
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 5"
 date: 2026-05-18
 weight: 5
@@ -34,6 +34,6 @@ pre: " <b> 1.5. </b> "
 
 <h4 align="center"><em>Sơ đồ luồng "Quên mật khẩu"</em></h4>
 
-![Sơ đồ luồng quên mật khẩu](/SoDoLuongQuenMatKhau.png)
+![Sơ đồ luồng quên mật khẩu](/images/1-Worklog/1.5-Week5/SoDoLuongQuenMatKhau.png)
 
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Cấu hình Jenkins & Chạy Pipeline lần đầu"
 date: 2026-07-02
 weight: 52
@@ -54,7 +54,7 @@ Manage Jenkins
 
 Nhấn **Manage Jenkins**.
 
-![Manage Jenkins](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ManageJenkins.png)
+![Manage Jenkins](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ManageJenkins.png)
 
 <center><i>Mở trang quản trị Jenkins để truy cập chức năng Managed Files.</i></center>
 
@@ -62,7 +62,7 @@ Nhấn **Manage Jenkins**.
 
 Mở **Managed Files**.
 
-![Managed Files](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Configfile_1.png)
+![Managed Files](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Configfile_1.png)
 
 <center><i>Điều hướng đến trang Managed Files được cung cấp bởi plugin Config File Provider.</i></center>
 
@@ -82,7 +82,7 @@ Custom file
 
 Sau đó nhấn **Next**.
 
-![Create Managed File](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/Configfile_2.png)
+![Create Managed File](/images/5-Workshop/5.5-Phase3-Backend-Deployment/Configfile_2.png)
 
 <center><i>Tạo một Custom Managed File mới để lưu mẫu ECS Task Definition.</i></center>
 
@@ -327,7 +327,7 @@ Trong phần **Pipeline**, cấu hình như sau:
 
 Điền cấu hình Pipeline theo hình minh họa dưới đây.
 
-![Configure Jenkins Pipeline](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ConfigPipeline.png)
+![Configure Jenkins Pipeline](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ConfigPipeline.png)
 
 <center><i>Cấu hình Pipeline để Jenkins lấy trực tiếp Jenkinsfile từ GitHub bằng tùy chọn Pipeline script from SCM.</i></center>
 
@@ -355,7 +355,7 @@ Sử dụng **Pipeline script from SCM** giúp Jenkins luôn thực thi phiên b
 
 Quay trở lại màn hình chính của Jenkins (Dashboard), bạn sẽ thấy Pipeline vừa tạo đã xuất hiện và sẵn sàng hoạt động.
 
-![Jenkins Dashboard](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardJenkins.png)
+![Jenkins Dashboard](/images/5-Workshop/5.6-Phase4-Frontend-Deployment/DashboardJenkins.png)
 <center><i>Giao diện Jenkins Dashboard hiển thị Pipeline đã được khởi tạo thành công.</i></center>
 
 ---
@@ -389,7 +389,7 @@ Nếu mọi thứ được cấu hình chính xác, Jenkins sẽ thực hiện c
 
 Console của Pipeline sẽ hiển thị tương tự như hình dưới đây.
 
-![First Pipeline Build](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/BuildFalse.png)
+![First Pipeline Build](/images/5-Workshop/5.5-Phase3-Backend-Deployment/BuildFalse.png)
 
 <center><i>Lần chạy Pipeline đầu tiên build thành công ứng dụng và đẩy Docker Image lên Amazon ECR, tuy nhiên bước triển khai thất bại do hạ tầng Amazon ECS vẫn chưa được tạo.</i></center>
 
@@ -427,7 +427,7 @@ Tìm Repository:
 minisocial-backend
 ```
 
-![Amazon ECR Repository](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR-With-image.png)
+![Amazon ECR Repository](/images/5-Workshop/5.5-Phase3-Backend-Deployment/ECR-With-image.png)
 
 <center><i>Kiểm tra Repository Amazon ECR để xác nhận Jenkins đã đẩy thành công Docker Image trong lần chạy Pipeline đầu tiên.</i></center>
 

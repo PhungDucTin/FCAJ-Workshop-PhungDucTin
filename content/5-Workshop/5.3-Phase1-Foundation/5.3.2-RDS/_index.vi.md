@@ -1,4 +1,4 @@
----
+﻿---
 title: "Thiết lập Database Amazon RDS"
 date: 2026-07-02
 weight: 32
@@ -65,7 +65,7 @@ Mở **MiniSocial-Network-Stack**, chuyển sang tab **Outputs** và ghi lại c
 - `PrivateSubnetDataId`
 - `BackendSecurityGroupId`
 
-![CloudFormation Stack Outputs](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Output_Stack1.png)
+![CloudFormation Stack Outputs](/images/5-Workshop/5.3-Phase1-Foundation/Output_Stack1.png)
 <center><i>Stack 1 Outputs – các giá trị cần thiết cho việc triển khai database stack.</i></center>
 
 ---
@@ -87,7 +87,7 @@ Trong phần **Prerequisite**, chọn:
 1. Chọn **Upload a template file**
 2. Chọn file **final-minisocial-db.yaml**
 
-![Upload Database Template](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack1.png)
+![Upload Database Template](/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack1.png)
 <center><i>Tải lên tệp CloudFormation template cho database.</i></center>
 
 Nhấn **Next**.
@@ -116,7 +116,7 @@ Nhập các Parameter đã lấy từ **Stack 1**:
 Không sử dụng các ký tự `/` hoặc `@` trong **DBMasterPassword**, vì có thể gây lỗi khi cấu hình JDBC URL trong các bước triển khai Backend sau này.
 {{% /notice %}}
 
-![Configure Stack Parameters](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack1_2.png)
+![Configure Stack Parameters](/images/5-Workshop/5.3-Phase1-Foundation/Create_Stack1_2.png)
 <center><i>Nhập các tham số từ Stack 1 Outputs.</i></center>
 
 Tiếp tục nhấn **Next** qua các bước cấu hình còn lại.
@@ -133,7 +133,7 @@ Quá trình triển khai thường mất **5–10 phút**. Không đóng trình 
 
 Đợi đến khi CloudFormation Stack chuyển sang trạng thái **CREATE_COMPLETE**.
 
-![CloudFormation Deployment Complete](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/Complete_Stack.png)
+![CloudFormation Deployment Complete](/images/5-Workshop/5.3-Phase1-Foundation/Complete_Stack.png)
 <center><i>Database Stack đã triển khai thành công.</i></center>
 
 ---
@@ -150,7 +150,7 @@ minisocial-sqlserver
 
 Xác nhận trạng thái là **Available**.
 
-![Trạng thái Amazon RDS](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/CheckDB.png)
+![Trạng thái Amazon RDS](/images/5-Workshop/5.3-Phase1-Foundation/CheckDB.png)
 <center><i>Xác nhận cơ sở dữ liệu <strong>minisocial-sqlserver</strong> đang ở trạng thái <strong>Available</strong>.</i></center>
 
 ---
@@ -166,7 +166,7 @@ Mở **Amazon EventBridge Scheduler**.
 | Auto Start Schedule | Enabled |
 | Auto Stop Schedule | Enabled |
 
-![Amazon EventBridge Scheduler](/PhungDucTin/fcaj-workshop-ductin/images/5-Workshop/5.3-Phase1-Foundation/CheckEvtBridge.png)
+![Amazon EventBridge Scheduler](/images/5-Workshop/5.3-Phase1-Foundation/CheckEvtBridge.png)
 <center><i>Xác nhận hai lịch trình <strong>Auto Start</strong> và <strong>Auto Stop</strong> đều ở trạng thái <strong>Enabled</strong>.</i></center>
 
 ---

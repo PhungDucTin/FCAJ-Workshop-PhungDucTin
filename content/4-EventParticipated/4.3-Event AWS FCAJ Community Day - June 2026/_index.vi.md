@@ -1,4 +1,4 @@
----
+﻿---
 title: "Event 3"
 date: 2026-06-27
 weight: 3
@@ -10,7 +10,7 @@ pre: " <b> 4.3. </b> "
 
 <h4 align="center"><em></em></h4>
 
-![Poster](Evt_3.png)
+![Poster](/images/4-EventParticipated/4.3-Event AWS FCAJ Community Day - June 2026/Evt_3.png)
 
 ### Mục Đích Của Sự Kiện
 
@@ -115,9 +115,9 @@ Sự kiện “FCAJ Community Day - June 2026” là một trong những trải 
 #### Một số hình ảnh khi tham gia sự kiện
 <h4 align="center"><em>Ảnh check-in nhóm tại sự kiện</em></h4>
 
-![Ảnh check-in tại sự kiện](anh1.jpg)
+![Ảnh check-in tại sự kiện](/images/4-EventParticipated/4.3-Event AWS FCAJ Community Day - June 2026/anh1.jpg)
 
 <h4 align="center"><em>Ảnh mọi người tham gia sự kiện</em></h4>
 
-![Ảnh mọi người tham gia sự kiện](anh2.jpg)
+![Ảnh mọi người tham gia sự kiện](/images/4-EventParticipated/4.3-Event AWS FCAJ Community Day - June 2026/anh2.jpg)
  > Tổng thể, sự kiện "AWS First Cloud AI Journey Community Day - June 2026" đã mở ra một bức tranh hoàn chỉnh về một kỷ nguyên công nghệ mới: AI không còn dừng lại ở việc hỏi - đáp văn bản đơn thuần, mà đang biến thành những Agent chuyên biệt (về Vận hành hạ tầng, Bảo mật, Nhân sự). Để tồn tại và phát triển, những kỹ sư IT cần thoát khỏi lối mòn của "thợ code" để trở thành những người kiến tạo, làm chủ các quy trình tự động hóa.

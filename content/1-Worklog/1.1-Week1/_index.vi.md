@@ -1,4 +1,4 @@
----
+﻿---
 title: "Worklog Tuần 1"
 date: 2026-04-20
 weight: 1
@@ -39,13 +39,13 @@ pre: " <b> 1.1. </b> "
 
  <h4 align="center"><em>Kết quả sau khi thực hiện</em></h4>
 
-![Kết quả sau khi thực hiện](/nmap_nikto.png)
+![Kết quả sau khi thực hiện](/images/1-Worklog/1.1-Week1/nmap_nikto.png)
 
 #### 2. Thực hiện quét Ngrok với OWASP ZAP 
 
  <h4 align="center"><em>Kết quả sau khi thực hiện</em></h4>
 
-![Kết quả sau khi thực hiện](/owaspzap.png)
+![Kết quả sau khi thực hiện](/images/1-Worklog/1.1-Week1/owaspzap.png)
 
 #### 3. Ghi nhận lỗ hổng trong file `security_audit.log`
 
@@ -61,4 +61,4 @@ pre: " <b> 1.1. </b> "
 
 <h4 align="center"><em>Họp nhóm online trao đổi thông tin</em></h4>
 
-![Họp nhóm online trao đổi thông tin](/2604_meetingOnl_w1.png)
+![Họp nhóm online trao đổi thông tin](/images/1-Worklog/1.1-Week1/2604_meetingOnl_w1.png)

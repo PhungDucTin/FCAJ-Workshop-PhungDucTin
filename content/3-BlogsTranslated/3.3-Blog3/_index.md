@@ -1,4 +1,4 @@
----
+﻿---
 title: "Blog 3: Amazon ECS Introduces High-Resolution Metrics for 4x Faster Service Auto Scaling"
 date: 2026-06-20
 weight: 3
@@ -67,7 +67,7 @@ Faster service auto scaling with high-resolution metrics for Amazon ECS is avail
 
 To visually illustrate the core difference between the two mechanisms, the diagram below details the automated feedback loop from the moment the system encounters spike traffic until new Tasks are successfully provisioned:
 
-![ECS Auto Scaling Mechanism Comparison](/Blog3_Architect_EN.png)
+![ECS Auto Scaling Mechanism Comparison](/images/3-BlogsTranslated/3.3-Blog3/Blog3_Architect_EN.png)
 
 **Mechanism Diagram Analysis:**
 * **Flow 1 (Standard Mechanism):** The 60-second metric collection interval creates a significant time blind spot before triggering the CloudWatch Alarm. Consequently, the total time for the system to detect, evaluate, and provision new tasks stretches up to **363 seconds**. During this sluggish reaction window, the system is highly vulnerable to severe performance degradation or dropping user requests.
