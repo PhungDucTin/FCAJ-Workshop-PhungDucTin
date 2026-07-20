@@ -375,7 +375,7 @@ Tải tệp sau:
 - **ddos-flow.js** *(Tùy chọn)* – Kịch bản giả lập tấn công từ chối dịch vụ.
 
 {{% notice info %}}
-**[Tải kịch bản K6 thử tải tại đây trước khi tiếp tục.](/PhungDucTin/fcaj-workshop-ductin/iac/final-minisocial-architect.yaml)**
+**[Tải kịch bản K6 thử tải tại đây trước khi tiếp tục.](/iac/final-minisocial-architect.yaml)**
 {{% /notice %}}
 
 Lưu file vào một thư mục trên máy tính của bạn. Mở Terminal và di chuyển đến thư mục chứa file.

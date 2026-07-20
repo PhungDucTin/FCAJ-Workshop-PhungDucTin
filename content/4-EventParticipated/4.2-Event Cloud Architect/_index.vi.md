@@ -10,7 +10,7 @@ pre: " <b> 4.2. </b> "
 
 <h4 align="center"><em></em></h4>
 
-![Poster](/images/4-EventParticipated/4.2-Event Cloud Architect/Evt_2.png)
+![Poster](</images/4-EventParticipated/4.2-Event Cloud Architect/Evt_2.png>)
 
 ### Mục Đích Của Sự Kiện
 
@@ -75,14 +75,14 @@ Tham gia tranh tài tại sự kiện "Cloud Architect" là một trải nghiệ
 #### Một số hình ảnh khi tham gia sự kiện
 <h4 align="center"><em>Ảnh check-in nhóm tại sự kiện</em></h4>
 
-![Ảnh check-in tại sự kiện](/images/4-EventParticipated/4.2-Event Cloud Architect/anh1.jpg)
+![Ảnh check-in tại sự kiện](</images/4-EventParticipated/4.2-Event Cloud Architect/anh1.jpg>)
 
 <h4 align="center"><em>Ảnh tham gia thi đấu</em></h4>
 
-![Ảnh tham gia thi đấu](/images/4-EventParticipated/4.2-Event Cloud Architect/anh2.jpg)
+![Ảnh tham gia thi đấu](</images/4-EventParticipated/4.2-Event Cloud Architect/anh2.jpg>)
 
 <h4 align="center"><em>Ảnh mọi người tham gia sự kiện</em></h4>
 
-![Ảnh mọi người tham gia sự kiện](/images/4-EventParticipated/4.2-Event Cloud Architect/anh3.jpg)
+![Ảnh mọi người tham gia sự kiện](</images/4-EventParticipated/4.2-Event Cloud Architect/anh3.jpg>)
 
 > Tổng thể, cuộc thi "Cloud Architect" không chỉ là một game đấu trí về điểm số mà là một hành trình ép bản thân phải tư duy lớn hơn, vượt ra khỏi ranh giới của một lập trình viên thông thường để bước đầu tiếp cận với tầm nhìn của một Kiến trúc sư Hệ thống (Solutions Architect).

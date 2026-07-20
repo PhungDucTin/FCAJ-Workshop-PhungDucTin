@@ -67,4 +67,4 @@ pre: " <b> 1.11. </b> "
 
 <h4 align="center"><em>Group meeting to exchange completed tasks</em></h4>
 
-![Group meeting to exchange completed tasks](/images/1-Worklog/1.11-Week11/307_meeting_w11.JPG)
+![Group meeting to exchange completed tasks](/images/1-Worklog/1.11-Week11/307_meeting_w11.jpg)

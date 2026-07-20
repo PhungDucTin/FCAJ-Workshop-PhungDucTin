@@ -48,4 +48,4 @@ pre: " <b> 1.6. </b> "
 
 <h4 align="center"><em>Tích hợp SonarCloud vào dự án</em></h4>
 
-![Tích hợp SonarCloud vào dự án](/images/1-Worklog/1.6-Week6/SonarCloud.png)
+![Tích hợp SonarCloud vào dự án](/images/1-Worklog/1.6-Week6/sonarcloud.png)

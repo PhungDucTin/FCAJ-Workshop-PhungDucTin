@@ -49,7 +49,7 @@ Before deploying the database stack, complete the following prerequisites.
 {{% notice info %}}
 📥 **CloudFormation Template**
 Download the database CloudFormation template before continuing.
-**[Download minisocial-db.yaml](/PhungDucTin/fcaj-workshop-ductin/iac/final-minisocial-db.yaml)**
+**[Download minisocial-db.yaml](/iac/final-minisocial-db.yaml)**
 {{% /notice %}}
 
 ---

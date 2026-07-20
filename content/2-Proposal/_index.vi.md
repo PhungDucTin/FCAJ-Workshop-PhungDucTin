@@ -94,7 +94,7 @@ flowchart LR
     Jenkins -.->|"[C] Create Invalidation (Clear Cache)"| CF["CloudFront"]
 ```
 
-![MiniSocial Architecture](/images/2-Proposal/Minisocial-Architect_final.png)
+![MiniSocial Architecture](/images/2-Proposal/MiniSocial-Architect_final.png)
 
 **Các dịch vụ AWS được sử dụng**
 - **Amazon VPC & Networking:** Multi-AZ subnets, NAT Gateway, và S3 Gateway Endpoint để cô lập mạng an toàn.

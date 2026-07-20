@@ -375,7 +375,7 @@ Download the following files:
 - **ddos-flow.js** *(Optional)* – Simulates a distributed denial-of-service attack.
 
 {{% notice info %}}
-**[Download the K6 load testing script before continuing.](/PhungDucTin/fcaj-workshop-ductin/iac/final-minisocial-architect.yaml)**
+**[Download the K6 load testing script before continuing.](/iac/final-minisocial-architect.yaml)**
 {{% /notice %}}
 
 Save the files to a directory on your computer. Open your Terminal and navigate to the folder containing the downloaded files.

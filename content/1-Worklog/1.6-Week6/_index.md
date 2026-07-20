@@ -45,4 +45,4 @@ pre: " <b> 1.6. </b> "
 
 <h4 align="center"><em>Integrating SonarCloud into the project</em></h4>
 
-![Integrating SonarCloud into the project](/images/1-Worklog/1.6-Week6/SonarCloud.png)
+![Integrating SonarCloud into the project](/images/1-Worklog/1.6-Week6/sonarcloud.png)

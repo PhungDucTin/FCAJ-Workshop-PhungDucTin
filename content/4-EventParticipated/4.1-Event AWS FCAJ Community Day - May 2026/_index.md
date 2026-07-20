@@ -9,7 +9,7 @@ pre: " <b> 4.1. </b> "
 
 <h4 align="center"><em></em></h4>
 
-![Poster](/images/4-EventParticipated/4.1-Event AWS FCAJ Community Day - May 2026/Evt_1.png)
+![Poster](</images/4-EventParticipated/4.1-Event AWS FCAJ Community Day - May 2026/Evt_1.png>)
 
 ### Event Objectives
 
@@ -118,9 +118,9 @@ Attending the "AWS First Cloud AI Journey Community Day 2026" was an incredibly 
 #### Event Photos
 <h4 align="center"><em>Group check-in photo at the event</em></h4>
 
-![Group check-in photo at the event](/images/4-EventParticipated/4.1-Event AWS FCAJ Community Day - May 2026/anh1.jpg)
+![Group check-in photo at the event](</images/4-EventParticipated/4.1-Event AWS FCAJ Community Day - May 2026/anh1.jpg>)
 
 <h4 align="center"><em>Photo of attendees at the event</em></h4>
 
-![Photo of attendees at the event](/images/4-EventParticipated/4.1-Event AWS FCAJ Community Day - May 2026/anh2.jpg)
+![Photo of attendees at the event](</images/4-EventParticipated/4.1-Event AWS FCAJ Community Day - May 2026/anh2.jpg>)
 > Overall, the "AWS First Cloud AI Journey Community Day - May 2026" event painted a complete picture of how to apply Cloud computing (AWS) and Generative AI (GenAI) in an enterprise environment, helping attendees elevate their mindset from mere coders to real-world Problem Solvers.

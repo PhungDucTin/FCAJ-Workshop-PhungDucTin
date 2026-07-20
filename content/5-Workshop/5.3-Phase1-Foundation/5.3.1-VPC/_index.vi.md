@@ -51,7 +51,7 @@ Trước khi triển khai CloudFormation Stack, hãy hoàn thành các bước c
 {{% notice info %}}
 📥 **Tệp CloudFormation**
 Vui lòng tải xuống tệp CloudFormation trước khi tiếp tục bài Lab.
-**[Tải xuống minisocial-architect.yaml](/PhungDucTin/fcaj-workshop-ductin/iac/final-minisocial-architect.yaml)**
+**[Tải xuống minisocial-architect.yaml](/iac/final-minisocial-architect.yaml)**
 {{% /notice %}}
 
 ---
