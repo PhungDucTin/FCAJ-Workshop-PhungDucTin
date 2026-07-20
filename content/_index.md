@@ -21,11 +21,11 @@ chapter: false
 
 &emsp; **Class:** 22DTHD4
 
-&emsp; **Internship Company:** Bootcamp First Cloud AI Journey
+&emsp; **Internship Company:** Amazon Web Services Vietnam Compan, Ltd
 
 &emsp; **Internship Position:** Cloud Engineer
 
-&emsp; **Internship Duration:** From 15/04/2026 to 15/07/2026
+&emsp; **Internship Duration:** From 17/04/2026 to 30/07/2026
 
 ![Your profile picture](17.jpg)
 
