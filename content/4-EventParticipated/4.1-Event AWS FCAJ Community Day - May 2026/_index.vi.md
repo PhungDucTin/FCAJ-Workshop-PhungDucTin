@@ -9,7 +9,7 @@ pre: " <b> 4.1. </b> "
 
 <h4 align="center"><em></em></h4>
 
-![Poster](</images/4.1-Event AWS FCAJ Community Day - May 2026/Evt_1.png>)
+![Poster](</images/4-EventParticipated/4.1-Event AWS FCAJ Community Day - May 2026/Evt_1.png>)
 
 ### Mục Đích Của Sự Kiện
 

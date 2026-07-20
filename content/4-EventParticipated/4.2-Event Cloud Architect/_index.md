@@ -74,14 +74,14 @@ Competing in the "Cloud Architect" event was a tense but incredibly valuable pra
 #### Event Photos
 <h4 align="center"><em>Group check-in photo at the event</em></h4>
 
-![Group check-in photo at the event](</images/4-EventParticipated/4.2-Event Cloud Architect/anh1.jpg>)
+![Group check-in photo at the event](</images/4-EventParticipated/4.2-Event Cloud Architect/anh1.JPG>)
 
 <h4 align="center"><em>Photo of competing in the event</em></h4>
 
-![Photo of competing in the event](</images/4-EventParticipated/4.2-Event Cloud Architect/anh2.jpg>)
+![Photo of competing in the event](</images/4-EventParticipated/4.2-Event Cloud Architect/anh2.JPG>)
 
 <h4 align="center"><em>Photo of attendees at the event</em></h4>
 
-![Photo of attendees at the event](</images/4-EventParticipated/4.2-Event Cloud Architect/anh3.jpg>)
+![Photo of attendees at the event](</images/4-EventParticipated/4.2-Event Cloud Architect/anh3.JPG>)
 
 > Overall, the "Cloud Architect" competition was not just a mind game about scores, but a journey forcing oneself to think bigger, moving beyond the boundaries of a regular developer to initially approach the vision of a Solutions Architect.

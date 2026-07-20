@@ -49,7 +49,7 @@ Trước khi triển khai Database Stack, hãy hoàn thành các bước chuẩn
 {{% notice info %}}
 📥 **Tệp CloudFormation**
 Tải xuống template CloudFormation trước khi tiếp tục.
-**[Tải xuống minisocial-db.yaml](/iac/final-minisocial-db.yaml)**
+**[Tải xuống minisocial-db.yaml](https://raw.githubusercontent.com/PhungDucTin/FCAJ-Workshop-PhungDucTin/main/static/iac/final-minisocial-db.yaml)**
 {{% /notice %}}
 
 ---

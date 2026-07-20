@@ -87,7 +87,7 @@ This value will be required when creating the CloudFormation stack.
 {{% notice info %}}
 📥 **CloudFormation Template**
 Download the database CloudFormation template before continuing.
-**[Download minisocial-backend.yaml](/iac/final-minisocial-backend.yaml)**
+**[Download minisocial-backend.yaml](https://raw.githubusercontent.com/PhungDucTin/FCAJ-Workshop-PhungDucTin/main/static/iac/final-minisocial-backend.yaml)**
 {{% /notice %}}
 
 

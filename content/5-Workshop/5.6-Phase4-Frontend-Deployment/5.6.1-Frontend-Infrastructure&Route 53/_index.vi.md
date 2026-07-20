@@ -140,7 +140,7 @@ Việc lưu trữ ARN của chứng chỉ trong **AWS Systems Manager Parameter 
 
 {{% notice info %}}
 📥 **CloudFormation Template**
-Tải xuống file CloudFormation template cho Frontend trước khi tiếp tục.**[Download minisocial-frontend+cloudfront.yaml](/iac/final-minisocial-frontend+cloudfront.yaml)**
+Tải xuống file CloudFormation template cho Frontend trước khi tiếp tục.**[Download minisocial-frontend+cloudfront.yaml](https://raw.githubusercontent.com/PhungDucTin/FCAJ-Workshop-PhungDucTin/main/static/iac/final-minisocial-frontend+cloudfront.yaml)**
 {{% /notice %}}
 
 Đảm bảo bạn vẫn đang ở **`us-east-1`**.
