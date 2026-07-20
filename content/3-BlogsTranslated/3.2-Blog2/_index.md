@@ -77,7 +77,7 @@ The system structure has significantly shifted after applying practical solution
 ![Initial Deployment Architecture](/images/3-BlogsTranslated/3.2-Blog2/Architecture_Diagram_V1.png)
 
 #### 2. Cost-Optimized & Hardened Architecture
-![Cost-Optimized Architecture](/images/3-BlogsTranslated/3.2-Blog2/MiniSocial-Architect_Cost.png)
+![Cost-Optimized Architecture](/images/3-BlogsTranslated/3.2-Blog2/Minisocial-Architect_Cost.png)
 
 ---
 
