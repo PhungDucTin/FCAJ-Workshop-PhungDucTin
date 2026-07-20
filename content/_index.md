@@ -21,13 +21,13 @@ chapter: false
 
 &emsp; **Class:** 22DTHD4
 
-&emsp; **Internship Company:** Amazon Web Services Vietnam Compan, Ltd
+&emsp; **Internship Company:** Amazon Web Services Vietnam Company, Ltd
 
 &emsp; **Internship Position:** Cloud Engineer
 
 &emsp; **Internship Duration:** From 17/04/2026 to 30/07/2026
 
-![Your profile picture](17.jpg)
+![Your profile picture](/static/images/17.jpg)
 
 ### Report Content
 

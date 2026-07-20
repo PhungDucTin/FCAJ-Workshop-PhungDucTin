@@ -23,9 +23,9 @@ chapter: false
 
 &emsp; **Vị trí thực tập:** Cloud Engineer
 
-&emsp; **Thời gian thực tập:** Từ ngày 17/04/2026 đến ngày 30/07/2025
+&emsp; **Thời gian thực tập:** Từ ngày 17/04/2026 đến ngày 30/07/2026
 
-![Ảnh đại diện của bạn](17.jpg)
+![Ảnh đại diện của bạn](/static/images/17.jpg)
 
 
 
